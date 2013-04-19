@@ -308,8 +308,8 @@ enum QtFontAwesomeName {
 
 class QtAwesomeIconPainter;
 
-/// The main objet for creating icons.
-/// This class requires a 2-phase construction
+/// The main class for managing icons
+/// This class requires a 2-phase construction. You must first create the class and then initialize it via an init* method
 class QtAwesome : public QObject
 {
 Q_OBJECT
@@ -332,6 +332,8 @@ public:
     QIcon icon( const QString& name, const QVariantMap& options = QVariantMap() );
 
     void give( const QString& name, QtAwesomeIconPainter* painter );
+
+    QFont font( int size );
 
     /// Returns the font-name that is used as icon-map
     QString fontName() { return fontName_ ; }

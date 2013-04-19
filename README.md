@@ -36,27 +36,62 @@ Add an accessor to this object. (a global function, membor of your application o
 Example
 --------
   
-    // You should create a single object of QtAwesome.
-    QtAwesome* awesome = new QtAwesome( qApp );
-    awesome->initFontAwesome();
+```c++
+// You should create a single object of QtAwesome.
+QtAwesome* awesome = new QtAwesome( qApp );
+awesome->initFontAwesome();
 
-    // Next create your icon with the help of the icon-enumeration: (all dashes are replaced by underscores)
-    QPushButton* beerButton new QPushButton( awesome->icon( icon_beer ), "Cheers!" );
+// Next create your icon with the help of the icon-enumeration: (all dashes are replaced by underscores)
+QPushButton* beerButton new QPushButton( awesome->icon( icon_beer ), "Cheers!" );
 
-    // You can also use 'string' names to access the icons. (The string version omits the 'icon-' prefix )
-    QPushButton* coffeeButton new QPushButton( awesome->icon( "coffee" ), "Black please!" );
+// You can also use 'string' names to access the icons. (The string version omits the 'icon-' prefix )
+QPushButton* coffeeButton new QPushButton( awesome->icon( "coffee" ), "Black please!" );
 
-    // When you create an icon you can supply some options for your icons:
-    // The available options can be found at the "Default options"-section
+// When you create an icon you can supply some options for your icons:
+// The available options can be found at the "Default options"-section
 
-    QVariantMap options;
-    options.insert( "color" , QColor(255,0,0) );
-    QPushButton* musicButton = new QPushButton( awesome->icon( icon_music ), "Music" ); 
+QVariantMap options;
+options.insert( "color" , QColor(255,0,0) );
+QPushButton* musicButton = new QPushButton( awesome->icon( icon_music ), "Music" ); 
 
-    // You can also change the default options. 
-    // for example if you always would like to have green icons you could call)
-    awesome->setDefaultOption( "color-disabled", QColor(0,255,0) );
+// You can also change the default options. 
+// for example if you always would like to have green icons you could call)
+awesome->setDefaultOption( "color-disabled", QColor(0,255,0) );
 
+// You can also directly render a label with this font
+QLabel* label = new QLabel( QChar( icon_group ) );
+label->setFont( awesome->font(16) );
+
+```
+
+Example custom painter
+----------------------
+
+This example registers a custom painter for supporting a duplicate icon (it draws 2 plus marks)
+
+```c++
+class DuplicateIconPainter : public QtAwesomeIconPainter
+{
+public:
+    virtual void paint( QtAwesome* awesome, QPainter* painter, const QRect& rectIn, QIcon::Mode mode, QIcon::State state, const QVariantMap& options  )
+    {
+        int drawSize = qRound(rectIn.height()*0.5);
+        int offset = rectIn.height() / 4;
+        QChar chr = QChar( icon_plus );
+
+        painter->setFont( awesome->font( drawSize ) );
+
+        painter->setPen( QColor(100,100,100) );
+        painter->drawText( QRect( QPoint(offset*2, offset*2), QSize(drawSize, drawSize) ), chr , QTextOption( Qt::AlignCenter|Qt::AlignVCenter ) );
+
+        painter->setPen( QColor(50,50,50) );
+        painter->drawText( QRect( QPoint(rectIn.width()-drawSize-offset, rectIn.height()-drawSize-offset), QSize(drawSize, drawSize) ), chr , QTextOption( Qt::AlignCenter|Qt::AlignVCenter ) );
+
+    }
+};
+
+awesome->give("duplicate", new DuplicateIconPainter() );
+```
 
 
 Default options:
@@ -64,11 +99,13 @@ Default options:
   
   The following options are default in the QtAwesome class. 
 
-    setDefaultOption( "color", QColor(50,50,50) );
-    setDefaultOption( "color-disabled", QColor(70,70,70,60));
-    setDefaultOption( "color-active", QColor(10,10,10));
-    setDefaultOption( "color-selected", QColor(10,10,10));
-    setDefaultOption( "scale-factor", 0.9 );
+```c++
+setDefaultOption( "color", QColor(50,50,50) );
+setDefaultOption( "color-disabled", QColor(70,70,70,60));
+setDefaultOption( "color-active", QColor(10,10,10));
+setDefaultOption( "color-selected", QColor(10,10,10));
+setDefaultOption( "scale-factor", 0.9 );
+```
 
   When creating an icon, it first populates the options-map with the default options from the QtAwesome object.
   After that the options are expanded/overwritten by the options supplied to the icon.
@@ -103,7 +140,6 @@ a work in progress. So feel free to drop me an e-mail for your suggestions and i
 
 There are still some things todo, like:
 
-  * document the usage of a custom icon painter
   * document the usage of another icon font
   * add some tests
   * do some code cleanup

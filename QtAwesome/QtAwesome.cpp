@@ -28,6 +28,8 @@
 #include <QFontDatabase>
 
 
+Q_INIT_RESOURCE_EXTERN(QtAwesome);
+
 /// The font-awesome icon painter
 class QtAwesomeCharIconPainter: public QtAwesomeIconPainter
 {
@@ -53,10 +55,8 @@ public:
 
         // add some 'padding' around the icon
         int drawSize = qRound(rect.height()*options.value("scale-factor").toFloat());
-        QFont font(awesome->fontName());
-        font.setPixelSize(drawSize);    // use pixel size
 
-        painter->setFont( font );
+        painter->setFont( awesome->font(drawSize) );
         painter->drawText( rect, options.value("text").toString(), QTextOption( Qt::AlignCenter|Qt::AlignVCenter ) );
         painter->restore();
     }
@@ -155,6 +155,16 @@ bool QtAwesome::initFontAwesome( )
     
     // only load font-awesome once
     if( fontAwesomeFontId < 0 ) {
+
+        // The macro below internally calls "qInitResources_QtAwesome()". this initializes
+        // the resource system. For a .pri project this isn't required, but when building and using a
+        // static library the resource need to initialized first.
+        ///
+        // I've checked th qInitResource_* code and calling this method mutliple times shouldn't be any problem
+        // (More info about this subject:  http://qt-project.org/wiki/QtResources)
+        Q_INIT_RESOURCE(QtAwesome);
+
+        // load the font file
         QFile res(":/fonts/fontawesome.ttf");
         if(!res.open(QIODevice::ReadOnly)) {
             qDebug() << "Font awesome font could not be loaded!";
@@ -541,3 +551,14 @@ void QtAwesome::give(const QString& name, QtAwesomeIconPainter* painter)
     painterMap_.insert( name, painter );
 }
 
+/// Creates/Gets the icon font with a given size in pixels. This can be usefull to use a label for displaying icons
+/// Example:
+///
+///    QLabel* label = new QLabel( QChar( icon_group ) );
+///    label->setFont( awesome->font(16) )
+QFont QtAwesome::font( int size )
+{
+    QFont font( fontName_);
+    font.setPixelSize(size);
+    return font;
+}
