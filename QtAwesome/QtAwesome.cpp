@@ -1,24 +1,8 @@
 /**
  * QtAwesome - use font-awesome (or other font icons) in your c++ / Qt Application
  *
- * MIT License:
- *
  * Copyright 2013 - Reliable Bits Software by Blommers IT. All Rights Reserved.
  * Author Rick Blommers
- *
- * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
- * documentation files (the "Software"), to deal in the Software without restriction, including without limitation
- * the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software,
- * and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
- *
- * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
- *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
- * THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS
- * OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
- * ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
- *
- * I would appriciate it if you let me know which projects you are using this for
  */
 
 #include "QtAwesome.h"
@@ -505,8 +489,7 @@ QIcon QtAwesome::icon(int character, const QVariantMap &options)
     QVariantMap optionMap = mergeOptions( defaultOptions_, options );
     optionMap.insert("text", QString( QChar(character) ) );
 
-    QtAwesomeIconPainterIconEngine* engine = new QtAwesomeIconPainterIconEngine( this, fontIconPainter_, optionMap );
-    return QIcon( engine );
+    return icon( fontIconPainter_, optionMap );
 }
 
 
@@ -533,10 +516,19 @@ QIcon QtAwesome::icon(const QString& name, const QVariantMap& options)
         return QIcon();
     }
 
+    return icon( painter, optionMap );
+}
+
+/// Create a dynamic icon by simlpy supplying a painter object
+/// The ownership of the painter is NOT transfered.
+/// @param painter a dynamic painter that is going to paint the icon
+/// @param optionmap the options to pass to the painter
+QIcon QtAwesome::icon(QtAwesomeIconPainter* painter, const QVariantMap& optionMap )
+{
     // Warning, when you use memoryleak detection. You should turn it of for the next call
     // QIcon's placed in gui items are often cached and not deleted when my memory-leak detection checks for leaks.
     // I'm not sure if it's a Qt bug or something I do wrong
-    QtAwesomeIconPainterIconEngine* engine = new QtAwesomeIconPainterIconEngine( this, painter, optionMap );
+    QtAwesomeIconPainterIconEngine* engine = new QtAwesomeIconPainterIconEngine( this, painter, optionMap  );
     return QIcon( engine );
 }
 
