@@ -30,7 +30,9 @@ You probably want to create a single QtAwesome object for your whole application
     QtAwesome* awesome = new QtAwesome( qApp )
     awesome->initFontAwesome();     // This line is important as it loads the font and initializes the named icon map
 
-Add an accessor to this object. (a global function, membor of your application object whatever you like).
+Add an accessor to this object. (a global function, member of your application object whatever you like).
+
+Use an icon name from the icon copy-past list [http://fortawesome.github.io/Font-Awesome/design.html](http://fortawesome.github.io/Font-Awesome/design.html)
 
 
 Example
