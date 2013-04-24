@@ -1,11 +1,11 @@
-QtAwesome - FontAwesome support for Qt applications
-===================================================
+QtAwesome - Font Awesome support for Qt applications
+====================================================
 
 Description
 -----------
 
-QtAwesome is a simple library that can be used to add font-awesome icons to your Qt application.
-Though the name is QtAwesome and currently it's very FontAwesome based, you can use every other 
+QtAwesome is a simple library that can be used to add Font Awesome icons to your Qt application.
+Though the name is QtAwesome and currently it's very Font Awesome based, you can use every other 
 iconfont you want.
 
 The class can also be used to manage your own dynamic code-drawn icons, by adding named icon-painters.
@@ -134,7 +134,7 @@ Remarks
 -------
 
 I've created this project because I needed some nice icons for my own Qt project. After doing a lot of 
-css/html5 work and being spoiled by the ease of twitter bootstrap with FontAwesome, 
+css/html5 work and being spoiled by the ease of twitter bootstrap with Font Awesome, 
 I thought it would be nice to be able to use these icons for my Qt project.
 
 I've slightly changed the code from the original, added some more documentation, but it's still
@@ -148,7 +148,7 @@ There are still some things todo, like:
   
 And of course last but not least, 
 
-Many thanks go to Dave Gandy an the other FontAwesome contributors!! [http://fortawesome.github.com/Font-Awesome](http://fortawesome.github.com/Font-Awesome)  
+Many thanks go to Dave Gandy an the other Font Awesome contributors!! [http://fortawesome.github.com/Font-Awesome](http://fortawesome.github.com/Font-Awesome)  
 And of course to the Qt team/contributors for supplying this great cross-platform c++ library.
 
 
