@@ -12,7 +12,7 @@
 #include <QFontDatabase>
 
 
-Q_INIT_RESOURCE_EXTERN(QtAwesome);
+Q_INIT_RESOURCE_EXTERN(QtAwesome)
 
 /// The font-awesome icon painter
 class QtAwesomeCharIconPainter: public QtAwesomeIconPainter
@@ -438,9 +438,71 @@ bool QtAwesome::initFontAwesome( )
     m.insert( "spinner",              icon_spinner );
     m.insert( "circle",               icon_circle );
     m.insert( "reply",                icon_reply );
+    m.insert( "mail_reply",           icon_mail_reply );
+
     m.insert( "github-alt",           icon_github_alt );
     m.insert( "folder-close-alt",     icon_folder_close_alt );
     m.insert( "folder-open-alt",      icon_folder_open_alt );
+
+    m.insert( "icon_expand_alt",      icon_expand_alt );
+    m.insert( "icon_collapse_alt",    icon_collapse_alt );
+    m.insert( "icon_smile",           icon_smile );
+    m.insert( "icon_frown",           icon_frown );
+    m.insert( "icon_meh",             icon_meh );
+    m.insert( "icon_gamepad",         icon_gamepad );
+    m.insert( "icon_keyboard",        icon_keyboard );
+    m.insert( "icon_flag_alt",        icon_flag_alt );
+    m.insert( "icon_flag_checkered",  icon_flag_checkered );
+
+    m.insert( "icon_terminal",        icon_terminal );
+    m.insert( "icon_code",            icon_code );
+    m.insert( "icon_reply_all",       icon_reply_all );
+    m.insert( "icon_mail_reply_all",  icon_mail_reply_all );
+    m.insert( "icon_star_half_full",  icon_star_half_full );
+    m.insert( "icon_star_half_empty", icon_star_half_empty );
+    m.insert( "icon_location_arrow",  icon_location_arrow );
+    m.insert( "icon_crop",            icon_crop );
+    m.insert( "icon_code_fork",       icon_code_fork );
+    m.insert( "icon_unlink",          icon_unlink );
+    m.insert( "icon_question",        icon_question );
+    m.insert( "icon_info",            icon_info );
+    m.insert( "icon_exclamation",     icon_exclamation );
+    m.insert( "icon_superscript",     icon_superscript );
+    m.insert( "icon_subscript",       icon_subscript );
+    m.insert( "icon_eraser",          icon_eraser );
+    m.insert( "icon_puzzle_piece",    icon_puzzle_piece );
+
+    m.insert( "icon_microphone",         icon_microphone );
+    m.insert( "icon_microphone_off",     icon_microphone_off );
+    m.insert( "icon_shield",             icon_shield );
+    m.insert( "icon_calendar_empty",     icon_calendar_empty );
+    m.insert( "icon_fire_extinguisher",  icon_fire_extinguisher );
+    m.insert( "icon_rocket",             icon_rocket );
+    m.insert( "icon_maxcdn",             icon_maxcdn );
+    m.insert( "icon_chevron_sign_left",  icon_chevron_sign_left );
+    m.insert( "icon_chevron_sign_right", icon_chevron_sign_right );
+    m.insert( "icon_chevron_sign_up",    icon_chevron_sign_up );
+    m.insert( "icon_chevron_sign_down",  icon_chevron_sign_down );
+    m.insert( "icon_html5",              icon_html5 );
+    m.insert( "icon_css3",               icon_css3 );
+    m.insert( "icon_anchor",             icon_anchor );
+    m.insert( "icon_unlock_alt",         icon_unlock_alt );
+
+    m.insert( "icon_bullseye",            icon_bullseye );
+    m.insert( "icon_ellipsis_horizontal", icon_ellipsis_horizontal );
+    m.insert( "icon_ellipsis_vertical",   icon_ellipsis_vertical );
+    m.insert( "icon_rss_sign",            icon_rss_sign );
+    m.insert( "icon_play_sign",           icon_play_sign );
+    m.insert( "icon_ticket",              icon_ticket );
+    m.insert( "icon_minus_sign_alt",      icon_minus_sign_alt );
+    m.insert( "icon_check_minus",         icon_check_minus );
+    m.insert( "icon_level_up",            icon_level_up );
+    m.insert( "icon_level_down",          icon_level_down );
+    m.insert( "icon_check_sign",          icon_check_sign );
+    m.insert( "icon_edit_sign",           icon_edit_sign );
+    m.insert( "icon_external_link_sign",  icon_external_link_sign );
+    m.insert( "icon_share_sign",          icon_share_sign );
+
     return true;
 }
 

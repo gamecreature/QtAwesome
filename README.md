@@ -10,6 +10,8 @@ iconfont you want.
 
 The class can also be used to manage your own dynamic code-drawn icons, by adding named icon-painters.
 
+The current Font Awesome version is Version 3.1.1  
+
 
 Installation
 ------------
@@ -32,7 +34,7 @@ You probably want to create a single QtAwesome object for your whole application
 
 Add an accessor to this object. (a global function, member of your application object whatever you like).
 
-Use an icon name from the icon copy-past list [http://fortawesome.github.io/Font-Awesome/design.html](http://fortawesome.github.io/Font-Awesome/design.html)
+Use an icon name from the icon copy-past list [http://fortawesome.github.io/Font-Awesome/cheatsheet/](http://fortawesome.github.io/Font-Awesome/cheatsheet/)
 
 
 Example
