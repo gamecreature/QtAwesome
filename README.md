@@ -108,12 +108,24 @@ setDefaultOption( "color", QColor(50,50,50) );
 setDefaultOption( "color-disabled", QColor(70,70,70,60));
 setDefaultOption( "color-active", QColor(10,10,10));
 setDefaultOption( "color-selected", QColor(10,10,10));
+
+setDefaultOption( "text", QString() );      // internal option
+setDefaultOption( "text-disabled", QString() );
+setDefaultOption( "text-active", QString() );
+setDefaultOption( "text-selected", QString() );
+
 setDefaultOption( "scale-factor", 0.9 );
 ```
 
   When creating an icon, it first populates the options-map with the default options from the QtAwesome object.
   After that the options are expanded/overwritten by the options supplied to the icon.
+ 
+  It is possible to use another glyph per icon-state. For example to make an icon-unlock symbol switch to locked when selected,
+  you could supply the following option.
 
+```c++  
+  options.insert("text-selected", QString( icon_lock ) );
+```
 
 License
 -------

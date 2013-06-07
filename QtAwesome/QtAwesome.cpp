@@ -28,12 +28,26 @@ public:
 
         // set the correct color
         QColor color = options.value("color").value<QColor>();
+        QString text = options.value("text").toString();
+
         if( mode == QIcon::Disabled ) {
             color = options.value("color-disabled").value<QColor>();
+            QVariant alt = options.value("text-disabled");
+            if( alt.isValid() ) {
+                text = alt.toString();
+            }
         } else if( mode == QIcon::Active ) {
             color = options.value("color-active").value<QColor>();
+            QVariant alt = options.value("text-active");
+            if( alt.isValid() ) {
+                text = alt.toString();
+            }
         } else if( mode == QIcon::Selected ) {
             color = options.value("color-selected").value<QColor>();
+            QVariant alt = options.value("text-selected");
+            if( alt.isValid() ) {
+                text = alt.toString();
+            }
         }
         painter->setPen(color);
 
@@ -41,7 +55,7 @@ public:
         int drawSize = qRound(rect.height()*options.value("scale-factor").toFloat());
 
         painter->setFont( awesome->font(drawSize) );
-        painter->drawText( rect, options.value("text").toString(), QTextOption( Qt::AlignCenter|Qt::AlignVCenter ) );
+        painter->drawText( rect, text, QTextOption( Qt::AlignCenter|Qt::AlignVCenter ) );
         painter->restore();
     }
 
@@ -110,6 +124,11 @@ QtAwesome::QtAwesome( QObject* parent )
     setDefaultOption( "color-active", QColor(10,10,10));
     setDefaultOption( "color-selected", QColor(10,10,10));
     setDefaultOption( "scale-factor", 0.9 );
+
+    setDefaultOption( "text", QVariant() );
+    setDefaultOption( "text-disabled", QVariant() );
+    setDefaultOption( "text-active", QVariant() );
+    setDefaultOption( "text-selected", QVariant() );
 
     fontIconPainter_ = new QtAwesomeCharIconPainter();
 
