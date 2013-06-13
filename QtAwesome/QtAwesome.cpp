@@ -213,7 +213,7 @@ bool QtAwesome::initFontAwesome( )
     m.insert( "cog",             icon_cog );
     m.insert( "trash",           icon_trash );
     m.insert( "home",            icon_home );
-    m.insert( "file",            icon_file );
+    m.insert( "file_alt",        icon_file_alt );
     m.insert( "time",            icon_time );
     m.insert( "road",            icon_road );
     m.insert( "download-alt",    icon_download_alt );
@@ -329,8 +329,8 @@ bool QtAwesome::initFontAwesome( )
     m.insert( "key",                  icon_key );
     m.insert( "cogs",                 icon_cogs );
     m.insert( "comments",             icon_comments );
-    m.insert( "thumbs-up",            icon_thumbs_up );
-    m.insert( "thumbs-down",          icon_thumbs_down );
+    m.insert( "thumbs-up-alt",        icon_thumbs_up_alt );
+    m.insert( "thumbs-down-alt",      icon_thumbs_down_alt );
     m.insert( "star-half",            icon_star_half );
     m.insert( "heart-empty",          icon_heart_empty );
     m.insert( "signout",              icon_signout );
@@ -428,7 +428,7 @@ bool QtAwesome::initFontAwesome( )
     m.insert( "bell-alt",             icon_bell_alt );
     m.insert( "coffee",               icon_coffee );
     m.insert( "food",                 icon_food );
-    m.insert( "file-alt",             icon_file_alt );
+    m.insert( "file-text-alt",        icon_file_text_alt );
     m.insert( "building",             icon_building );
     m.insert( "hospital",             icon_hospital );
     m.insert( "ambulance",            icon_ambulance );
@@ -521,6 +521,77 @@ bool QtAwesome::initFontAwesome( )
     m.insert( "edit_sign",           icon_edit_sign );
     m.insert( "external_link_sign",  icon_external_link_sign );
     m.insert( "share_sign",          icon_share_sign );
+
+    // v3.2.0
+    m.insert( "compass",    icon_compass );
+
+    m.insert( "collapse",               icon_collapse );
+    m.insert( "collapse_top",           icon_collapse_top );
+    m.insert( "expand",                 icon_expand );
+    m.insert( "euro",                   icon_euro );
+    m.insert( "eur",                    icon_eur );
+    m.insert( "gbp",                    icon_gbp );
+    m.insert( "dollar",                 icon_dollar );
+    m.insert( "usd",                    icon_usd );
+    m.insert( "rupee",                  icon_rupee );
+    m.insert( "inr",                    icon_inr );
+    m.insert( "yen",                    icon_yen );
+    m.insert( "jpy",                    icon_jpy );
+    m.insert( "renminbi",               icon_renminbi );
+    m.insert( "cny",                    icon_cny );
+    m.insert( "won",                    icon_won );
+    m.insert( "krw",                    icon_krw );
+    m.insert( "bitcoin",                icon_bitcoin );
+    m.insert( "btc",                    icon_btc );
+    m.insert( "file",                   icon_file );
+    m.insert( "file_text",              icon_file_text );
+    m.insert( "sort_by_alphabet",       icon_sort_by_alphabet );
+    m.insert( "sort_by_alphabet_alt",   icon_sort_by_alphabet_alt );
+    m.insert( "sort_by_attributes",     icon_sort_by_attributes );
+    m.insert( "sort_by_attributes_alt", icon_sort_by_attributes_alt );
+
+    m.insert( "sort_by_order",     icon_sort_by_order );
+    m.insert( "sort_by_order_alt", icon_sort_by_order_alt );
+    m.insert( "thumbs_up",         icon_thumbs_up );
+    m.insert( "thumbs_down",       icon_thumbs_down );
+    m.insert( "youtube_sign",      icon_youtube_sign );
+    m.insert( "youtube",           icon_youtube );
+    m.insert( "xing",              icon_xing );
+    m.insert( "xing_sign",         icon_xing_sign );
+    m.insert( "youtube_play",      icon_youtube_play );
+    m.insert( "dropbox",           icon_dropbox );
+    m.insert( "stackexchange",     icon_stackexchange );
+    m.insert( "instagram",         icon_instagram );
+    m.insert( "flickr",            icon_flickr );
+
+    m.insert( "adn",              icon_adn );
+    m.insert( "bitbucket",        icon_bitbucket );
+    m.insert( "bitbucket_sign",   icon_bitbucket_sign );
+    m.insert( "tumblr",           icon_tumblr );
+    m.insert( "tumblr_sign",      icon_tumblr_sign );
+    m.insert( "long_arrow_down",  icon_long_arrow_down );
+    m.insert( "long_arrow_up",    icon_long_arrow_up );
+    m.insert( "long_arrow_left",  icon_long_arrow_left );
+    m.insert( "long_arrow_right", icon_long_arrow_right );
+    m.insert( "apple",            icon_apple );
+    m.insert( "windows",          icon_windows );
+    m.insert( "android",          icon_android );
+    m.insert( "linux",            icon_linux );
+    m.insert( "dribble",          icon_dribble );
+    m.insert( "skype",            icon_skype );
+
+    m.insert( "foursquare", icon_foursquare );
+    m.insert( "trello",     icon_trello );
+    m.insert( "female",     icon_female );
+    m.insert( "male",       icon_male );
+    m.insert( "gittip",     icon_gittip );
+    m.insert( "sun",        icon_sun );
+    m.insert( "moon",       icon_moon );
+    m.insert( "archive",    icon_archive );
+    m.insert( "bug",        icon_bug );
+    m.insert( "vk",         icon_vk );
+    m.insert( "weibo",      icon_weibo );
+    m.insert( "renren",     icon_renren );
 
     return true;
 }
