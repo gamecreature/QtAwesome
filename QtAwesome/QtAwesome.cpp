@@ -612,7 +612,7 @@ void QtAwesome::setDefaultOption(const QString& name, const QVariant& value)
 /// Returns the default option for the given name
 QVariant QtAwesome::defaultOption(const QString& name)
 {
-    return defaultOption( name );
+    return defaultOptions_.value( name );
 }
 
 
