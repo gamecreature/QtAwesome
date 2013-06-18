@@ -10,7 +10,7 @@ iconfont you want.
 
 The class can also be used to manage your own dynamic code-drawn icons, by adding named icon-painters.
 
-The current Font Awesome version is Version 3.2.0  
+The current Font Awesome version is Version 3.2.1
 
 
 Installation

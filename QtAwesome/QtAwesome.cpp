@@ -211,6 +211,7 @@ bool QtAwesome::initFontAwesome( )
     m.insert( "off",             icon_off );
     m.insert( "signal",          icon_signal );
     m.insert( "cog",             icon_cog );
+    m.insert( "gear",            icon_gear );
     m.insert( "trash",           icon_trash );
     m.insert( "home",            icon_home );
     m.insert( "file_alt",        icon_file_alt );
@@ -328,6 +329,7 @@ bool QtAwesome::initFontAwesome( )
     m.insert( "camera-retro",         icon_camera_retro );
     m.insert( "key",                  icon_key );
     m.insert( "cogs",                 icon_cogs );
+    m.insert( "gears",                icon_gears );
     m.insert( "comments",             icon_comments );
     m.insert( "thumbs-up-alt",        icon_thumbs_up_alt );
     m.insert( "thumbs-down-alt",      icon_thumbs_down_alt );
