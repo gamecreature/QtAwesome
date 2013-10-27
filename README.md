@@ -34,7 +34,7 @@ You probably want to create a single QtAwesome object for your whole application
 
 Add an accessor to this object. (a global function, member of your application object whatever you like).
 
-Use an icon name from the icon copy-past list [http://fortawesome.github.io/Font-Awesome/cheatsheet/](http://fortawesome.github.io/Font-Awesome/cheatsheet/)
+Use an icon name from the icon copy-past list [http://fortawesome.github.io/Font-Awesome/3.2.1/cheatsheet/](http://fortawesome.github.io/Font-Awesome/3.2.1/cheatsheet/)
 
 
 Example
