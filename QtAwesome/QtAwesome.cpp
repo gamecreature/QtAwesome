@@ -12,7 +12,6 @@
 #include <QFontDatabase>
 
 
-Q_INIT_RESOURCE_EXTERN(QtAwesome)
 
 /// The font-awesome icon painter
 class QtAwesomeCharIconPainter: public QtAwesomeIconPainter
