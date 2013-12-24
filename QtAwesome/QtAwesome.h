@@ -436,7 +436,7 @@ Q_OBJECT
 
 public:
 
-    QtAwesome(QObject *parent );
+    QtAwesome(QObject *parent = 0);
     virtual ~QtAwesome();
 
     void init( const QString& fontname );
