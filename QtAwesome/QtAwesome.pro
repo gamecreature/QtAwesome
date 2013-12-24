@@ -11,5 +11,18 @@ CONFIG += staticlib
 SOURCES += QtAwesome.cpp
 HEADERS += QtAwesome.h
 
+isEmpty(PREFIX) {
+    unix {
+        PREFIX = /usr
+    } else {
+        PREFIX = $$[QT_INSTALL_PREFIX]
+    }
+}
+
+install_headers.files = QtAwesome.h
+install_headers.path = $$PREFIX/include
+target.path = $$PREFIX/lib
+INSTALLS += install_headers target
+
 RESOURCES += \
     QtAwesome.qrc
