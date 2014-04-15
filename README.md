@@ -56,7 +56,7 @@ QPushButton* coffeeButton new QPushButton( awesome->icon( "coffee" ), "Black ple
 
 QVariantMap options;
 options.insert( "color" , QColor(255,0,0) );
-QPushButton* musicButton = new QPushButton( awesome->icon( icon_music ), "Music" ); 
+QPushButton* musicButton = new QPushButton( awesome->icon( icon_music, options ), "Music" ); 
 
 // You can also change the default options. 
 // for example if you always would like to have green icons you could call)
