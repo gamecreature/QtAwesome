@@ -45,10 +45,10 @@ Example
 QtAwesome* awesome = new QtAwesome( qApp );
 awesome->initFontAwesome();
 
-// Next create your icon with the help of the icon-enumeration: (all dashes are replaced by underscores)
-QPushButton* beerButton new QPushButton( awesome->icon( icon_beer ), "Cheers!" );
+// Next create your icon with the help of the icon-enumeration (no dashes): 
+QPushButton* beerButton new QPushButton( awesome->icon( fa::beer ), "Cheers!" );
 
-// You can also use 'string' names to access the icons. (The string version omits the 'icon-' prefix )
+// You can also use 'string' names to access the icons. (The string version omits the 'fa-' or 'icon-' prefix and has no dashes )
 QPushButton* coffeeButton new QPushButton( awesome->icon( "coffee" ), "Black please!" );
 
 // When you create an icon you can supply some options for your icons:
@@ -56,14 +56,14 @@ QPushButton* coffeeButton new QPushButton( awesome->icon( "coffee" ), "Black ple
 
 QVariantMap options;
 options.insert( "color" , QColor(255,0,0) );
-QPushButton* musicButton = new QPushButton( awesome->icon( icon_music, options ), "Music" ); 
+QPushButton* musicButton = new QPushButton( awesome->icon( fa::music, options ), "Music" ); 
 
 // You can also change the default options. 
 // for example if you always would like to have green icons you could call)
 awesome->setDefaultOption( "color-disabled", QColor(0,255,0) );
 
 // You can also directly render a label with this font
-QLabel* label = new QLabel( QChar( icon_group ) );
+QLabel* label = new QLabel( QChar( fa::group ) );
 label->setFont( awesome->font(16) );
 
 ```
@@ -81,7 +81,7 @@ public:
     {
         int drawSize = qRound(rectIn.height()*0.5);
         int offset = rectIn.height() / 4;
-        QChar chr = QChar( icon_plus );
+        QChar chr = QChar( static_cast<int>(fa::plus) );
 
         painter->setFont( awesome->font( drawSize ) );
 
