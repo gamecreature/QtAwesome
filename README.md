@@ -124,7 +124,7 @@ setDefaultOption( "scale-factor", 0.9 );
   you could supply the following option.
 
 ```c++  
-  options.insert("text-selected", QString( icon_lock ) );
+  options.insert("text-selected", QString( fa::lock ) );
 ```
 
 License
