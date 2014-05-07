@@ -6,7 +6,7 @@
 
 TARGET = QtAwesome
 TEMPLATE = lib
-CONFIG += staticlib
+CONFIG += staticlib c++11
 
 SOURCES += QtAwesome.cpp
 HEADERS += QtAwesome.h
