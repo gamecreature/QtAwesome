@@ -18,7 +18,7 @@ int main(int argc, char *argv[])
     awesome->initFontAwesome();
 
     // a simple beer button
-    QPushButton* beerButton = new QPushButton( awesome->icon( fa::star ), "Cheers!" );
+    QPushButton* beerButton = new QPushButton( awesome->icon( fa::beer ), "Cheers!" );
     w.setCentralWidget( beerButton );
     w.show();
     

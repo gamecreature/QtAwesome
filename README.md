@@ -10,7 +10,17 @@ iconfont you want.
 
 The class can also be used to manage your own dynamic code-drawn icons, by adding named icon-painters.
 
-The current Font Awesome version is Version 3.2.1
+
+Updated to FontAwesome 4 and c++11
+----------------------------------
+
+This library has been udpated to Font Awesome version 4 and now 
+requires c++11 specific features. 
+
+You can find the previous FontAwesome 3 library in the fontawesome-3 branch.
+This branch is c++11 free!
+
+The current Font Awesome version is Version 4.0.3
 
 
 Installation
@@ -159,11 +169,12 @@ There are still some things todo, like:
   * document the usage of another icon font
   * add some tests
   * do some code cleanup
-  
+
+Thanks go to the contributors of this project!
+
 And of course last but not least, 
 
 Many thanks go to Dave Gandy an the other Font Awesome contributors!! [http://fortawesome.github.com/Font-Awesome](http://fortawesome.github.com/Font-Awesome)  
 And of course to the Qt team/contributors for supplying this great cross-platform c++ library.
-
 
 Contributions are welcome! Feel free to fork and send a pull request through Github.
