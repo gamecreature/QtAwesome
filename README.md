@@ -20,7 +20,7 @@ requires c++11 specific features.
 You can find the previous FontAwesome 3 library in the fontawesome-3 branch.
 This branch is c++11 free!
 
-The current Font Awesome version is Version 4.0.3
+The current Font Awesome version is Version 4.1.0
 
 
 Installation
