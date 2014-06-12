@@ -4,9 +4,9 @@ QtAwesome - Font Awesome support for Qt applications
 Description
 -----------
 
-QtAwesome is a simple library that can be used to add Font Awesome icons to your Qt application.
-Though the name is QtAwesome and currently it's very Font Awesome based, you can use every other 
-iconfont you want.
+QtAwesome is a simple library that can be used to add [Font Awesome](http://fortawesome.github.io/Font-Awesome/) icons to your [Qt application](http://qt-project.org/).
+
+NOTE: Though the name is QtAwesome and currently it's very Font Awesome based, you can use every other icon/glyph font you want.
 
 The class can also be used to manage your own dynamic code-drawn icons, by adding named icon-painters.
 
@@ -14,37 +14,39 @@ The class can also be used to manage your own dynamic code-drawn icons, by addin
 Updated to FontAwesome 4 and c++11
 ----------------------------------
 
-This library has been udpated to Font Awesome version 4 and now 
-requires c++11 specific features. 
+This library has been updated to Font Awesome version 4 and now
+requires c++11 specific features.
 
-You can find the previous FontAwesome 3 library in the fontawesome-3 branch.
+The current Font Awesome version is **4.1.0**.
+
+You can find the previous FontAwesome 3 library in the [fontawesome-3 branch](https://github.com/gamecreature/QtAwesome/tree/fontawesome-3).
 This branch is c++11 free!
-
-The current Font Awesome version is Version 4.1.0
 
 
 Installation
 ------------
 
 The easiest way to include QtAweome in your project is to copy the QtAwesome directory to your
-project tree and add the the following code include to your Qt project file: 
+project tree and add the following `include()` to your Qt project file:
 
     include(QtAwesome/QtAwesome.pri)
 
-Now your good to go!!
+Now you are good to go!
 
 
 Usage
 -----
 
-You probably want to create a single QtAwesome object for your whole application. 
+You probably want to create a single QtAwesome object for your whole application:
 
+````
     QtAwesome* awesome = new QtAwesome( qApp )
     awesome->initFontAwesome();     // This line is important as it loads the font and initializes the named icon map
 
-Add an accessor to this object. (a global function, member of your application object whatever you like).
+````
 
-Use an icon name from the icon copy-past list [http://fortawesome.github.io/Font-Awesome/3.2.1/cheatsheet/](http://fortawesome.github.io/Font-Awesome/3.2.1/cheatsheet/)
+* Add an accessor to this object (i.e. a global function, member of your application object, or whatever you like).
+* Use an icon name from the [Font Awesome Cheatsheet](http://fortawesome.github.io/Font-Awesome/cheatsheet/).
 
 
 Example
@@ -81,7 +83,7 @@ label->setFont( awesome->font(16) );
 Example custom painter
 ----------------------
 
-This example registers a custom painter for supporting a duplicate icon (it draws 2 plus marks)
+This example registers a custom painter for supporting a duplicate icon (it draws 2 "plus marks"):
 
 ```c++
 class DuplicateIconPainter : public QtAwesomeIconPainter
@@ -131,7 +133,7 @@ setDefaultOption( "scale-factor", 0.9 );
   After that the options are expanded/overwritten by the options supplied to the icon.
  
   It is possible to use another glyph per icon-state. For example to make an icon-unlock symbol switch to locked when selected,
-  you could supply the following option.
+  you could supply the following option:
 
 ```c++  
   options.insert("text-selected", QString( fa::lock ) );
