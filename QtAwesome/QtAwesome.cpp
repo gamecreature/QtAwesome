@@ -1,7 +1,9 @@
 /**
  * QtAwesome - use font-awesome (or other font icons) in your c++ / Qt Application
  *
- * Copyright 2013 - Reliable Bits Software by Blommers IT. All Rights Reserved.
+ * MIT Licensed
+ *
+ * Copyright 2013-2015 - Reliable Bits Software by Blommers IT. All Rights Reserved.
  * Author Rick Blommers
  */
 
@@ -167,7 +169,7 @@ bool QtAwesome::initFontAwesome( )
         Q_INIT_RESOURCE(QtAwesome);
 
         // load the font file
-        QFile res(":/fonts/fontawesome-4.2.0.ttf");
+        QFile res(":/fonts/fontawesome-4.3.0.ttf");
         if(!res.open(QIODevice::ReadOnly)) {
             qDebug() << "Font awesome font could not be loaded!";
             return false;
@@ -198,7 +200,7 @@ bool QtAwesome::initFontAwesome( )
     m.insert("alignright",          fa::alignright);
     m.insert("ambulance",           fa::ambulance);
     m.insert("anchor",              fa::anchor);
-    m.insert("androidicon",         fa::androidicon);
+    m.insert("android",             fa::android);
     m.insert("angellist",           fa::angellist);
     m.insert("angledoubledown",     fa::angledoubledown);
     m.insert("angledoubleleft",     fa::angledoubleleft);
@@ -237,6 +239,7 @@ bool QtAwesome::initFontAwesome( )
     m.insert("barcharto",           fa::barcharto);
     m.insert("barcode",             fa::barcode);
     m.insert("bars",                fa::bars);
+    m.insert("bed",                 fa::bed);
     m.insert("beer",                fa::beer);
     m.insert("behance",             fa::behance);
     m.insert("behancesquare",       fa::behancesquare);
@@ -264,6 +267,7 @@ bool QtAwesome::initFontAwesome( )
     m.insert("bullhorn",            fa::bullhorn);
     m.insert("bullseye",            fa::bullseye);
     m.insert("bus",                 fa::bus);
+    m.insert("buysellads",          fa::buysellads);
     m.insert("cab",                 fa::cab);
     m.insert("calculator",          fa::calculator);
     m.insert("calendar",            fa::calendar);
@@ -279,6 +283,8 @@ bool QtAwesome::initFontAwesome( )
     m.insert("caretsquareoright",   fa::caretsquareoright);
     m.insert("caretsquareoup",      fa::caretsquareoup);
     m.insert("caretup",             fa::caretup);
+    m.insert("cartarrowdown",       fa::cartarrowdown);
+    m.insert("cartplus",            fa::cartplus);
     m.insert("cc",                  fa::cc);
     m.insert("ccamex",              fa::ccamex);
     m.insert("ccdiscover",          fa::ccdiscover);
@@ -327,6 +333,7 @@ bool QtAwesome::initFontAwesome( )
     m.insert("commentso",           fa::commentso);
     m.insert("compass",             fa::compass);
     m.insert("compress",            fa::compress);
+    m.insert("connectdevelop",      fa::connectdevelop);
     m.insert("copy",                fa::copy);
     m.insert("copyright",           fa::copyright);
     m.insert("creditcard",          fa::creditcard);
@@ -338,11 +345,13 @@ bool QtAwesome::initFontAwesome( )
     m.insert("cut",                 fa::cut);
     m.insert("cutlery",             fa::cutlery);
     m.insert("dashboard",           fa::dashboard);
+    m.insert("dashcube",            fa::dashcube);
     m.insert("database",            fa::database);
     m.insert("dedent",              fa::dedent);
     m.insert("delicious",           fa::delicious);
     m.insert("desktop",             fa::desktop);
     m.insert("deviantart",          fa::deviantart);
+    m.insert("diamond",             fa::diamond);
     m.insert("digg",                fa::digg);
     m.insert("dollar",              fa::dollar);
     m.insert("dotcircleo",          fa::dotcircleo);
@@ -372,6 +381,8 @@ bool QtAwesome::initFontAwesome( )
     m.insert("eyeslash",            fa::eyeslash);
     m.insert("eyedropper",          fa::eyedropper);
     m.insert("facebook",            fa::facebook);
+    m.insert("facebookf",           fa::facebookf);
+    m.insert("facebookofficial",    fa::facebookofficial);
     m.insert("facebooksquare",      fa::facebooksquare);
     m.insert("fastbackward",        fa::fastbackward);
     m.insert("fastforward",         fa::fastforward);
@@ -413,6 +424,7 @@ bool QtAwesome::initFontAwesome( )
     m.insert("folderopen",          fa::folderopen);
     m.insert("folderopeno",         fa::folderopeno);
     m.insert("font",                fa::font);
+    m.insert("forumbee",            fa::forumbee);
     m.insert("forward",             fa::forward);
     m.insert("foursquare",          fa::foursquare);
     m.insert("frowno",              fa::frowno);
@@ -423,6 +435,7 @@ bool QtAwesome::initFontAwesome( )
     m.insert("ge",                  fa::ge);
     m.insert("gear",                fa::gear);
     m.insert("gears",               fa::gears);
+    m.insert("genderless",          fa::genderless);
     m.insert("gift",                fa::gift);
     m.insert("git",                 fa::git);
     m.insert("gitsquare",           fa::gitsquare);
@@ -437,6 +450,7 @@ bool QtAwesome::initFontAwesome( )
     m.insert("googleplussquare",    fa::googleplussquare);
     m.insert("googlewallet",        fa::googlewallet);
     m.insert("graduationcap",       fa::graduationcap);
+    m.insert("gratipay",            fa::gratipay);
     m.insert("group",               fa::group);
     m.insert("hsquare",             fa::hsquare);
     m.insert("hackernews",          fa::hackernews);
@@ -449,9 +463,11 @@ bool QtAwesome::initFontAwesome( )
     m.insert("headphones",          fa::headphones);
     m.insert("heart",               fa::heart);
     m.insert("hearto",              fa::hearto);
+    m.insert("heartbeat",           fa::heartbeat);
     m.insert("history",             fa::history);
     m.insert("home",                fa::home);
     m.insert("hospitalo",           fa::hospitalo);
+    m.insert("hotel",               fa::hotel);
     m.insert("html5",               fa::html5);
     m.insert("ils",                 fa::ils);
     m.insert("image",               fa::image);
@@ -475,6 +491,7 @@ bool QtAwesome::initFontAwesome( )
     m.insert("lastfm",              fa::lastfm);
     m.insert("lastfmsquare",        fa::lastfmsquare);
     m.insert("leaf",                fa::leaf);
+    m.insert("leanpub",             fa::leanpub);
     m.insert("legal",               fa::legal);
     m.insert("lemono",              fa::lemono);
     m.insert("leveldown",           fa::leveldown);
@@ -488,7 +505,7 @@ bool QtAwesome::initFontAwesome( )
     m.insert("link",                fa::link);
     m.insert("linkedin",            fa::linkedin);
     m.insert("linkedinsquare",      fa::linkedinsquare);
-    m.insert("linuxicon",           fa::linuxicon);
+    m.insert("linux",               fa::linux);
     m.insert("list",                fa::list);
     m.insert("listalt",             fa::listalt);
     m.insert("listol",              fa::listol);
@@ -506,10 +523,17 @@ bool QtAwesome::initFontAwesome( )
     m.insert("mailreplyall",        fa::mailreplyall);
     m.insert("male",                fa::male);
     m.insert("mapmarker",           fa::mapmarker);
+    m.insert("mars",                fa::mars);
+    m.insert("marsdouble",          fa::marsdouble);
+    m.insert("marsstroke",          fa::marsstroke);
+    m.insert("marsstrokeh",         fa::marsstrokeh);
+    m.insert("marsstrokev",         fa::marsstrokev);
     m.insert("maxcdn",              fa::maxcdn);
     m.insert("meanpath",            fa::meanpath);
+    m.insert("medium",              fa::medium);
     m.insert("medkit",              fa::medkit);
     m.insert("meho",                fa::meho);
+    m.insert("mercury",             fa::mercury);
     m.insert("microphone",          fa::microphone);
     m.insert("microphoneslash",     fa::microphoneslash);
     m.insert("minus",               fa::minus);
@@ -521,8 +545,10 @@ bool QtAwesome::initFontAwesome( )
     m.insert("money",               fa::money);
     m.insert("moono",               fa::moono);
     m.insert("mortarboard",         fa::mortarboard);
+    m.insert("motorcycle",          fa::motorcycle);
     m.insert("music",               fa::music);
     m.insert("navicon",             fa::navicon);
+    m.insert("neuter",              fa::neuter);
     m.insert("newspapero",          fa::newspapero);
     m.insert("openid",              fa::openid);
     m.insert("outdent",             fa::outdent);
@@ -546,8 +572,8 @@ bool QtAwesome::initFontAwesome( )
     m.insert("piechart",            fa::piechart);
     m.insert("piedpiper",           fa::piedpiper);
     m.insert("piedpiperalt",        fa::piedpiperalt);
-    m.insert("piedpipersquare",     fa::piedpipersquare);
     m.insert("pinterest",           fa::pinterest);
+    m.insert("pinterestp",          fa::pinterestp);
     m.insert("pinterestsquare",     fa::pinterestsquare);
     m.insert("plane",               fa::plane);
     m.insert("play",                fa::play);
@@ -597,8 +623,10 @@ bool QtAwesome::initFontAwesome( )
     m.insert("search",              fa::search);
     m.insert("searchminus",         fa::searchminus);
     m.insert("searchplus",          fa::searchplus);
+    m.insert("sellsy",              fa::sellsy);
     m.insert("send",                fa::send);
     m.insert("sendo",               fa::sendo);
+    m.insert("server",              fa::server);
     m.insert("share",               fa::share);
     m.insert("sharealt",            fa::sharealt);
     m.insert("sharealtsquare",      fa::sharealtsquare);
@@ -607,11 +635,15 @@ bool QtAwesome::initFontAwesome( )
     m.insert("shekel",              fa::shekel);
     m.insert("sheqel",              fa::sheqel);
     m.insert("shield",              fa::shield);
+    m.insert("ship",                fa::ship);
+    m.insert("shirtsinbulk",        fa::shirtsinbulk);
     m.insert("shoppingcart",        fa::shoppingcart);
     m.insert("signin",              fa::signin);
     m.insert("signout",             fa::signout);
     m.insert("signal",              fa::signal);
+    m.insert("simplybuilt",         fa::simplybuilt);
     m.insert("sitemap",             fa::sitemap);
+    m.insert("skyatlas",            fa::skyatlas);
     m.insert("skype",               fa::skype);
     m.insert("slack",               fa::slack);
     m.insert("sliders",             fa::sliders);
@@ -650,10 +682,12 @@ bool QtAwesome::initFontAwesome( )
     m.insert("stepforward",         fa::stepforward);
     m.insert("stethoscope",         fa::stethoscope);
     m.insert("stop",                fa::stop);
+    m.insert("streetview",          fa::streetview);
     m.insert("strikethrough",       fa::strikethrough);
     m.insert("stumbleupon",         fa::stumbleupon);
     m.insert("stumbleuponcircle",   fa::stumbleuponcircle);
     m.insert("subscript",           fa::subscript);
+    m.insert("subway",              fa::subway);
     m.insert("suitcase",            fa::suitcase);
     m.insert("suno",                fa::suno);
     m.insert("superscript",         fa::superscript);
@@ -688,12 +722,17 @@ bool QtAwesome::initFontAwesome( )
     m.insert("toggleon",            fa::toggleon);
     m.insert("toggleright",         fa::toggleright);
     m.insert("toggleup",            fa::toggleup);
+    m.insert("train",               fa::train);
+    m.insert("transgender",         fa::transgender);
+    m.insert("transgenderalt",      fa::transgenderalt);
     m.insert("trash",               fa::trash);
     m.insert("trasho",              fa::trasho);
     m.insert("tree",                fa::tree);
     m.insert("trello",              fa::trello);
     m.insert("trophy",              fa::trophy);
     m.insert("truck",               fa::truck);
+    m.insert("try",                 fa::fa_try);
+    m.insert("fa_try",              fa::fa_try);
     m.insert("tty",                 fa::tty);
     m.insert("tumblr",              fa::tumblr);
     m.insert("tumblrsquare",        fa::tumblrsquare);
@@ -713,7 +752,14 @@ bool QtAwesome::initFontAwesome( )
     m.insert("usd",                 fa::usd);
     m.insert("user",                fa::user);
     m.insert("usermd",              fa::usermd);
+    m.insert("userplus",            fa::userplus);
+    m.insert("usersecret",          fa::usersecret);
+    m.insert("usertimes",           fa::usertimes);
     m.insert("users",               fa::users);
+    m.insert("venus",               fa::venus);
+    m.insert("venusdouble",         fa::venusdouble);
+    m.insert("venusmars",           fa::venusmars);
+    m.insert("viacoin",             fa::viacoin);
     m.insert("videocamera",         fa::videocamera);
     m.insert("vimeosquare",         fa::vimeosquare);
     m.insert("vine",                fa::vine);
@@ -725,9 +771,10 @@ bool QtAwesome::initFontAwesome( )
     m.insert("wechat",              fa::wechat);
     m.insert("weibo",               fa::weibo);
     m.insert("weixin",              fa::weixin);
+    m.insert("whatsapp",            fa::whatsapp);
     m.insert("wheelchair",          fa::wheelchair);
     m.insert("wifi",                fa::wifi);
-    m.insert("windowsicon",         fa::windowsicon);
+    m.insert("windows",             fa::windows);
     m.insert("won",                 fa::won);
     m.insert("wordpress",           fa::wordpress);
     m.insert("wrench",              fa::wrench);
@@ -739,7 +786,6 @@ bool QtAwesome::initFontAwesome( )
     m.insert("youtube",             fa::youtube);
     m.insert("youtubeplay",         fa::youtubeplay);
     m.insert("youtubesquare",       fa::youtubesquare);
-
 
     return true;
 }
