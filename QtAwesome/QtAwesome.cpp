@@ -191,7 +191,7 @@ bool QtAwesome::initFontAwesome( )
     }
 
     // intialize the map
-    QHash<QString, fa>& m = namedCodepoints_;
+    QHash<QString, int>& m = namedCodepoints_;
     m.insert("adjust",              fa::adjust);
     m.insert("adn",                 fa::adn);
     m.insert("aligncenter",         fa::aligncenter);
@@ -790,7 +790,7 @@ bool QtAwesome::initFontAwesome( )
     return true;
 }
 
-void QtAwesome::addNamedCodepoint( const QString& name, fa codePoint)
+void QtAwesome::addNamedCodepoint( const QString& name, int codePoint)
 {
     namedCodepoints_.insert( name, codePoint);
 }
@@ -829,7 +829,7 @@ static QVariantMap mergeOptions( const QVariantMap& defaults, const QVariantMap&
 /// <code>
 ///     awesome->icon( icon_group )
 /// </code>
-QIcon QtAwesome::icon(fa character, const QVariantMap &options)
+QIcon QtAwesome::icon(int character, const QVariantMap &options)
 {
     // create a merged QVariantMap to have default options and icon-specific options
     QVariantMap optionMap = mergeOptions( defaultOptions_, options );

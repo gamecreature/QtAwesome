@@ -11,16 +11,24 @@ NOTE: Though the name is QtAwesome and currently it's very Font Awesome based, y
 The class can also be used to manage your own dynamic code-drawn icons, by adding named icon-painters.
 
 
-Updated to FontAwesome 4 and c++11
-----------------------------------
+Updated to FontAwesome 4
+------------------------
 
-This library has been updated to Font Awesome version 4 and now
-requires c++11 specific features.
+This library has been updated to Font Awesome version 4.
 
 The current Font Awesome version is **4.3.0**.
 
-You can find the previous FontAwesome 3 library in the [fontawesome-3 branch](https://github.com/gamecreature/QtAwesome/tree/fontawesome-3).
-This branch is c++11 free!
+*  You can find the previous FontAwesome 4 c++11 library in the [c++11 branch](https://github.com/gamecreature/QtAwesome/tree/c++11).
+*  You can find the previous FontAwesome 3 library in the [fontawesome-3 branch](https://github.com/gamecreature/QtAwesome/tree/fontawesome-3).
+
+  
+**Note about previous c++11** 
+
+I removed the C++11 requirement. And moved the c++11 code to a c++11 branch.
+It's not that I don't like c++11, but the typed enum made the code less flexible then it is now.
+Just integers it is. Simpeler is better.
+
+
 
 
 Installation

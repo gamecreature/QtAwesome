@@ -19,7 +19,8 @@
 
 /// A list of all icon-names with the codepoint (unicode-value) on the right
 /// You can use the names on the page  http://fortawesome.github.io/Font-Awesome/design.html
-enum class fa {
+namespace fa {
+  enum icon {
     adjust                  =           0xf042,
     adn                     =           0xf170,
     aligncenter             =           0xf037,
@@ -613,7 +614,9 @@ enum class fa {
     youtube                 =           0xf167,
     youtubeplay             =           0xf16a,
     youtubesquare           =           0xf166
-};
+  };
+}
+
 
 
 //---------------------------------------------------------------------------------------
@@ -634,13 +637,13 @@ public:
     void init( const QString& fontname );
     bool initFontAwesome();
 
-    void addNamedCodepoint( const QString& name, fa codePoint );
-    QHash<QString,fa> namedCodePoints() { return namedCodepoints_; }
+    void addNamedCodepoint( const QString& name, int codePoint );
+    QHash<QString,int> namedCodePoints() { return namedCodepoints_; }
 
     void setDefaultOption( const QString& name, const QVariant& value  );
     QVariant defaultOption( const QString& name );
 
-    QIcon icon( fa character, const QVariantMap& options = QVariantMap() );
+    QIcon icon( int character, const QVariantMap& options = QVariantMap() );
     QIcon icon( const QString& name, const QVariantMap& options = QVariantMap() );
     QIcon icon(QtAwesomeIconPainter* painter, const QVariantMap& optionMap = QVariantMap() );
 
@@ -653,7 +656,7 @@ public:
 
 private:
     QString fontName_;                                     ///< The font name used for this map
-    QHash<QString,fa> namedCodepoints_;                   ///< A map with names mapped to code-points
+    QHash<QString,int> namedCodepoints_;                   ///< A map with names mapped to code-points
 
     QHash<QString, QtAwesomeIconPainter*> painterMap_;     ///< A map of custom painters
     QVariantMap defaultOptions_;                           ///< The default icon options
