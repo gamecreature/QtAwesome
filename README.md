@@ -26,7 +26,7 @@ The current Font Awesome version is **4.3.0**.
 
 I removed the C++11 requirement. And moved the c++11 code to a c++11 branch.
 It's not that I don't like c++11, but the typed enum made the code less flexible then it is now.
-Just integers it is. Simpeler is better.
+Just integers it is. Simpler is better.
 
 
 
