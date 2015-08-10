@@ -16,7 +16,7 @@ Updated to FontAwesome 4
 
 This library has been updated to Font Awesome version 4.
 
-The current Font Awesome version is **4.3.0**.
+The current Font Awesome version is **4.4.0**.
 
 *  You can find the previous FontAwesome 4 c++11 library in the [c++11 branch](https://github.com/gamecreature/QtAwesome/tree/c++11).
 *  You can find the previous FontAwesome 3 library in the [fontawesome-3 branch](https://github.com/gamecreature/QtAwesome/tree/fontawesome-3).
