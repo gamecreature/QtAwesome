@@ -164,6 +164,21 @@ Contact
 * website: [http://blommersit.nl](http://blommersit.nl)  (warning Dutch content ahead)
 * github: [https://github.com/gamecreature/QtAwesome](https://github.com/gamecreature/QtAwesome)
 
+
+Known issues and workarounds
+----------------------------
+
+On Mac OS X, placing an qtAwesome icon in QMainWindow menu, doesn't work directly. 
+See the following issue: [https://github.com/gamecreature/QtAwesome/issues/10]
+
+A workaround for this problem it to convert it to a Pixmap icon like this:
+
+```c++
+QAction* menuAction = new QAction("test");
+menuAction->setIcon( awesome->icon(fa::beer).pixmap(32,32)) );
+```
+
+
 Remarks
 -------
 
