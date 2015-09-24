@@ -171,7 +171,7 @@ Known issues and workarounds
 On Mac OS X, placing an qtAwesome icon in QMainWindow menu, doesn't work directly. 
 See the following issue: [https://github.com/gamecreature/QtAwesome/issues/10]
 
-A workaround for this problem it to convert it to a Pixmap icon like this:
+A workaround for this problem is converting it to a Pixmap icon like this:
 
 ```c++
 QAction* menuAction = new QAction("test");
