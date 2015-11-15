@@ -175,7 +175,7 @@ A workaround for this problem is converting it to a Pixmap icon like this:
 
 ```c++
 QAction* menuAction = new QAction("test");
-menuAction->setIcon( awesome->icon(fa::beer).pixmap(32,32)) );
+menuAction->setIcon( awesome->icon(fa::beer).pixmap(32,32) );
 ```
 
 
