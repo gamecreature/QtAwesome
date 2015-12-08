@@ -8,6 +8,7 @@
  */
 
 #include "QtAwesome.h"
+#include "QtAwesomeAnim.h"
 
 #include <QDebug>
 #include <QFile>
@@ -26,6 +27,13 @@ public:
         Q_UNUSED(options);
 
         painter->save();
+
+        QObject* qanim = qvariant_cast<QObject*>(options.value("anim"));
+        QtAwesomeAnimation* anim = qobject_cast<QtAwesomeAnimation*>(qanim);
+        if( anim ) {
+            anim->setup( *painter, rect );
+        }
+
 
         // set the correct color
         QColor color = options.value("color").value<QColor>();

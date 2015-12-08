@@ -10,6 +10,8 @@
 #ifndef QTAWESOME_H
 #define QTAWESOME_H
 
+#include "QtAwesomeAnim.h"
+
 #include <QIcon>
 #include <QIconEngine>
 #include <QPainter>
