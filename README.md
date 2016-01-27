@@ -56,6 +56,7 @@ You probably want to create a single QtAwesome object for your whole application
 * Add an accessor to this object (i.e. a global function, member of your application object, or whatever you like).
 * Use an icon name from the [Font Awesome Cheatsheet](http://fortawesome.github.io/Font-Awesome/cheatsheet/).
 
+If you want, you may get link to specified icon for use it as file resource. Link generating for all standard icon size for Android (For example: http://iconhandbook.co.uk/reference/chart/android/)
 
 Example
 --------
@@ -67,6 +68,10 @@ awesome->initFontAwesome();
 
 // Next create your icon with the help of the icon-enumeration (no dashes): 
 QPushButton* beerButton new QPushButton( awesome->icon( fa::beer ), "Cheers!" );
+
+// Generate file of icon and get path for it
+// Result: file:///C:/Users/<username>/AppData/Local/Temp/filename.example
+qDebug() << awesome->iconLink( fa::beer );
 
 // You can also use 'string' names to access the icons. (The string version omits the 'fa-' or 'icon-' prefix and has no dashes )
 QPushButton* coffeeButton new QPushButton( awesome->icon( "coffee" ), "Black please!" );
@@ -86,6 +91,30 @@ awesome->setDefaultOption( "color-disabled", QColor(0,255,0) );
 QLabel* label = new QLabel( QChar( fa::group ) );
 label->setFont( awesome->font(16) );
 
+```
+
+Also you may register 'awesome' object as QML object:
+
+```c++
+QQmlApplicationEngine engine;
+engine.rootContext()->setContextProperty("awesome", awesome);
+```
+
+And use them from your QML code:
+
+```qml
+ApplicationWindow {
+    ...
+    toolBar: ToolBar {
+        RowLayout {
+            anchors.fill: parent
+            ToolButton {
+                iconSource: awesome.iconLink( "beer" )
+            }
+        }
+    }
+    ...
+}
 ```
 
 Example custom painter

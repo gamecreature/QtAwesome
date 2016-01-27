@@ -700,7 +700,22 @@ namespace fa {
   };
 }
 
-
+/// A list of all icon sizes
+namespace dpiset {
+    enum icon {
+        mdpi    = 0,
+        hdpi    = 1,
+        xhdpi   = 2,
+        xxhdpi  = 3,
+        xxxhdpi = 4
+    };
+    enum type {
+        launcher    = 10,
+        actionbar    = 11,
+        contextual   = 12,
+        notification  = 13
+    };
+}
 
 //---------------------------------------------------------------------------------------
 
@@ -729,6 +744,10 @@ public:
     QIcon icon( int character, const QVariantMap& options = QVariantMap() );
     QIcon icon( const QString& name, const QVariantMap& options = QVariantMap() );
     QIcon icon(QtAwesomeIconPainter* painter, const QVariantMap& optionMap = QVariantMap() );
+
+    QSize iconSize(int dpi = dpiset::hdpi, int type = dpiset::actionbar);
+    Q_INVOKABLE QString iconLink( int character, const QVariantMap& options = QVariantMap(), int dpi = dpiset::xhdpi, int type = dpiset::actionbar );
+    Q_INVOKABLE QString iconLink( const QString& name, const QVariantMap& options = QVariantMap(), int dpi = dpiset::xhdpi, int type = dpiset::actionbar );
 
     void give( const QString& name, QtAwesomeIconPainter* painter );
 
