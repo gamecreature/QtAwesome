@@ -568,7 +568,7 @@ bool QtAwesome::initFontAwesome( )
     m.insert("link", fa::link );
     m.insert("linkedin", fa::linkedin );
     m.insert("linkedinsquare", fa::linkedinsquare );
-    m.insert("linux", fa::linux );
+    m.insert("linux", fa::_linux );
     m.insert("list", fa::list );
     m.insert("listalt", fa::listalt );
     m.insert("listol", fa::listol );

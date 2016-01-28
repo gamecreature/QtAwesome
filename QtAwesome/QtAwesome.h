@@ -391,7 +391,7 @@ namespace fa {
       link                 = 0xf0c1,
       linkedin             = 0xf0e1,
       linkedinsquare       = 0xf08c,
-      linux                = 0xf17c,
+      _linux               = 0xf17c,
       list                 = 0xf03a,
       listalt              = 0xf022,
       listol               = 0xf0cb,
