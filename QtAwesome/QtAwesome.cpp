@@ -1083,7 +1083,7 @@ QString QtAwesome::iconLink(int character, const QVariantMap &options, int dpi, 
     bool res = false;
     if (file.open()) {
         res = pixmap.save(&file, "PNG");
-        qDebug() << "Res is:" << res;
+        //qDebug() << "Res is:" << res;
     } else {
         qDebug() << file.errorString() << pixmap.save(&file, "PNG");
     }
