@@ -96,6 +96,10 @@ label->setFont( awesome->font(16) );
 Also you may register 'awesome' object as QML object:
 
 ```c++
+QtAwesomeAndroid* awesome = new QtAwesomeAndroid( qApp );
+awesome->setDefaultOption( "color", QColor(255,255,255) );
+awesome->initFontAwesome();
+
 QQmlApplicationEngine engine;
 engine.rootContext()->setContextProperty("awesome", awesome);
 ```
@@ -105,11 +109,18 @@ And use them from your QML code:
 ```qml
 ApplicationWindow {
     ...
-    toolBar: ToolBar {
+    header: ToolBar {
         RowLayout {
+            spacing: 20
             anchors.fill: parent
+
             ToolButton {
-                iconSource: awesome.iconLink( "beer" )
+                id: menuBtn
+                label: Image {
+                    anchors.centerIn: parent
+                    source: awesome.iconLink( "bars", "xxhdpi" )
+                }
+                onClicked: drawer.open()
             }
         }
     }
