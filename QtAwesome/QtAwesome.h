@@ -700,23 +700,6 @@ namespace fa {
   };
 }
 
-/// A list of all icon sizes
-namespace dpiset {
-    enum icon {
-        mdpi    = 0,
-        hdpi    = 1,
-        xhdpi   = 2,
-        xxhdpi  = 3,
-        xxxhdpi = 4
-    };
-    enum type {
-        launcher    = 10,
-        actionbar    = 11,
-        contextual   = 12,
-        notification  = 13
-    };
-}
-
 //---------------------------------------------------------------------------------------
 
 class QtAwesomeIconPainter;
@@ -745,10 +728,6 @@ public:
     QIcon icon( const QString& name, const QVariantMap& options = QVariantMap() );
     QIcon icon(QtAwesomeIconPainter* painter, const QVariantMap& optionMap = QVariantMap() );
 
-    QSize iconSize(int dpi = dpiset::hdpi, int type = dpiset::actionbar);
-    Q_INVOKABLE QString iconLink( int character, const QVariantMap& options = QVariantMap(), int dpi = dpiset::xhdpi, int type = dpiset::actionbar );
-    Q_INVOKABLE QString iconLink( const QString& name, const QVariantMap& options = QVariantMap(), int dpi = dpiset::xhdpi, int type = dpiset::actionbar );
-
     void give( const QString& name, QtAwesomeIconPainter* painter );
 
     QFont font( int size );
@@ -756,9 +735,11 @@ public:
     /// Returns the font-name that is used as icon-map
     QString fontName() { return fontName_ ; }
 
+protected:
+    QHash<QString,int> namedCodepoints_;                   ///< A map with names mapped to code-points
+
 private:
     QString fontName_;                                     ///< The font name used for this map
-    QHash<QString,int> namedCodepoints_;                   ///< A map with names mapped to code-points
 
     QHash<QString, QtAwesomeIconPainter*> painterMap_;     ///< A map of custom painters
     QVariantMap defaultOptions_;                           ///< The default icon options
