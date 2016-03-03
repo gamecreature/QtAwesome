@@ -177,7 +177,7 @@ bool QtAwesome::initFontAwesome( )
         Q_INIT_RESOURCE(QtAwesome);
 
         // load the font file
-        QFile res(":/fonts/fontawesome-4.4.0.ttf");
+        QFile res(":/fonts/fontawesome-4.5.0.ttf");
         if(!res.open(QIODevice::ReadOnly)) {
             qDebug() << "Font awesome font could not be loaded!";
             return false;
@@ -275,6 +275,8 @@ bool QtAwesome::initFontAwesome( )
     m.insert("bitbucketsquare", fa::bitbucketsquare );
     m.insert("bitcoin", fa::bitcoin );
     m.insert("blacktie", fa::blacktie );
+    m.insert("bluetooth", fa::bluetooth );
+    m.insert("bluetoothb", fa::bluetoothb );
     m.insert("bold", fa::bold );
     m.insert("bolt", fa::bolt );
     m.insert("bomb", fa::bomb );
@@ -353,6 +355,7 @@ bool QtAwesome::initFontAwesome( )
     m.insert("code", fa::code );
     m.insert("codefork", fa::codefork );
     m.insert("codepen", fa::codepen );
+    m.insert("codiepie", fa::codiepie );
     m.insert("coffee", fa::coffee );
     m.insert("cog", fa::cog );
     m.insert("cogs", fa::cogs );
@@ -371,6 +374,7 @@ bool QtAwesome::initFontAwesome( )
     m.insert("copyright", fa::copyright );
     m.insert("creativecommons", fa::creativecommons );
     m.insert("creditcard", fa::creditcard );
+    m.insert("creditcardalt", fa::creditcardalt );
     m.insert("crop", fa::crop );
     m.insert("crosshairs", fa::crosshairs );
     m.insert("css3", fa::css3 );
@@ -393,6 +397,7 @@ bool QtAwesome::initFontAwesome( )
     m.insert("dribbble", fa::dribbble );
     m.insert("dropbox", fa::dropbox );
     m.insert("drupal", fa::drupal );
+    m.insert("edge", fa::edge );
     m.insert("edit", fa::edit );
     m.insert("eject", fa::eject );
     m.insert("ellipsish", fa::ellipsish );
@@ -462,6 +467,7 @@ bool QtAwesome::initFontAwesome( )
     m.insert("folderopeno", fa::folderopeno );
     m.insert("font", fa::font );
     m.insert("fonticons", fa::fonticons );
+    m.insert("fortawesome", fa::fortawesome );
     m.insert("forumbee", fa::forumbee );
     m.insert("forward", fa::forward );
     m.insert("foursquare", fa::foursquare );
@@ -508,6 +514,7 @@ bool QtAwesome::initFontAwesome( )
     m.insert("handscissorso", fa::handscissorso );
     m.insert("handspocko", fa::handspocko );
     m.insert("handstopo", fa::handstopo );
+    m.insert("hashtag", fa::hashtag );
     m.insert("hddo", fa::hddo );
     m.insert("header", fa::header );
     m.insert("headphones", fa::headphones );
@@ -568,7 +575,7 @@ bool QtAwesome::initFontAwesome( )
     m.insert("link", fa::link );
     m.insert("linkedin", fa::linkedin );
     m.insert("linkedinsquare", fa::linkedinsquare );
-    m.insert("linux", fa::_linux );
+    m.insert("fa_linux", fa::fa_linux );
     m.insert("list", fa::list );
     m.insert("listalt", fa::listalt );
     m.insert("listol", fa::listol );
@@ -607,8 +614,10 @@ bool QtAwesome::initFontAwesome( )
     m.insert("minuscircle", fa::minuscircle );
     m.insert("minussquare", fa::minussquare );
     m.insert("minussquareo", fa::minussquareo );
+    m.insert("mixcloud", fa::mixcloud );
     m.insert("mobile", fa::mobile );
     m.insert("mobilephone", fa::mobilephone );
+    m.insert("modx", fa::modx );
     m.insert("money", fa::money );
     m.insert("moono", fa::moono );
     m.insert("mortarboard", fa::mortarboard );
@@ -635,11 +644,14 @@ bool QtAwesome::initFontAwesome( )
     m.insert("paragraph", fa::paragraph );
     m.insert("paste", fa::paste );
     m.insert("pause", fa::pause );
+    m.insert("pausecircle", fa::pausecircle );
+    m.insert("pausecircleo", fa::pausecircleo );
     m.insert("paw", fa::paw );
     m.insert("paypal", fa::paypal );
     m.insert("pencil", fa::pencil );
     m.insert("pencilsquare", fa::pencilsquare );
     m.insert("pencilsquareo", fa::pencilsquareo );
+    m.insert("percent", fa::percent );
     m.insert("phone", fa::phone );
     m.insert("phonesquare", fa::phonesquare );
     m.insert("photo", fa::photo );
@@ -661,6 +673,7 @@ bool QtAwesome::initFontAwesome( )
     m.insert("plussquareo", fa::plussquareo );
     m.insert("poweroff", fa::poweroff );
     m.insert("print", fa::print );
+    m.insert("producthunt", fa::producthunt );
     m.insert("puzzlepiece", fa::puzzlepiece );
     m.insert("qq", fa::qq );
     m.insert("qrcode", fa::qrcode );
@@ -673,6 +686,7 @@ bool QtAwesome::initFontAwesome( )
     m.insert("rebel", fa::rebel );
     m.insert("recycle", fa::recycle );
     m.insert("reddit", fa::reddit );
+    m.insert("redditalien", fa::redditalien );
     m.insert("redditsquare", fa::redditsquare );
     m.insert("refresh", fa::refresh );
     m.insert("registered", fa::registered );
@@ -697,6 +711,7 @@ bool QtAwesome::initFontAwesome( )
     m.insert("safari", fa::safari );
     m.insert("save", fa::save );
     m.insert("scissors", fa::scissors );
+    m.insert("scribd", fa::scribd );
     m.insert("search", fa::search );
     m.insert("searchminus", fa::searchminus );
     m.insert("searchplus", fa::searchplus );
@@ -714,6 +729,8 @@ bool QtAwesome::initFontAwesome( )
     m.insert("shield", fa::shield );
     m.insert("ship", fa::ship );
     m.insert("shirtsinbulk", fa::shirtsinbulk );
+    m.insert("shoppingbag", fa::shoppingbag );
+    m.insert("shoppingbasket", fa::shoppingbasket );
     m.insert("shoppingcart", fa::shoppingcart );
     m.insert("signin", fa::signin );
     m.insert("signout", fa::signout );
@@ -761,6 +778,8 @@ bool QtAwesome::initFontAwesome( )
     m.insert("stickynote", fa::stickynote );
     m.insert("stickynoteo", fa::stickynoteo );
     m.insert("stop", fa::stop );
+    m.insert("stopcircle", fa::stopcircle );
+    m.insert("stopcircleo", fa::stopcircleo );
     m.insert("streetview", fa::streetview );
     m.insert("strikethrough", fa::strikethrough );
     m.insert("stumbleupon", fa::stumbleupon );
@@ -831,6 +850,7 @@ bool QtAwesome::initFontAwesome( )
     m.insert("unlockalt", fa::unlockalt );
     m.insert("unsorted", fa::unsorted );
     m.insert("upload", fa::upload );
+    m.insert("usb", fa::usb );
     m.insert("usd", fa::usd );
     m.insert("user", fa::user );
     m.insert("usermd", fa::usermd );
