@@ -123,9 +123,34 @@ private:
 //---------------------------------------------------------------------------------------
 
 /// The default icon colors
-QtAwesome::QtAwesome( QObject* parent )
-    : QObject( parent )
+QtAwesome::QtAwesome(QObject* parent)
+    : QObject(parent)
     , namedCodepoints_()
+{
+    setDefaultOptions();
+    initFontAwesome();
+    // since initFontAwesome can throw call new after it
+    fontIconPainter_ = new QtAwesomeCharIconPainter;
+}
+
+QtAwesome::QtAwesome(const QString& fontname, QObject* parent)
+    : QObject(parent)
+    , namedCodepoints_()
+    , fontIconPainter_(new QtAwesomeCharIconPainter)
+{
+    setDefaultOptions();
+    init(fontname);
+}
+
+
+QtAwesome::~QtAwesome()
+{
+    delete fontIconPainter_;
+//    delete errorIconPainter_;
+    qDeleteAll(painterMap_);
+}
+
+void QtAwesome::setDefaultOptions()
 {
     // initialize the default options
     setDefaultOption( "color", QColor(50,50,50) );
@@ -138,17 +163,6 @@ QtAwesome::QtAwesome( QObject* parent )
     setDefaultOption( "text-disabled", QVariant() );
     setDefaultOption( "text-active", QVariant() );
     setDefaultOption( "text-selected", QVariant() );
-
-    fontIconPainter_ = new QtAwesomeCharIconPainter();
-
-}
-
-
-QtAwesome::~QtAwesome()
-{
-    delete fontIconPainter_;
-//    delete errorIconPainter_;
-    qDeleteAll(painterMap_);
 }
 
 /// initializes the QtAwesome icon factory with the given fontname
@@ -161,7 +175,7 @@ void QtAwesome::init(const QString& fontname)
 /// a specialized init function so font-awesome is loaded and initialized
 /// this method return true on success, it will return false if the fnot cannot be initialized
 /// To initialize QtAwesome with font-awesome you need to call this method
-bool QtAwesome::initFontAwesome( )
+void QtAwesome::initFontAwesome( )
 {
     static int fontAwesomeFontId = -1;
 
@@ -179,8 +193,7 @@ bool QtAwesome::initFontAwesome( )
         // load the font file
         QFile res(":/fonts/fontawesome-4.5.0.ttf");
         if(!res.open(QIODevice::ReadOnly)) {
-            qDebug() << "Font awesome font could not be loaded!";
-            return false;
+            throw std::invalid_argument( "Font awesome font could not be loaded!");
         }
         QByteArray fontData( res.readAll() );
         res.close();
@@ -193,9 +206,7 @@ bool QtAwesome::initFontAwesome( )
     if( !loadedFontFamilies.empty() ) {
         fontName_= loadedFontFamilies.at(0);
     } else {
-        qDebug() << "Font awesome font is empty?!";
-        fontAwesomeFontId = -1; // restore the font-awesome id
-        return false;
+        throw std::invalid_argument("Font awesome font is empty?!");
     }
 
     // intialize the map
@@ -894,8 +905,6 @@ bool QtAwesome::initFontAwesome( )
     m.insert("youtube", fa::youtube );
     m.insert("youtubeplay", fa::youtubeplay );
     m.insert("youtubesquare", fa::youtubesquare );
-
-    return true;
 }
 
 void QtAwesome::addNamedCodepoint( const QString& name, int codePoint)

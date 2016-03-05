@@ -18,6 +18,7 @@
 #include <QRect>
 #include <QVariantMap>
 
+#include <stdexcept>
 
 /// A list of all icon-names with the codepoint (unicode-value) on the right
 /// You can use the names on the page  http://fortawesome.github.io/Font-Awesome/design.html
@@ -735,10 +736,10 @@ Q_OBJECT
 public:
 
     QtAwesome(QObject *parent = 0);
-    virtual ~QtAwesome();
+    QtAwesome(const QString &fontname, QObject *parent = 0);
+    // Destructor is virtual because the destructor of the base class is virtual
+    ~QtAwesome();
 
-    void init( const QString& fontname );
-    bool initFontAwesome();
 
     void addNamedCodepoint( const QString& name, int codePoint );
     QHash<QString,int> namedCodePoints() { return namedCodepoints_; }
@@ -764,6 +765,10 @@ private:
     QHash<QString, QtAwesomeIconPainter*> painterMap_;     ///< A map of custom painters
     QVariantMap defaultOptions_;                           ///< The default icon options
     QtAwesomeIconPainter* fontIconPainter_;                ///< A special painter fo painting codepoints
+
+    void init( const QString& fontname );
+    void initFontAwesome();
+    void setDefaultOptions();
 };
 
 
