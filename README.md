@@ -49,7 +49,6 @@ You probably want to create a single QtAwesome object for your whole application
 
 ````
     QtAwesome* awesome = new QtAwesome( qApp )
-    awesome->initFontAwesome();     // This line is important as it loads the font and initializes the named icon map
 
 ````
 
@@ -63,7 +62,6 @@ Example
 ```c++
 // You should create a single object of QtAwesome.
 QtAwesome* awesome = new QtAwesome( qApp );
-awesome->initFontAwesome();
 
 // Next create your icon with the help of the icon-enumeration (no dashes): 
 QPushButton* beerButton new QPushButton( awesome->icon( fa::beer ), "Cheers!" );

@@ -17,7 +17,6 @@ int main(int argc, char *argv[])
     QMainWindow w;
 
     QtAwesome* awesome = new QtAwesome(&w);
-    awesome->initFontAwesome();
 
     // a simple beer button
     QPushButton* beerButton = new QPushButton( "Cheers!");
