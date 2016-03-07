@@ -157,6 +157,708 @@ void QtAwesome::init(const QString& fontname)
     fontName_ = fontname;
 }
 
+struct FANameIcon {
+  const char *name;
+  fa::icon icon;
+};
+
+static const FANameIcon faNameIconArray[] = {
+    { "fa_500px"             , fa::fa_500px             },
+    { "adjust"               , fa::adjust               },
+    { "adn"                  , fa::adn                  },
+    { "aligncenter"          , fa::aligncenter          },
+    { "alignjustify"         , fa::alignjustify         },
+    { "alignleft"            , fa::alignleft            },
+    { "alignright"           , fa::alignright           },
+    { "amazon"               , fa::amazon               },
+    { "ambulance"            , fa::ambulance            },
+    { "anchor"               , fa::anchor               },
+    { "android"              , fa::android              },
+    { "angellist"            , fa::angellist            },
+    { "angledoubledown"      , fa::angledoubledown      },
+    { "angledoubleleft"      , fa::angledoubleleft      },
+    { "angledoubleright"     , fa::angledoubleright     },
+    { "angledoubleup"        , fa::angledoubleup        },
+    { "angledown"            , fa::angledown            },
+    { "angleleft"            , fa::angleleft            },
+    { "angleright"           , fa::angleright           },
+    { "angleup"              , fa::angleup              },
+    { "apple"                , fa::apple                },
+    { "archive"              , fa::archive              },
+    { "areachart"            , fa::areachart            },
+    { "arrowcircledown"      , fa::arrowcircledown      },
+    { "arrowcircleleft"      , fa::arrowcircleleft      },
+    { "arrowcircleodown"     , fa::arrowcircleodown     },
+    { "arrowcircleoleft"     , fa::arrowcircleoleft     },
+    { "arrowcircleoright"    , fa::arrowcircleoright    },
+    { "arrowcircleoup"       , fa::arrowcircleoup       },
+    { "arrowcircleright"     , fa::arrowcircleright     },
+    { "arrowcircleup"        , fa::arrowcircleup        },
+    { "arrowdown"            , fa::arrowdown            },
+    { "arrowleft"            , fa::arrowleft            },
+    { "arrowright"           , fa::arrowright           },
+    { "arrowup"              , fa::arrowup              },
+    { "arrows"               , fa::arrows               },
+    { "arrowsalt"            , fa::arrowsalt            },
+    { "arrowsh"              , fa::arrowsh              },
+    { "arrowsv"              , fa::arrowsv              },
+    { "asterisk"             , fa::asterisk             },
+    { "at"                   , fa::at                   },
+    { "automobile"           , fa::automobile           },
+    { "backward"             , fa::backward             },
+    { "balancescale"         , fa::balancescale         },
+    { "ban"                  , fa::ban                  },
+    { "bank"                 , fa::bank                 },
+    { "barchart"             , fa::barchart             },
+    { "barcharto"            , fa::barcharto            },
+    { "barcode"              , fa::barcode              },
+    { "bars"                 , fa::bars                 },
+    { "battery0"             , fa::battery0             },
+    { "battery1"             , fa::battery1             },
+    { "battery2"             , fa::battery2             },
+    { "battery3"             , fa::battery3             },
+    { "battery4"             , fa::battery4             },
+    { "batteryempty"         , fa::batteryempty         },
+    { "batteryfull"          , fa::batteryfull          },
+    { "batteryhalf"          , fa::batteryhalf          },
+    { "batteryquarter"       , fa::batteryquarter       },
+    { "batterythreequarters" , fa::batterythreequarters },
+    { "bed"                  , fa::bed                  },
+    { "beer"                 , fa::beer                 },
+    { "behance"              , fa::behance              },
+    { "behancesquare"        , fa::behancesquare        },
+    { "bell"                 , fa::bell                 },
+    { "bello"                , fa::bello                },
+    { "bellslash"            , fa::bellslash            },
+    { "bellslasho"           , fa::bellslasho           },
+    { "bicycle"              , fa::bicycle              },
+    { "binoculars"           , fa::binoculars           },
+    { "birthdaycake"         , fa::birthdaycake         },
+    { "bitbucket"            , fa::bitbucket            },
+    { "bitbucketsquare"      , fa::bitbucketsquare      },
+    { "bitcoin"              , fa::bitcoin              },
+    { "blacktie"             , fa::blacktie             },
+    { "bluetooth"            , fa::bluetooth            },
+    { "bluetoothb"           , fa::bluetoothb           },
+    { "bold"                 , fa::bold                 },
+    { "bolt"                 , fa::bolt                 },
+    { "bomb"                 , fa::bomb                 },
+    { "book"                 , fa::book                 },
+    { "bookmark"             , fa::bookmark             },
+    { "bookmarko"            , fa::bookmarko            },
+    { "briefcase"            , fa::briefcase            },
+    { "btc"                  , fa::btc                  },
+    { "bug"                  , fa::bug                  },
+    { "building"             , fa::building             },
+    { "buildingo"            , fa::buildingo            },
+    { "bullhorn"             , fa::bullhorn             },
+    { "bullseye"             , fa::bullseye             },
+    { "bus"                  , fa::bus                  },
+    { "buysellads"           , fa::buysellads           },
+    { "cab"                  , fa::cab                  },
+    { "calculator"           , fa::calculator           },
+    { "calendar"             , fa::calendar             },
+    { "calendarchecko"       , fa::calendarchecko       },
+    { "calendarminuso"       , fa::calendarminuso       },
+    { "calendaro"            , fa::calendaro            },
+    { "calendarpluso"        , fa::calendarpluso        },
+    { "calendartimeso"       , fa::calendartimeso       },
+    { "camera"               , fa::camera               },
+    { "cameraretro"          , fa::cameraretro          },
+    { "car"                  , fa::car                  },
+    { "caretdown"            , fa::caretdown            },
+    { "caretleft"            , fa::caretleft            },
+    { "caretright"           , fa::caretright           },
+    { "caretsquareodown"     , fa::caretsquareodown     },
+    { "caretsquareoleft"     , fa::caretsquareoleft     },
+    { "caretsquareoright"    , fa::caretsquareoright    },
+    { "caretsquareoup"       , fa::caretsquareoup       },
+    { "caretup"              , fa::caretup              },
+    { "cartarrowdown"        , fa::cartarrowdown        },
+    { "cartplus"             , fa::cartplus             },
+    { "cc"                   , fa::cc                   },
+    { "ccamex"               , fa::ccamex               },
+    { "ccdinersclub"         , fa::ccdinersclub         },
+    { "ccdiscover"           , fa::ccdiscover           },
+    { "ccjcb"                , fa::ccjcb                },
+    { "ccmastercard"         , fa::ccmastercard         },
+    { "ccpaypal"             , fa::ccpaypal             },
+    { "ccstripe"             , fa::ccstripe             },
+    { "ccvisa"               , fa::ccvisa               },
+    { "certificate"          , fa::certificate          },
+    { "chain"                , fa::chain                },
+    { "chainbroken"          , fa::chainbroken          },
+    { "check"                , fa::check                },
+    { "checkcircle"          , fa::checkcircle          },
+    { "checkcircleo"         , fa::checkcircleo         },
+    { "checksquare"          , fa::checksquare          },
+    { "checksquareo"         , fa::checksquareo         },
+    { "chevroncircledown"    , fa::chevroncircledown    },
+    { "chevroncircleleft"    , fa::chevroncircleleft    },
+    { "chevroncircleright"   , fa::chevroncircleright   },
+    { "chevroncircleup"      , fa::chevroncircleup      },
+    { "chevrondown"          , fa::chevrondown          },
+    { "chevronleft"          , fa::chevronleft          },
+    { "chevronright"         , fa::chevronright         },
+    { "chevronup"            , fa::chevronup            },
+    { "child"                , fa::child                },
+    { "chrome"               , fa::chrome               },
+    { "circle"               , fa::circle               },
+    { "circleo"              , fa::circleo              },
+    { "circleonotch"         , fa::circleonotch         },
+    { "circlethin"           , fa::circlethin           },
+    { "clipboard"            , fa::clipboard            },
+    { "clocko"               , fa::clocko               },
+    { "clone"                , fa::clone                },
+    { "close"                , fa::close                },
+    { "cloud"                , fa::cloud                },
+    { "clouddownload"        , fa::clouddownload        },
+    { "cloudupload"          , fa::cloudupload          },
+    { "cny"                  , fa::cny                  },
+    { "code"                 , fa::code                 },
+    { "codefork"             , fa::codefork             },
+    { "codepen"              , fa::codepen              },
+    { "codiepie"             , fa::codiepie             },
+    { "coffee"               , fa::coffee               },
+    { "cog"                  , fa::cog                  },
+    { "cogs"                 , fa::cogs                 },
+    { "columns"              , fa::columns              },
+    { "comment"              , fa::comment              },
+    { "commento"             , fa::commento             },
+    { "commenting"           , fa::commenting           },
+    { "commentingo"          , fa::commentingo          },
+    { "comments"             , fa::comments             },
+    { "commentso"            , fa::commentso            },
+    { "compass"              , fa::compass              },
+    { "compress"             , fa::compress             },
+    { "connectdevelop"       , fa::connectdevelop       },
+    { "contao"               , fa::contao               },
+    { "copy"                 , fa::copy                 },
+    { "copyright"            , fa::copyright            },
+    { "creativecommons"      , fa::creativecommons      },
+    { "creditcard"           , fa::creditcard           },
+    { "creditcardalt"        , fa::creditcardalt        },
+    { "crop"                 , fa::crop                 },
+    { "crosshairs"           , fa::crosshairs           },
+    { "css3"                 , fa::css3                 },
+    { "cube"                 , fa::cube                 },
+    { "cubes"                , fa::cubes                },
+    { "cut"                  , fa::cut                  },
+    { "cutlery"              , fa::cutlery              },
+    { "dashboard"            , fa::dashboard            },
+    { "dashcube"             , fa::dashcube             },
+    { "database"             , fa::database             },
+    { "dedent"               , fa::dedent               },
+    { "delicious"            , fa::delicious            },
+    { "desktop"              , fa::desktop              },
+    { "deviantart"           , fa::deviantart           },
+    { "diamond"              , fa::diamond              },
+    { "digg"                 , fa::digg                 },
+    { "dollar"               , fa::dollar               },
+    { "dotcircleo"           , fa::dotcircleo           },
+    { "download"             , fa::download             },
+    { "dribbble"             , fa::dribbble             },
+    { "dropbox"              , fa::dropbox              },
+    { "drupal"               , fa::drupal               },
+    { "edge"                 , fa::edge                 },
+    { "edit"                 , fa::edit                 },
+    { "eject"                , fa::eject                },
+    { "ellipsish"            , fa::ellipsish            },
+    { "ellipsisv"            , fa::ellipsisv            },
+    { "empire"               , fa::empire               },
+    { "envelope"             , fa::envelope             },
+    { "envelopeo"            , fa::envelopeo            },
+    { "envelopesquare"       , fa::envelopesquare       },
+    { "eraser"               , fa::eraser               },
+    { "eur"                  , fa::eur                  },
+    { "euro"                 , fa::euro                 },
+    { "exchange"             , fa::exchange             },
+    { "exclamation"          , fa::exclamation          },
+    { "exclamationcircle"    , fa::exclamationcircle    },
+    { "exclamationtriangle"  , fa::exclamationtriangle  },
+    { "expand"               , fa::expand               },
+    { "expeditedssl"         , fa::expeditedssl         },
+    { "externallink"         , fa::externallink         },
+    { "externallinksquare"   , fa::externallinksquare   },
+    { "eye"                  , fa::eye                  },
+    { "eyeslash"             , fa::eyeslash             },
+    { "eyedropper"           , fa::eyedropper           },
+    { "facebook"             , fa::facebook             },
+    { "facebookf"            , fa::facebookf            },
+    { "facebookofficial"     , fa::facebookofficial     },
+    { "facebooksquare"       , fa::facebooksquare       },
+    { "fastbackward"         , fa::fastbackward         },
+    { "fastforward"          , fa::fastforward          },
+    { "fax"                  , fa::fax                  },
+    { "feed"                 , fa::feed                 },
+    { "female"               , fa::female               },
+    { "fighterjet"           , fa::fighterjet           },
+    { "file"                 , fa::file                 },
+    { "filearchiveo"         , fa::filearchiveo         },
+    { "fileaudioo"           , fa::fileaudioo           },
+    { "filecodeo"            , fa::filecodeo            },
+    { "fileexcelo"           , fa::fileexcelo           },
+    { "fileimageo"           , fa::fileimageo           },
+    { "filemovieo"           , fa::filemovieo           },
+    { "fileo"                , fa::fileo                },
+    { "filepdfo"             , fa::filepdfo             },
+    { "filephotoo"           , fa::filephotoo           },
+    { "filepictureo"         , fa::filepictureo         },
+    { "filepowerpointo"      , fa::filepowerpointo      },
+    { "filesoundo"           , fa::filesoundo           },
+    { "filetext"             , fa::filetext             },
+    { "filetexto"            , fa::filetexto            },
+    { "filevideoo"           , fa::filevideoo           },
+    { "filewordo"            , fa::filewordo            },
+    { "filezipo"             , fa::filezipo             },
+    { "fileso"               , fa::fileso               },
+    { "film"                 , fa::film                 },
+    { "filter"               , fa::filter               },
+    { "fire"                 , fa::fire                 },
+    { "fireextinguisher"     , fa::fireextinguisher     },
+    { "firefox"              , fa::firefox              },
+    { "flag"                 , fa::flag                 },
+    { "flagcheckered"        , fa::flagcheckered        },
+    { "flago"                , fa::flago                },
+    { "flash"                , fa::flash                },
+    { "flask"                , fa::flask                },
+    { "flickr"               , fa::flickr               },
+    { "floppyo"              , fa::floppyo              },
+    { "folder"               , fa::folder               },
+    { "foldero"              , fa::foldero              },
+    { "folderopen"           , fa::folderopen           },
+    { "folderopeno"          , fa::folderopeno          },
+    { "font"                 , fa::font                 },
+    { "fonticons"            , fa::fonticons            },
+    { "fortawesome"          , fa::fortawesome          },
+    { "forumbee"             , fa::forumbee             },
+    { "forward"              , fa::forward              },
+    { "foursquare"           , fa::foursquare           },
+    { "frowno"               , fa::frowno               },
+    { "futbolo"              , fa::futbolo              },
+    { "gamepad"              , fa::gamepad              },
+    { "gavel"                , fa::gavel                },
+    { "gbp"                  , fa::gbp                  },
+    { "ge"                   , fa::ge                   },
+    { "gear"                 , fa::gear                 },
+    { "gears"                , fa::gears                },
+    { "genderless"           , fa::genderless           },
+    { "getpocket"            , fa::getpocket            },
+    { "gg"                   , fa::gg                   },
+    { "ggcircle"             , fa::ggcircle             },
+    { "gift"                 , fa::gift                 },
+    { "git"                  , fa::git                  },
+    { "gitsquare"            , fa::gitsquare            },
+    { "github"               , fa::github               },
+    { "githubalt"            , fa::githubalt            },
+    { "githubsquare"         , fa::githubsquare         },
+    { "gittip"               , fa::gittip               },
+    { "glass"                , fa::glass                },
+    { "globe"                , fa::globe                },
+    { "google"               , fa::google               },
+    { "googleplus"           , fa::googleplus           },
+    { "googleplussquare"     , fa::googleplussquare     },
+    { "googlewallet"         , fa::googlewallet         },
+    { "graduationcap"        , fa::graduationcap        },
+    { "gratipay"             , fa::gratipay             },
+    { "group"                , fa::group                },
+    { "hsquare"              , fa::hsquare              },
+    { "hackernews"           , fa::hackernews           },
+    { "handgrabo"            , fa::handgrabo            },
+    { "handlizardo"          , fa::handlizardo          },
+    { "handodown"            , fa::handodown            },
+    { "handoleft"            , fa::handoleft            },
+    { "handoright"           , fa::handoright           },
+    { "handoup"              , fa::handoup              },
+    { "handpapero"           , fa::handpapero           },
+    { "handpeaceo"           , fa::handpeaceo           },
+    { "handpointero"         , fa::handpointero         },
+    { "handrocko"            , fa::handrocko            },
+    { "handscissorso"        , fa::handscissorso        },
+    { "handspocko"           , fa::handspocko           },
+    { "handstopo"            , fa::handstopo            },
+    { "hashtag"              , fa::hashtag              },
+    { "hddo"                 , fa::hddo                 },
+    { "header"               , fa::header               },
+    { "headphones"           , fa::headphones           },
+    { "heart"                , fa::heart                },
+    { "hearto"               , fa::hearto               },
+    { "heartbeat"            , fa::heartbeat            },
+    { "history"              , fa::history              },
+    { "home"                 , fa::home                 },
+    { "hospitalo"            , fa::hospitalo            },
+    { "hotel"                , fa::hotel                },
+    { "hourglass"            , fa::hourglass            },
+    { "hourglass1"           , fa::hourglass1           },
+    { "hourglass2"           , fa::hourglass2           },
+    { "hourglass3"           , fa::hourglass3           },
+    { "hourglassend"         , fa::hourglassend         },
+    { "hourglasshalf"        , fa::hourglasshalf        },
+    { "hourglasso"           , fa::hourglasso           },
+    { "hourglassstart"       , fa::hourglassstart       },
+    { "houzz"                , fa::houzz                },
+    { "html5"                , fa::html5                },
+    { "icursor"              , fa::icursor              },
+    { "ils"                  , fa::ils                  },
+    { "image"                , fa::image                },
+    { "inbox"                , fa::inbox                },
+    { "indent"               , fa::indent               },
+    { "industry"             , fa::industry             },
+    { "info"                 , fa::info                 },
+    { "infocircle"           , fa::infocircle           },
+    { "inr"                  , fa::inr                  },
+    { "instagram"            , fa::instagram            },
+    { "institution"          , fa::institution          },
+    { "internetexplorer"     , fa::internetexplorer     },
+    { "intersex"             , fa::intersex             },
+    { "ioxhost"              , fa::ioxhost              },
+    { "italic"               , fa::italic               },
+    { "joomla"               , fa::joomla               },
+    { "jpy"                  , fa::jpy                  },
+    { "jsfiddle"             , fa::jsfiddle             },
+    { "key"                  , fa::key                  },
+    { "keyboardo"            , fa::keyboardo            },
+    { "krw"                  , fa::krw                  },
+    { "language"             , fa::language             },
+    { "laptop"               , fa::laptop               },
+    { "lastfm"               , fa::lastfm               },
+    { "lastfmsquare"         , fa::lastfmsquare         },
+    { "leaf"                 , fa::leaf                 },
+    { "leanpub"              , fa::leanpub              },
+    { "legal"                , fa::legal                },
+    { "lemono"               , fa::lemono               },
+    { "leveldown"            , fa::leveldown            },
+    { "levelup"              , fa::levelup              },
+    { "lifebouy"             , fa::lifebouy             },
+    { "lifebuoy"             , fa::lifebuoy             },
+    { "lifering"             , fa::lifering             },
+    { "lifesaver"            , fa::lifesaver            },
+    { "lightbulbo"           , fa::lightbulbo           },
+    { "linechart"            , fa::linechart            },
+    { "link"                 , fa::link                 },
+    { "linkedin"             , fa::linkedin             },
+    { "linkedinsquare"       , fa::linkedinsquare       },
+    { "fa_linux"             , fa::fa_linux             },
+    { "list"                 , fa::list                 },
+    { "listalt"              , fa::listalt              },
+    { "listol"               , fa::listol               },
+    { "listul"               , fa::listul               },
+    { "locationarrow"        , fa::locationarrow        },
+    { "lock"                 , fa::lock                 },
+    { "longarrowdown"        , fa::longarrowdown        },
+    { "longarrowleft"        , fa::longarrowleft        },
+    { "longarrowright"       , fa::longarrowright       },
+    { "longarrowup"          , fa::longarrowup          },
+    { "magic"                , fa::magic                },
+    { "magnet"               , fa::magnet               },
+    { "mailforward"          , fa::mailforward          },
+    { "mailreply"            , fa::mailreply            },
+    { "mailreplyall"         , fa::mailreplyall         },
+    { "male"                 , fa::male                 },
+    { "map"                  , fa::map                  },
+    { "mapmarker"            , fa::mapmarker            },
+    { "mapo"                 , fa::mapo                 },
+    { "mappin"               , fa::mappin               },
+    { "mapsigns"             , fa::mapsigns             },
+    { "mars"                 , fa::mars                 },
+    { "marsdouble"           , fa::marsdouble           },
+    { "marsstroke"           , fa::marsstroke           },
+    { "marsstrokeh"          , fa::marsstrokeh          },
+    { "marsstrokev"          , fa::marsstrokev          },
+    { "maxcdn"               , fa::maxcdn               },
+    { "meanpath"             , fa::meanpath             },
+    { "medium"               , fa::medium               },
+    { "medkit"               , fa::medkit               },
+    { "meho"                 , fa::meho                 },
+    { "mercury"              , fa::mercury              },
+    { "microphone"           , fa::microphone           },
+    { "microphoneslash"      , fa::microphoneslash      },
+    { "minus"                , fa::minus                },
+    { "minuscircle"          , fa::minuscircle          },
+    { "minussquare"          , fa::minussquare          },
+    { "minussquareo"         , fa::minussquareo         },
+    { "mixcloud"             , fa::mixcloud             },
+    { "mobile"               , fa::mobile               },
+    { "mobilephone"          , fa::mobilephone          },
+    { "modx"                 , fa::modx                 },
+    { "money"                , fa::money                },
+    { "moono"                , fa::moono                },
+    { "mortarboard"          , fa::mortarboard          },
+    { "motorcycle"           , fa::motorcycle           },
+    { "mousepointer"         , fa::mousepointer         },
+    { "music"                , fa::music                },
+    { "navicon"              , fa::navicon              },
+    { "neuter"               , fa::neuter               },
+    { "newspapero"           , fa::newspapero           },
+    { "objectgroup"          , fa::objectgroup          },
+    { "objectungroup"        , fa::objectungroup        },
+    { "odnoklassniki"        , fa::odnoklassniki        },
+    { "odnoklassnikisquare"  , fa::odnoklassnikisquare  },
+    { "opencart"             , fa::opencart             },
+    { "openid"               , fa::openid               },
+    { "opera"                , fa::opera                },
+    { "optinmonster"         , fa::optinmonster         },
+    { "outdent"              , fa::outdent              },
+    { "pagelines"            , fa::pagelines            },
+    { "paintbrush"           , fa::paintbrush           },
+    { "paperplane"           , fa::paperplane           },
+    { "paperplaneo"          , fa::paperplaneo          },
+    { "paperclip"            , fa::paperclip            },
+    { "paragraph"            , fa::paragraph            },
+    { "paste"                , fa::paste                },
+    { "pause"                , fa::pause                },
+    { "pausecircle"          , fa::pausecircle          },
+    { "pausecircleo"         , fa::pausecircleo         },
+    { "paw"                  , fa::paw                  },
+    { "paypal"               , fa::paypal               },
+    { "pencil"               , fa::pencil               },
+    { "pencilsquare"         , fa::pencilsquare         },
+    { "pencilsquareo"        , fa::pencilsquareo        },
+    { "percent"              , fa::percent              },
+    { "phone"                , fa::phone                },
+    { "phonesquare"          , fa::phonesquare          },
+    { "photo"                , fa::photo                },
+    { "pictureo"             , fa::pictureo             },
+    { "piechart"             , fa::piechart             },
+    { "piedpiper"            , fa::piedpiper            },
+    { "piedpiperalt"         , fa::piedpiperalt         },
+    { "pinterest"            , fa::pinterest            },
+    { "pinterestp"           , fa::pinterestp           },
+    { "pinterestsquare"      , fa::pinterestsquare      },
+    { "plane"                , fa::plane                },
+    { "play"                 , fa::play                 },
+    { "playcircle"           , fa::playcircle           },
+    { "playcircleo"          , fa::playcircleo          },
+    { "plug"                 , fa::plug                 },
+    { "plus"                 , fa::plus                 },
+    { "pluscircle"           , fa::pluscircle           },
+    { "plussquare"           , fa::plussquare           },
+    { "plussquareo"          , fa::plussquareo          },
+    { "poweroff"             , fa::poweroff             },
+    { "print"                , fa::print                },
+    { "producthunt"          , fa::producthunt          },
+    { "puzzlepiece"          , fa::puzzlepiece          },
+    { "qq"                   , fa::qq                   },
+    { "qrcode"               , fa::qrcode               },
+    { "question"             , fa::question             },
+    { "questioncircle"       , fa::questioncircle       },
+    { "quoteleft"            , fa::quoteleft            },
+    { "quoteright"           , fa::quoteright           },
+    { "ra"                   , fa::ra                   },
+    { "random"               , fa::random               },
+    { "rebel"                , fa::rebel                },
+    { "recycle"              , fa::recycle              },
+    { "reddit"               , fa::reddit               },
+    { "redditalien"          , fa::redditalien          },
+    { "redditsquare"         , fa::redditsquare         },
+    { "refresh"              , fa::refresh              },
+    { "registered"           , fa::registered           },
+    { "remove"               , fa::remove               },
+    { "renren"               , fa::renren               },
+    { "reorder"              , fa::reorder              },
+    { "repeat"               , fa::repeat               },
+    { "reply"                , fa::reply                },
+    { "replyall"             , fa::replyall             },
+    { "retweet"              , fa::retweet              },
+    { "rmb"                  , fa::rmb                  },
+    { "road"                 , fa::road                 },
+    { "rocket"               , fa::rocket               },
+    { "rotateleft"           , fa::rotateleft           },
+    { "rotateright"          , fa::rotateright          },
+    { "rouble"               , fa::rouble               },
+    { "rss"                  , fa::rss                  },
+    { "rsssquare"            , fa::rsssquare            },
+    { "rub"                  , fa::rub                  },
+    { "ruble"                , fa::ruble                },
+    { "rupee"                , fa::rupee                },
+    { "safari"               , fa::safari               },
+    { "save"                 , fa::save                 },
+    { "scissors"             , fa::scissors             },
+    { "scribd"               , fa::scribd               },
+    { "search"               , fa::search               },
+    { "searchminus"          , fa::searchminus          },
+    { "searchplus"           , fa::searchplus           },
+    { "sellsy"               , fa::sellsy               },
+    { "send"                 , fa::send                 },
+    { "sendo"                , fa::sendo                },
+    { "server"               , fa::server               },
+    { "share"                , fa::share                },
+    { "sharealt"             , fa::sharealt             },
+    { "sharealtsquare"       , fa::sharealtsquare       },
+    { "sharesquare"          , fa::sharesquare          },
+    { "sharesquareo"         , fa::sharesquareo         },
+    { "shekel"               , fa::shekel               },
+    { "sheqel"               , fa::sheqel               },
+    { "shield"               , fa::shield               },
+    { "ship"                 , fa::ship                 },
+    { "shirtsinbulk"         , fa::shirtsinbulk         },
+    { "shoppingbag"          , fa::shoppingbag          },
+    { "shoppingbasket"       , fa::shoppingbasket       },
+    { "shoppingcart"         , fa::shoppingcart         },
+    { "signin"               , fa::signin               },
+    { "signout"              , fa::signout              },
+    { "signal"               , fa::signal               },
+    { "simplybuilt"          , fa::simplybuilt          },
+    { "sitemap"              , fa::sitemap              },
+    { "skyatlas"             , fa::skyatlas             },
+    { "skype"                , fa::skype                },
+    { "slack"                , fa::slack                },
+    { "sliders"              , fa::sliders              },
+    { "slideshare"           , fa::slideshare           },
+    { "smileo"               , fa::smileo               },
+    { "soccerballo"          , fa::soccerballo          },
+    { "sort"                 , fa::sort                 },
+    { "sortalphaasc"         , fa::sortalphaasc         },
+    { "sortalphadesc"        , fa::sortalphadesc        },
+    { "sortamountasc"        , fa::sortamountasc        },
+    { "sortamountdesc"       , fa::sortamountdesc       },
+    { "sortasc"              , fa::sortasc              },
+    { "sortdesc"             , fa::sortdesc             },
+    { "sortdown"             , fa::sortdown             },
+    { "sortnumericasc"       , fa::sortnumericasc       },
+    { "sortnumericdesc"      , fa::sortnumericdesc      },
+    { "sortup"               , fa::sortup               },
+    { "soundcloud"           , fa::soundcloud           },
+    { "spaceshuttle"         , fa::spaceshuttle         },
+    { "spinner"              , fa::spinner              },
+    { "spoon"                , fa::spoon                },
+    { "spotify"              , fa::spotify              },
+    { "square"               , fa::square               },
+    { "squareo"              , fa::squareo              },
+    { "stackexchange"        , fa::stackexchange        },
+    { "stackoverflow"        , fa::stackoverflow        },
+    { "star"                 , fa::star                 },
+    { "starhalf"             , fa::starhalf             },
+    { "starhalfempty"        , fa::starhalfempty        },
+    { "starhalffull"         , fa::starhalffull         },
+    { "starhalfo"            , fa::starhalfo            },
+    { "staro"                , fa::staro                },
+    { "steam"                , fa::steam                },
+    { "steamsquare"          , fa::steamsquare          },
+    { "stepbackward"         , fa::stepbackward         },
+    { "stepforward"          , fa::stepforward          },
+    { "stethoscope"          , fa::stethoscope          },
+    { "stickynote"           , fa::stickynote           },
+    { "stickynoteo"          , fa::stickynoteo          },
+    { "stop"                 , fa::stop                 },
+    { "stopcircle"           , fa::stopcircle           },
+    { "stopcircleo"          , fa::stopcircleo          },
+    { "streetview"           , fa::streetview           },
+    { "strikethrough"        , fa::strikethrough        },
+    { "stumbleupon"          , fa::stumbleupon          },
+    { "stumbleuponcircle"    , fa::stumbleuponcircle    },
+    { "subscript"            , fa::subscript            },
+    { "subway"               , fa::subway               },
+    { "suitcase"             , fa::suitcase             },
+    { "suno"                 , fa::suno                 },
+    { "superscript"          , fa::superscript          },
+    { "support"              , fa::support              },
+    { "table"                , fa::table                },
+    { "tablet"               , fa::tablet               },
+    { "tachometer"           , fa::tachometer           },
+    { "tag"                  , fa::tag                  },
+    { "tags"                 , fa::tags                 },
+    { "tasks"                , fa::tasks                },
+    { "taxi"                 , fa::taxi                 },
+    { "television"           , fa::television           },
+    { "tencentweibo"         , fa::tencentweibo         },
+    { "terminal"             , fa::terminal             },
+    { "textheight"           , fa::textheight           },
+    { "textwidth"            , fa::textwidth            },
+    { "th"                   , fa::th                   },
+    { "thlarge"              , fa::thlarge              },
+    { "thlist"               , fa::thlist               },
+    { "thumbtack"            , fa::thumbtack            },
+    { "thumbsdown"           , fa::thumbsdown           },
+    { "thumbsodown"          , fa::thumbsodown          },
+    { "thumbsoup"            , fa::thumbsoup            },
+    { "thumbsup"             , fa::thumbsup             },
+    { "ticket"               , fa::ticket               },
+    { "times"                , fa::times                },
+    { "timescircle"          , fa::timescircle          },
+    { "timescircleo"         , fa::timescircleo         },
+    { "tint"                 , fa::tint                 },
+    { "toggledown"           , fa::toggledown           },
+    { "toggleleft"           , fa::toggleleft           },
+    { "toggleoff"            , fa::toggleoff            },
+    { "toggleon"             , fa::toggleon             },
+    { "toggleright"          , fa::toggleright          },
+    { "toggleup"             , fa::toggleup             },
+    { "trademark"            , fa::trademark            },
+    { "train"                , fa::train                },
+    { "transgender"          , fa::transgender          },
+    { "transgenderalt"       , fa::transgenderalt       },
+    { "trash"                , fa::trash                },
+    { "trasho"               , fa::trasho               },
+    { "tree"                 , fa::tree                 },
+    { "trello"               , fa::trello               },
+    { "tripadvisor"          , fa::tripadvisor          },
+    { "trophy"               , fa::trophy               },
+    { "truck"                , fa::truck                },
+    { "fa_try"               , fa::fa_try               },
+    { "tty"                  , fa::tty                  },
+    { "tumblr"               , fa::tumblr               },
+    { "tumblrsquare"         , fa::tumblrsquare         },
+    { "turkishlira"          , fa::turkishlira          },
+    { "tv"                   , fa::tv                   },
+    { "twitch"               , fa::twitch               },
+    { "twitter"              , fa::twitter              },
+    { "twittersquare"        , fa::twittersquare        },
+    { "umbrella"             , fa::umbrella             },
+    { "underline"            , fa::underline            },
+    { "undo"                 , fa::undo                 },
+    { "university"           , fa::university           },
+    { "unlink"               , fa::unlink               },
+    { "unlock"               , fa::unlock               },
+    { "unlockalt"            , fa::unlockalt            },
+    { "unsorted"             , fa::unsorted             },
+    { "upload"               , fa::upload               },
+    { "usb"                  , fa::usb                  },
+    { "usd"                  , fa::usd                  },
+    { "user"                 , fa::user                 },
+    { "usermd"               , fa::usermd               },
+    { "userplus"             , fa::userplus             },
+    { "usersecret"           , fa::usersecret           },
+    { "usertimes"            , fa::usertimes            },
+    { "users"                , fa::users                },
+    { "venus"                , fa::venus                },
+    { "venusdouble"          , fa::venusdouble          },
+    { "venusmars"            , fa::venusmars            },
+    { "viacoin"              , fa::viacoin              },
+    { "videocamera"          , fa::videocamera          },
+    { "vimeo"                , fa::vimeo                },
+    { "vimeosquare"          , fa::vimeosquare          },
+    { "vine"                 , fa::vine                 },
+    { "vk"                   , fa::vk                   },
+    { "volumedown"           , fa::volumedown           },
+    { "volumeoff"            , fa::volumeoff            },
+    { "volumeup"             , fa::volumeup             },
+    { "warning"              , fa::warning              },
+    { "wechat"               , fa::wechat               },
+    { "weibo"                , fa::weibo                },
+    { "weixin"               , fa::weixin               },
+    { "whatsapp"             , fa::whatsapp             },
+    { "wheelchair"           , fa::wheelchair           },
+    { "wifi"                 , fa::wifi                 },
+    { "wikipediaw"           , fa::wikipediaw           },
+    { "windows"              , fa::windows              },
+    { "won"                  , fa::won                  },
+    { "wordpress"            , fa::wordpress            },
+    { "wrench"               , fa::wrench               },
+    { "xing"                 , fa::xing                 },
+    { "xingsquare"           , fa::xingsquare           },
+    { "ycombinator"          , fa::ycombinator          },
+    { "ycombinatorsquare"    , fa::ycombinatorsquare    },
+    { "yahoo"                , fa::yahoo                },
+    { "yc"                   , fa::yc                   },
+    { "ycsquare"             , fa::ycsquare             },
+    { "yelp"                 , fa::yelp                 },
+    { "yen"                  , fa::yen                  },
+    { "youtube"              , fa::youtube              },
+    { "youtubeplay"          , fa::youtubeplay          },
+    { "youtubesquare"        , fa::youtubesquare        },
+};
+
 
 /// a specialized init function so font-awesome is loaded and initialized
 /// this method return true on success, it will return false if the fnot cannot be initialized
@@ -200,700 +902,8 @@ bool QtAwesome::initFontAwesome( )
 
     // intialize the map
     QHash<QString, int>& m = namedCodepoints_;
-    m.insert("fa_500px", fa::fa_500px );
-    m.insert("adjust", fa::adjust );
-    m.insert("adn", fa::adn );
-    m.insert("aligncenter", fa::aligncenter );
-    m.insert("alignjustify", fa::alignjustify );
-    m.insert("alignleft", fa::alignleft );
-    m.insert("alignright", fa::alignright );
-    m.insert("amazon", fa::amazon );
-    m.insert("ambulance", fa::ambulance );
-    m.insert("anchor", fa::anchor );
-    m.insert("android", fa::android );
-    m.insert("angellist", fa::angellist );
-    m.insert("angledoubledown", fa::angledoubledown );
-    m.insert("angledoubleleft", fa::angledoubleleft );
-    m.insert("angledoubleright", fa::angledoubleright );
-    m.insert("angledoubleup", fa::angledoubleup );
-    m.insert("angledown", fa::angledown );
-    m.insert("angleleft", fa::angleleft );
-    m.insert("angleright", fa::angleright );
-    m.insert("angleup", fa::angleup );
-    m.insert("apple", fa::apple );
-    m.insert("archive", fa::archive );
-    m.insert("areachart", fa::areachart );
-    m.insert("arrowcircledown", fa::arrowcircledown );
-    m.insert("arrowcircleleft", fa::arrowcircleleft );
-    m.insert("arrowcircleodown", fa::arrowcircleodown );
-    m.insert("arrowcircleoleft", fa::arrowcircleoleft );
-    m.insert("arrowcircleoright", fa::arrowcircleoright );
-    m.insert("arrowcircleoup", fa::arrowcircleoup );
-    m.insert("arrowcircleright", fa::arrowcircleright );
-    m.insert("arrowcircleup", fa::arrowcircleup );
-    m.insert("arrowdown", fa::arrowdown );
-    m.insert("arrowleft", fa::arrowleft );
-    m.insert("arrowright", fa::arrowright );
-    m.insert("arrowup", fa::arrowup );
-    m.insert("arrows", fa::arrows );
-    m.insert("arrowsalt", fa::arrowsalt );
-    m.insert("arrowsh", fa::arrowsh );
-    m.insert("arrowsv", fa::arrowsv );
-    m.insert("asterisk", fa::asterisk );
-    m.insert("at", fa::at );
-    m.insert("automobile", fa::automobile );
-    m.insert("backward", fa::backward );
-    m.insert("balancescale", fa::balancescale );
-    m.insert("ban", fa::ban );
-    m.insert("bank", fa::bank );
-    m.insert("barchart", fa::barchart );
-    m.insert("barcharto", fa::barcharto );
-    m.insert("barcode", fa::barcode );
-    m.insert("bars", fa::bars );
-    m.insert("battery0", fa::battery0 );
-    m.insert("battery1", fa::battery1 );
-    m.insert("battery2", fa::battery2 );
-    m.insert("battery3", fa::battery3 );
-    m.insert("battery4", fa::battery4 );
-    m.insert("batteryempty", fa::batteryempty );
-    m.insert("batteryfull", fa::batteryfull );
-    m.insert("batteryhalf", fa::batteryhalf );
-    m.insert("batteryquarter", fa::batteryquarter );
-    m.insert("batterythreequarters", fa::batterythreequarters );
-    m.insert("bed", fa::bed );
-    m.insert("beer", fa::beer );
-    m.insert("behance", fa::behance );
-    m.insert("behancesquare", fa::behancesquare );
-    m.insert("bell", fa::bell );
-    m.insert("bello", fa::bello );
-    m.insert("bellslash", fa::bellslash );
-    m.insert("bellslasho", fa::bellslasho );
-    m.insert("bicycle", fa::bicycle );
-    m.insert("binoculars", fa::binoculars );
-    m.insert("birthdaycake", fa::birthdaycake );
-    m.insert("bitbucket", fa::bitbucket );
-    m.insert("bitbucketsquare", fa::bitbucketsquare );
-    m.insert("bitcoin", fa::bitcoin );
-    m.insert("blacktie", fa::blacktie );
-    m.insert("bluetooth", fa::bluetooth );
-    m.insert("bluetoothb", fa::bluetoothb );
-    m.insert("bold", fa::bold );
-    m.insert("bolt", fa::bolt );
-    m.insert("bomb", fa::bomb );
-    m.insert("book", fa::book );
-    m.insert("bookmark", fa::bookmark );
-    m.insert("bookmarko", fa::bookmarko );
-    m.insert("briefcase", fa::briefcase );
-    m.insert("btc", fa::btc );
-    m.insert("bug", fa::bug );
-    m.insert("building", fa::building );
-    m.insert("buildingo", fa::buildingo );
-    m.insert("bullhorn", fa::bullhorn );
-    m.insert("bullseye", fa::bullseye );
-    m.insert("bus", fa::bus );
-    m.insert("buysellads", fa::buysellads );
-    m.insert("cab", fa::cab );
-    m.insert("calculator", fa::calculator );
-    m.insert("calendar", fa::calendar );
-    m.insert("calendarchecko", fa::calendarchecko );
-    m.insert("calendarminuso", fa::calendarminuso );
-    m.insert("calendaro", fa::calendaro );
-    m.insert("calendarpluso", fa::calendarpluso );
-    m.insert("calendartimeso", fa::calendartimeso );
-    m.insert("camera", fa::camera );
-    m.insert("cameraretro", fa::cameraretro );
-    m.insert("car", fa::car );
-    m.insert("caretdown", fa::caretdown );
-    m.insert("caretleft", fa::caretleft );
-    m.insert("caretright", fa::caretright );
-    m.insert("caretsquareodown", fa::caretsquareodown );
-    m.insert("caretsquareoleft", fa::caretsquareoleft );
-    m.insert("caretsquareoright", fa::caretsquareoright );
-    m.insert("caretsquareoup", fa::caretsquareoup );
-    m.insert("caretup", fa::caretup );
-    m.insert("cartarrowdown", fa::cartarrowdown );
-    m.insert("cartplus", fa::cartplus );
-    m.insert("cc", fa::cc );
-    m.insert("ccamex", fa::ccamex );
-    m.insert("ccdinersclub", fa::ccdinersclub );
-    m.insert("ccdiscover", fa::ccdiscover );
-    m.insert("ccjcb", fa::ccjcb );
-    m.insert("ccmastercard", fa::ccmastercard );
-    m.insert("ccpaypal", fa::ccpaypal );
-    m.insert("ccstripe", fa::ccstripe );
-    m.insert("ccvisa", fa::ccvisa );
-    m.insert("certificate", fa::certificate );
-    m.insert("chain", fa::chain );
-    m.insert("chainbroken", fa::chainbroken );
-    m.insert("check", fa::check );
-    m.insert("checkcircle", fa::checkcircle );
-    m.insert("checkcircleo", fa::checkcircleo );
-    m.insert("checksquare", fa::checksquare );
-    m.insert("checksquareo", fa::checksquareo );
-    m.insert("chevroncircledown", fa::chevroncircledown );
-    m.insert("chevroncircleleft", fa::chevroncircleleft );
-    m.insert("chevroncircleright", fa::chevroncircleright );
-    m.insert("chevroncircleup", fa::chevroncircleup );
-    m.insert("chevrondown", fa::chevrondown );
-    m.insert("chevronleft", fa::chevronleft );
-    m.insert("chevronright", fa::chevronright );
-    m.insert("chevronup", fa::chevronup );
-    m.insert("child", fa::child );
-    m.insert("chrome", fa::chrome );
-    m.insert("circle", fa::circle );
-    m.insert("circleo", fa::circleo );
-    m.insert("circleonotch", fa::circleonotch );
-    m.insert("circlethin", fa::circlethin );
-    m.insert("clipboard", fa::clipboard );
-    m.insert("clocko", fa::clocko );
-    m.insert("clone", fa::clone );
-    m.insert("close", fa::close );
-    m.insert("cloud", fa::cloud );
-    m.insert("clouddownload", fa::clouddownload );
-    m.insert("cloudupload", fa::cloudupload );
-    m.insert("cny", fa::cny );
-    m.insert("code", fa::code );
-    m.insert("codefork", fa::codefork );
-    m.insert("codepen", fa::codepen );
-    m.insert("codiepie", fa::codiepie );
-    m.insert("coffee", fa::coffee );
-    m.insert("cog", fa::cog );
-    m.insert("cogs", fa::cogs );
-    m.insert("columns", fa::columns );
-    m.insert("comment", fa::comment );
-    m.insert("commento", fa::commento );
-    m.insert("commenting", fa::commenting );
-    m.insert("commentingo", fa::commentingo );
-    m.insert("comments", fa::comments );
-    m.insert("commentso", fa::commentso );
-    m.insert("compass", fa::compass );
-    m.insert("compress", fa::compress );
-    m.insert("connectdevelop", fa::connectdevelop );
-    m.insert("contao", fa::contao );
-    m.insert("copy", fa::copy );
-    m.insert("copyright", fa::copyright );
-    m.insert("creativecommons", fa::creativecommons );
-    m.insert("creditcard", fa::creditcard );
-    m.insert("creditcardalt", fa::creditcardalt );
-    m.insert("crop", fa::crop );
-    m.insert("crosshairs", fa::crosshairs );
-    m.insert("css3", fa::css3 );
-    m.insert("cube", fa::cube );
-    m.insert("cubes", fa::cubes );
-    m.insert("cut", fa::cut );
-    m.insert("cutlery", fa::cutlery );
-    m.insert("dashboard", fa::dashboard );
-    m.insert("dashcube", fa::dashcube );
-    m.insert("database", fa::database );
-    m.insert("dedent", fa::dedent );
-    m.insert("delicious", fa::delicious );
-    m.insert("desktop", fa::desktop );
-    m.insert("deviantart", fa::deviantart );
-    m.insert("diamond", fa::diamond );
-    m.insert("digg", fa::digg );
-    m.insert("dollar", fa::dollar );
-    m.insert("dotcircleo", fa::dotcircleo );
-    m.insert("download", fa::download );
-    m.insert("dribbble", fa::dribbble );
-    m.insert("dropbox", fa::dropbox );
-    m.insert("drupal", fa::drupal );
-    m.insert("edge", fa::edge );
-    m.insert("edit", fa::edit );
-    m.insert("eject", fa::eject );
-    m.insert("ellipsish", fa::ellipsish );
-    m.insert("ellipsisv", fa::ellipsisv );
-    m.insert("empire", fa::empire );
-    m.insert("envelope", fa::envelope );
-    m.insert("envelopeo", fa::envelopeo );
-    m.insert("envelopesquare", fa::envelopesquare );
-    m.insert("eraser", fa::eraser );
-    m.insert("eur", fa::eur );
-    m.insert("euro", fa::euro );
-    m.insert("exchange", fa::exchange );
-    m.insert("exclamation", fa::exclamation );
-    m.insert("exclamationcircle", fa::exclamationcircle );
-    m.insert("exclamationtriangle", fa::exclamationtriangle );
-    m.insert("expand", fa::expand );
-    m.insert("expeditedssl", fa::expeditedssl );
-    m.insert("externallink", fa::externallink );
-    m.insert("externallinksquare", fa::externallinksquare );
-    m.insert("eye", fa::eye );
-    m.insert("eyeslash", fa::eyeslash );
-    m.insert("eyedropper", fa::eyedropper );
-    m.insert("facebook", fa::facebook );
-    m.insert("facebookf", fa::facebookf );
-    m.insert("facebookofficial", fa::facebookofficial );
-    m.insert("facebooksquare", fa::facebooksquare );
-    m.insert("fastbackward", fa::fastbackward );
-    m.insert("fastforward", fa::fastforward );
-    m.insert("fax", fa::fax );
-    m.insert("feed", fa::feed );
-    m.insert("female", fa::female );
-    m.insert("fighterjet", fa::fighterjet );
-    m.insert("file", fa::file );
-    m.insert("filearchiveo", fa::filearchiveo );
-    m.insert("fileaudioo", fa::fileaudioo );
-    m.insert("filecodeo", fa::filecodeo );
-    m.insert("fileexcelo", fa::fileexcelo );
-    m.insert("fileimageo", fa::fileimageo );
-    m.insert("filemovieo", fa::filemovieo );
-    m.insert("fileo", fa::fileo );
-    m.insert("filepdfo", fa::filepdfo );
-    m.insert("filephotoo", fa::filephotoo );
-    m.insert("filepictureo", fa::filepictureo );
-    m.insert("filepowerpointo", fa::filepowerpointo );
-    m.insert("filesoundo", fa::filesoundo );
-    m.insert("filetext", fa::filetext );
-    m.insert("filetexto", fa::filetexto );
-    m.insert("filevideoo", fa::filevideoo );
-    m.insert("filewordo", fa::filewordo );
-    m.insert("filezipo", fa::filezipo );
-    m.insert("fileso", fa::fileso );
-    m.insert("film", fa::film );
-    m.insert("filter", fa::filter );
-    m.insert("fire", fa::fire );
-    m.insert("fireextinguisher", fa::fireextinguisher );
-    m.insert("firefox", fa::firefox );
-    m.insert("flag", fa::flag );
-    m.insert("flagcheckered", fa::flagcheckered );
-    m.insert("flago", fa::flago );
-    m.insert("flash", fa::flash );
-    m.insert("flask", fa::flask );
-    m.insert("flickr", fa::flickr );
-    m.insert("floppyo", fa::floppyo );
-    m.insert("folder", fa::folder );
-    m.insert("foldero", fa::foldero );
-    m.insert("folderopen", fa::folderopen );
-    m.insert("folderopeno", fa::folderopeno );
-    m.insert("font", fa::font );
-    m.insert("fonticons", fa::fonticons );
-    m.insert("fortawesome", fa::fortawesome );
-    m.insert("forumbee", fa::forumbee );
-    m.insert("forward", fa::forward );
-    m.insert("foursquare", fa::foursquare );
-    m.insert("frowno", fa::frowno );
-    m.insert("futbolo", fa::futbolo );
-    m.insert("gamepad", fa::gamepad );
-    m.insert("gavel", fa::gavel );
-    m.insert("gbp", fa::gbp );
-    m.insert("ge", fa::ge );
-    m.insert("gear", fa::gear );
-    m.insert("gears", fa::gears );
-    m.insert("genderless", fa::genderless );
-    m.insert("getpocket", fa::getpocket );
-    m.insert("gg", fa::gg );
-    m.insert("ggcircle", fa::ggcircle );
-    m.insert("gift", fa::gift );
-    m.insert("git", fa::git );
-    m.insert("gitsquare", fa::gitsquare );
-    m.insert("github", fa::github );
-    m.insert("githubalt", fa::githubalt );
-    m.insert("githubsquare", fa::githubsquare );
-    m.insert("gittip", fa::gittip );
-    m.insert("glass", fa::glass );
-    m.insert("globe", fa::globe );
-    m.insert("google", fa::google );
-    m.insert("googleplus", fa::googleplus );
-    m.insert("googleplussquare", fa::googleplussquare );
-    m.insert("googlewallet", fa::googlewallet );
-    m.insert("graduationcap", fa::graduationcap );
-    m.insert("gratipay", fa::gratipay );
-    m.insert("group", fa::group );
-    m.insert("hsquare", fa::hsquare );
-    m.insert("hackernews", fa::hackernews );
-    m.insert("handgrabo", fa::handgrabo );
-    m.insert("handlizardo", fa::handlizardo );
-    m.insert("handodown", fa::handodown );
-    m.insert("handoleft", fa::handoleft );
-    m.insert("handoright", fa::handoright );
-    m.insert("handoup", fa::handoup );
-    m.insert("handpapero", fa::handpapero );
-    m.insert("handpeaceo", fa::handpeaceo );
-    m.insert("handpointero", fa::handpointero );
-    m.insert("handrocko", fa::handrocko );
-    m.insert("handscissorso", fa::handscissorso );
-    m.insert("handspocko", fa::handspocko );
-    m.insert("handstopo", fa::handstopo );
-    m.insert("hashtag", fa::hashtag );
-    m.insert("hddo", fa::hddo );
-    m.insert("header", fa::header );
-    m.insert("headphones", fa::headphones );
-    m.insert("heart", fa::heart );
-    m.insert("hearto", fa::hearto );
-    m.insert("heartbeat", fa::heartbeat );
-    m.insert("history", fa::history );
-    m.insert("home", fa::home );
-    m.insert("hospitalo", fa::hospitalo );
-    m.insert("hotel", fa::hotel );
-    m.insert("hourglass", fa::hourglass );
-    m.insert("hourglass1", fa::hourglass1 );
-    m.insert("hourglass2", fa::hourglass2 );
-    m.insert("hourglass3", fa::hourglass3 );
-    m.insert("hourglassend", fa::hourglassend );
-    m.insert("hourglasshalf", fa::hourglasshalf );
-    m.insert("hourglasso", fa::hourglasso );
-    m.insert("hourglassstart", fa::hourglassstart );
-    m.insert("houzz", fa::houzz );
-    m.insert("html5", fa::html5 );
-    m.insert("icursor", fa::icursor );
-    m.insert("ils", fa::ils );
-    m.insert("image", fa::image );
-    m.insert("inbox", fa::inbox );
-    m.insert("indent", fa::indent );
-    m.insert("industry", fa::industry );
-    m.insert("info", fa::info );
-    m.insert("infocircle", fa::infocircle );
-    m.insert("inr", fa::inr );
-    m.insert("instagram", fa::instagram );
-    m.insert("institution", fa::institution );
-    m.insert("internetexplorer", fa::internetexplorer );
-    m.insert("intersex", fa::intersex );
-    m.insert("ioxhost", fa::ioxhost );
-    m.insert("italic", fa::italic );
-    m.insert("joomla", fa::joomla );
-    m.insert("jpy", fa::jpy );
-    m.insert("jsfiddle", fa::jsfiddle );
-    m.insert("key", fa::key );
-    m.insert("keyboardo", fa::keyboardo );
-    m.insert("krw", fa::krw );
-    m.insert("language", fa::language );
-    m.insert("laptop", fa::laptop );
-    m.insert("lastfm", fa::lastfm );
-    m.insert("lastfmsquare", fa::lastfmsquare );
-    m.insert("leaf", fa::leaf );
-    m.insert("leanpub", fa::leanpub );
-    m.insert("legal", fa::legal );
-    m.insert("lemono", fa::lemono );
-    m.insert("leveldown", fa::leveldown );
-    m.insert("levelup", fa::levelup );
-    m.insert("lifebouy", fa::lifebouy );
-    m.insert("lifebuoy", fa::lifebuoy );
-    m.insert("lifering", fa::lifering );
-    m.insert("lifesaver", fa::lifesaver );
-    m.insert("lightbulbo", fa::lightbulbo );
-    m.insert("linechart", fa::linechart );
-    m.insert("link", fa::link );
-    m.insert("linkedin", fa::linkedin );
-    m.insert("linkedinsquare", fa::linkedinsquare );
-    m.insert("fa_linux", fa::fa_linux );
-    m.insert("list", fa::list );
-    m.insert("listalt", fa::listalt );
-    m.insert("listol", fa::listol );
-    m.insert("listul", fa::listul );
-    m.insert("locationarrow", fa::locationarrow );
-    m.insert("lock", fa::lock );
-    m.insert("longarrowdown", fa::longarrowdown );
-    m.insert("longarrowleft", fa::longarrowleft );
-    m.insert("longarrowright", fa::longarrowright );
-    m.insert("longarrowup", fa::longarrowup );
-    m.insert("magic", fa::magic );
-    m.insert("magnet", fa::magnet );
-    m.insert("mailforward", fa::mailforward );
-    m.insert("mailreply", fa::mailreply );
-    m.insert("mailreplyall", fa::mailreplyall );
-    m.insert("male", fa::male );
-    m.insert("map", fa::map );
-    m.insert("mapmarker", fa::mapmarker );
-    m.insert("mapo", fa::mapo );
-    m.insert("mappin", fa::mappin );
-    m.insert("mapsigns", fa::mapsigns );
-    m.insert("mars", fa::mars );
-    m.insert("marsdouble", fa::marsdouble );
-    m.insert("marsstroke", fa::marsstroke );
-    m.insert("marsstrokeh", fa::marsstrokeh );
-    m.insert("marsstrokev", fa::marsstrokev );
-    m.insert("maxcdn", fa::maxcdn );
-    m.insert("meanpath", fa::meanpath );
-    m.insert("medium", fa::medium );
-    m.insert("medkit", fa::medkit );
-    m.insert("meho", fa::meho );
-    m.insert("mercury", fa::mercury );
-    m.insert("microphone", fa::microphone );
-    m.insert("microphoneslash", fa::microphoneslash );
-    m.insert("minus", fa::minus );
-    m.insert("minuscircle", fa::minuscircle );
-    m.insert("minussquare", fa::minussquare );
-    m.insert("minussquareo", fa::minussquareo );
-    m.insert("mixcloud", fa::mixcloud );
-    m.insert("mobile", fa::mobile );
-    m.insert("mobilephone", fa::mobilephone );
-    m.insert("modx", fa::modx );
-    m.insert("money", fa::money );
-    m.insert("moono", fa::moono );
-    m.insert("mortarboard", fa::mortarboard );
-    m.insert("motorcycle", fa::motorcycle );
-    m.insert("mousepointer", fa::mousepointer );
-    m.insert("music", fa::music );
-    m.insert("navicon", fa::navicon );
-    m.insert("neuter", fa::neuter );
-    m.insert("newspapero", fa::newspapero );
-    m.insert("objectgroup", fa::objectgroup );
-    m.insert("objectungroup", fa::objectungroup );
-    m.insert("odnoklassniki", fa::odnoklassniki );
-    m.insert("odnoklassnikisquare", fa::odnoklassnikisquare );
-    m.insert("opencart", fa::opencart );
-    m.insert("openid", fa::openid );
-    m.insert("opera", fa::opera );
-    m.insert("optinmonster", fa::optinmonster );
-    m.insert("outdent", fa::outdent );
-    m.insert("pagelines", fa::pagelines );
-    m.insert("paintbrush", fa::paintbrush );
-    m.insert("paperplane", fa::paperplane );
-    m.insert("paperplaneo", fa::paperplaneo );
-    m.insert("paperclip", fa::paperclip );
-    m.insert("paragraph", fa::paragraph );
-    m.insert("paste", fa::paste );
-    m.insert("pause", fa::pause );
-    m.insert("pausecircle", fa::pausecircle );
-    m.insert("pausecircleo", fa::pausecircleo );
-    m.insert("paw", fa::paw );
-    m.insert("paypal", fa::paypal );
-    m.insert("pencil", fa::pencil );
-    m.insert("pencilsquare", fa::pencilsquare );
-    m.insert("pencilsquareo", fa::pencilsquareo );
-    m.insert("percent", fa::percent );
-    m.insert("phone", fa::phone );
-    m.insert("phonesquare", fa::phonesquare );
-    m.insert("photo", fa::photo );
-    m.insert("pictureo", fa::pictureo );
-    m.insert("piechart", fa::piechart );
-    m.insert("piedpiper", fa::piedpiper );
-    m.insert("piedpiperalt", fa::piedpiperalt );
-    m.insert("pinterest", fa::pinterest );
-    m.insert("pinterestp", fa::pinterestp );
-    m.insert("pinterestsquare", fa::pinterestsquare );
-    m.insert("plane", fa::plane );
-    m.insert("play", fa::play );
-    m.insert("playcircle", fa::playcircle );
-    m.insert("playcircleo", fa::playcircleo );
-    m.insert("plug", fa::plug );
-    m.insert("plus", fa::plus );
-    m.insert("pluscircle", fa::pluscircle );
-    m.insert("plussquare", fa::plussquare );
-    m.insert("plussquareo", fa::plussquareo );
-    m.insert("poweroff", fa::poweroff );
-    m.insert("print", fa::print );
-    m.insert("producthunt", fa::producthunt );
-    m.insert("puzzlepiece", fa::puzzlepiece );
-    m.insert("qq", fa::qq );
-    m.insert("qrcode", fa::qrcode );
-    m.insert("question", fa::question );
-    m.insert("questioncircle", fa::questioncircle );
-    m.insert("quoteleft", fa::quoteleft );
-    m.insert("quoteright", fa::quoteright );
-    m.insert("ra", fa::ra );
-    m.insert("random", fa::random );
-    m.insert("rebel", fa::rebel );
-    m.insert("recycle", fa::recycle );
-    m.insert("reddit", fa::reddit );
-    m.insert("redditalien", fa::redditalien );
-    m.insert("redditsquare", fa::redditsquare );
-    m.insert("refresh", fa::refresh );
-    m.insert("registered", fa::registered );
-    m.insert("remove", fa::remove );
-    m.insert("renren", fa::renren );
-    m.insert("reorder", fa::reorder );
-    m.insert("repeat", fa::repeat );
-    m.insert("reply", fa::reply );
-    m.insert("replyall", fa::replyall );
-    m.insert("retweet", fa::retweet );
-    m.insert("rmb", fa::rmb );
-    m.insert("road", fa::road );
-    m.insert("rocket", fa::rocket );
-    m.insert("rotateleft", fa::rotateleft );
-    m.insert("rotateright", fa::rotateright );
-    m.insert("rouble", fa::rouble );
-    m.insert("rss", fa::rss );
-    m.insert("rsssquare", fa::rsssquare );
-    m.insert("rub", fa::rub );
-    m.insert("ruble", fa::ruble );
-    m.insert("rupee", fa::rupee );
-    m.insert("safari", fa::safari );
-    m.insert("save", fa::save );
-    m.insert("scissors", fa::scissors );
-    m.insert("scribd", fa::scribd );
-    m.insert("search", fa::search );
-    m.insert("searchminus", fa::searchminus );
-    m.insert("searchplus", fa::searchplus );
-    m.insert("sellsy", fa::sellsy );
-    m.insert("send", fa::send );
-    m.insert("sendo", fa::sendo );
-    m.insert("server", fa::server );
-    m.insert("share", fa::share );
-    m.insert("sharealt", fa::sharealt );
-    m.insert("sharealtsquare", fa::sharealtsquare );
-    m.insert("sharesquare", fa::sharesquare );
-    m.insert("sharesquareo", fa::sharesquareo );
-    m.insert("shekel", fa::shekel );
-    m.insert("sheqel", fa::sheqel );
-    m.insert("shield", fa::shield );
-    m.insert("ship", fa::ship );
-    m.insert("shirtsinbulk", fa::shirtsinbulk );
-    m.insert("shoppingbag", fa::shoppingbag );
-    m.insert("shoppingbasket", fa::shoppingbasket );
-    m.insert("shoppingcart", fa::shoppingcart );
-    m.insert("signin", fa::signin );
-    m.insert("signout", fa::signout );
-    m.insert("signal", fa::signal );
-    m.insert("simplybuilt", fa::simplybuilt );
-    m.insert("sitemap", fa::sitemap );
-    m.insert("skyatlas", fa::skyatlas );
-    m.insert("skype", fa::skype );
-    m.insert("slack", fa::slack );
-    m.insert("sliders", fa::sliders );
-    m.insert("slideshare", fa::slideshare );
-    m.insert("smileo", fa::smileo );
-    m.insert("soccerballo", fa::soccerballo );
-    m.insert("sort", fa::sort );
-    m.insert("sortalphaasc", fa::sortalphaasc );
-    m.insert("sortalphadesc", fa::sortalphadesc );
-    m.insert("sortamountasc", fa::sortamountasc );
-    m.insert("sortamountdesc", fa::sortamountdesc );
-    m.insert("sortasc", fa::sortasc );
-    m.insert("sortdesc", fa::sortdesc );
-    m.insert("sortdown", fa::sortdown );
-    m.insert("sortnumericasc", fa::sortnumericasc );
-    m.insert("sortnumericdesc", fa::sortnumericdesc );
-    m.insert("sortup", fa::sortup );
-    m.insert("soundcloud", fa::soundcloud );
-    m.insert("spaceshuttle", fa::spaceshuttle );
-    m.insert("spinner", fa::spinner );
-    m.insert("spoon", fa::spoon );
-    m.insert("spotify", fa::spotify );
-    m.insert("square", fa::square );
-    m.insert("squareo", fa::squareo );
-    m.insert("stackexchange", fa::stackexchange );
-    m.insert("stackoverflow", fa::stackoverflow );
-    m.insert("star", fa::star );
-    m.insert("starhalf", fa::starhalf );
-    m.insert("starhalfempty", fa::starhalfempty );
-    m.insert("starhalffull", fa::starhalffull );
-    m.insert("starhalfo", fa::starhalfo );
-    m.insert("staro", fa::staro );
-    m.insert("steam", fa::steam );
-    m.insert("steamsquare", fa::steamsquare );
-    m.insert("stepbackward", fa::stepbackward );
-    m.insert("stepforward", fa::stepforward );
-    m.insert("stethoscope", fa::stethoscope );
-    m.insert("stickynote", fa::stickynote );
-    m.insert("stickynoteo", fa::stickynoteo );
-    m.insert("stop", fa::stop );
-    m.insert("stopcircle", fa::stopcircle );
-    m.insert("stopcircleo", fa::stopcircleo );
-    m.insert("streetview", fa::streetview );
-    m.insert("strikethrough", fa::strikethrough );
-    m.insert("stumbleupon", fa::stumbleupon );
-    m.insert("stumbleuponcircle", fa::stumbleuponcircle );
-    m.insert("subscript", fa::subscript );
-    m.insert("subway", fa::subway );
-    m.insert("suitcase", fa::suitcase );
-    m.insert("suno", fa::suno );
-    m.insert("superscript", fa::superscript );
-    m.insert("support", fa::support );
-    m.insert("table", fa::table );
-    m.insert("tablet", fa::tablet );
-    m.insert("tachometer", fa::tachometer );
-    m.insert("tag", fa::tag );
-    m.insert("tags", fa::tags );
-    m.insert("tasks", fa::tasks );
-    m.insert("taxi", fa::taxi );
-    m.insert("television", fa::television );
-    m.insert("tencentweibo", fa::tencentweibo );
-    m.insert("terminal", fa::terminal );
-    m.insert("textheight", fa::textheight );
-    m.insert("textwidth", fa::textwidth );
-    m.insert("th", fa::th );
-    m.insert("thlarge", fa::thlarge );
-    m.insert("thlist", fa::thlist );
-    m.insert("thumbtack", fa::thumbtack );
-    m.insert("thumbsdown", fa::thumbsdown );
-    m.insert("thumbsodown", fa::thumbsodown );
-    m.insert("thumbsoup", fa::thumbsoup );
-    m.insert("thumbsup", fa::thumbsup );
-    m.insert("ticket", fa::ticket );
-    m.insert("times", fa::times );
-    m.insert("timescircle", fa::timescircle );
-    m.insert("timescircleo", fa::timescircleo );
-    m.insert("tint", fa::tint );
-    m.insert("toggledown", fa::toggledown );
-    m.insert("toggleleft", fa::toggleleft );
-    m.insert("toggleoff", fa::toggleoff );
-    m.insert("toggleon", fa::toggleon );
-    m.insert("toggleright", fa::toggleright );
-    m.insert("toggleup", fa::toggleup );
-    m.insert("trademark", fa::trademark );
-    m.insert("train", fa::train );
-    m.insert("transgender", fa::transgender );
-    m.insert("transgenderalt", fa::transgenderalt );
-    m.insert("trash", fa::trash );
-    m.insert("trasho", fa::trasho );
-    m.insert("tree", fa::tree );
-    m.insert("trello", fa::trello );
-    m.insert("tripadvisor", fa::tripadvisor );
-    m.insert("trophy", fa::trophy );
-    m.insert("truck", fa::truck );
-    m.insert("fa_try", fa::fa_try );
-    m.insert("tty", fa::tty );
-    m.insert("tumblr", fa::tumblr );
-    m.insert("tumblrsquare", fa::tumblrsquare );
-    m.insert("turkishlira", fa::turkishlira );
-    m.insert("tv", fa::tv );
-    m.insert("twitch", fa::twitch );
-    m.insert("twitter", fa::twitter );
-    m.insert("twittersquare", fa::twittersquare );
-    m.insert("umbrella", fa::umbrella );
-    m.insert("underline", fa::underline );
-    m.insert("undo", fa::undo );
-    m.insert("university", fa::university );
-    m.insert("unlink", fa::unlink );
-    m.insert("unlock", fa::unlock );
-    m.insert("unlockalt", fa::unlockalt );
-    m.insert("unsorted", fa::unsorted );
-    m.insert("upload", fa::upload );
-    m.insert("usb", fa::usb );
-    m.insert("usd", fa::usd );
-    m.insert("user", fa::user );
-    m.insert("usermd", fa::usermd );
-    m.insert("userplus", fa::userplus );
-    m.insert("usersecret", fa::usersecret );
-    m.insert("usertimes", fa::usertimes );
-    m.insert("users", fa::users );
-    m.insert("venus", fa::venus );
-    m.insert("venusdouble", fa::venusdouble );
-    m.insert("venusmars", fa::venusmars );
-    m.insert("viacoin", fa::viacoin );
-    m.insert("videocamera", fa::videocamera );
-    m.insert("vimeo", fa::vimeo );
-    m.insert("vimeosquare", fa::vimeosquare );
-    m.insert("vine", fa::vine );
-    m.insert("vk", fa::vk );
-    m.insert("volumedown", fa::volumedown );
-    m.insert("volumeoff", fa::volumeoff );
-    m.insert("volumeup", fa::volumeup );
-    m.insert("warning", fa::warning );
-    m.insert("wechat", fa::wechat );
-    m.insert("weibo", fa::weibo );
-    m.insert("weixin", fa::weixin );
-    m.insert("whatsapp", fa::whatsapp );
-    m.insert("wheelchair", fa::wheelchair );
-    m.insert("wifi", fa::wifi );
-    m.insert("wikipediaw", fa::wikipediaw );
-    m.insert("windows", fa::windows );
-    m.insert("won", fa::won );
-    m.insert("wordpress", fa::wordpress );
-    m.insert("wrench", fa::wrench );
-    m.insert("xing", fa::xing );
-    m.insert("xingsquare", fa::xingsquare );
-    m.insert("ycombinator", fa::ycombinator );
-    m.insert("ycombinatorsquare", fa::ycombinatorsquare );
-    m.insert("yahoo", fa::yahoo );
-    m.insert("yc", fa::yc );
-    m.insert("ycsquare", fa::ycsquare );
-    m.insert("yelp", fa::yelp );
-    m.insert("yen", fa::yen );
-    m.insert("youtube", fa::youtube );
-    m.insert("youtubeplay", fa::youtubeplay );
-    m.insert("youtubesquare", fa::youtubesquare );
+    for (unsigned i = 0; i < sizeof(faNameIconArray)/sizeof(FANameIcon); ++i)
+      m.insert(faNameIconArray[i].name, faNameIconArray[i].icon);
 
     return true;
 }
