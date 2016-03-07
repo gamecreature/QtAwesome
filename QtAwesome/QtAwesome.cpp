@@ -902,8 +902,9 @@ bool QtAwesome::initFontAwesome( )
 
     // intialize the map
     QHash<QString, int>& m = namedCodepoints_;
-    for (unsigned i = 0; i < sizeof(faNameIconArray)/sizeof(FANameIcon); ++i)
+    for (unsigned i = 0; i < sizeof(faNameIconArray)/sizeof(FANameIcon); ++i) {
       m.insert(faNameIconArray[i].name, faNameIconArray[i].icon);
+    }
 
     return true;
 }
