@@ -11,10 +11,10 @@ NOTE: Though the name is QtAwesome and currently it's very Font Awesome based, y
 The class can also be used to manage your own dynamic code-drawn icons, by adding named icon-painters.
 
 
-Updated to FontAwesome 4.6.1
+Updated to FontAwesome 4.7.0
 ----------------------------
 
-This library has been updated to Font Awesome version **4.6.1**.
+This library has been updated to Font Awesome version **4.7.0**.
 
 * In the 4.5.0 version the _linux name has been changed to fa_linux. (Makes the naming of conflicting/invalid names more consistent, like fa_try and fa_500px)
 *  You can find the previous FontAwesome 4 c++11 library in the [c++11 branch](https://github.com/gamecreature/QtAwesome/tree/c++11).
