@@ -147,7 +147,7 @@ QtAwesome::QtAwesome( QObject* parent )
 QtAwesome::~QtAwesome()
 {
     delete fontIconPainter_;
-//    delete errorIconPainter_;
+    //    delete errorIconPainter_;
     qDeleteAll(painterMap_);
 }
 
@@ -1048,8 +1048,6 @@ QIcon QtAwesome::icon(int character, const QVariantMap &options)
 
     return icon( fontIconPainter_, optionMap );
 }
-
-
 
 /// Creates an icon with the given name
 ///

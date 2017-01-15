@@ -812,8 +812,6 @@ namespace fa {
   };
 }
 
-
-
 //---------------------------------------------------------------------------------------
 
 class QtAwesomeIconPainter;
@@ -849,9 +847,11 @@ public:
     /// Returns the font-name that is used as icon-map
     QString fontName() { return fontName_ ; }
 
+protected:
+    QHash<QString,int> namedCodepoints_;                   ///< A map with names mapped to code-points
+
 private:
     QString fontName_;                                     ///< The font name used for this map
-    QHash<QString,int> namedCodepoints_;                   ///< A map with names mapped to code-points
 
     QHash<QString, QtAwesomeIconPainter*> painterMap_;     ///< A map of custom painters
     QVariantMap defaultOptions_;                           ///< The default icon options
