@@ -28,8 +28,8 @@ public:
 
         painter->save();
 
-        QObject* qanim = qvariant_cast<QObject*>(options.value("anim"));
-        QtAwesomeAnimation* anim = qobject_cast<QtAwesomeAnimation*>(qanim);
+        QVariant var =options.value("anim");
+        QtAwesomeAnimation* anim = var.value<QtAwesomeAnimation*>();
         if( anim ) {
             anim->setup( *painter, rect );
         }
