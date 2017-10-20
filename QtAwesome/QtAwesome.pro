@@ -7,9 +7,10 @@
 TARGET = QtAwesome
 TEMPLATE = lib
 CONFIG += staticlib c++11
+QT += widgets
 
-SOURCES += QtAwesome.cpp
-HEADERS += QtAwesome.h
+SOURCES += QtAwesome.cpp QtAwesomeAnim.cpp
+HEADERS += QtAwesome.h QtAwesomeAnim.h
 
 isEmpty(PREFIX) {
     unix {
@@ -19,7 +20,7 @@ isEmpty(PREFIX) {
     }
 }
 
-install_headers.files = QtAwesome.h
+install_headers.files = QtAwesome.h QtAwesomeAnim.h
 install_headers.path = $$PREFIX/include
 target.path = $$PREFIX/lib
 INSTALLS += install_headers target
