@@ -20,8 +20,8 @@ This library has been updated to Font Awesome version **4.7.0**.
 *  You can find the previous FontAwesome 4 c++11 library in the [c++11 branch](https://github.com/gamecreature/QtAwesome/tree/c++11).
 *  You can find the previous FontAwesome 3 library in the [fontawesome-3 branch](https://github.com/gamecreature/QtAwesome/tree/fontawesome-3).
 
-  
-**Note about previous c++11** 
+
+**Note about previous c++11**
 
 I removed the C++11 requirement. And moved the c++11 code to a c++11 branch.
 It's not that I don't like c++11, but the typed enum made the code less flexible then it is now.
@@ -58,13 +58,13 @@ You probably want to create a single QtAwesome object for your whole application
 
 Example
 --------
-  
+
 ```c++
 // You should create a single object of QtAwesome.
 QtAwesome* awesome = new QtAwesome( qApp );
 awesome->initFontAwesome();
 
-// Next create your icon with the help of the icon-enumeration (no dashes): 
+// Next create your icon with the help of the icon-enumeration (no dashes):
 QPushButton* beerButton new QPushButton( awesome->icon( fa::beer ), "Cheers!" );
 
 // You can also use 'string' names to access the icons. (The string version omits the 'fa-' or 'icon-' prefix and has no dashes )
@@ -75,9 +75,9 @@ QPushButton* coffeeButton new QPushButton( awesome->icon( "coffee" ), "Black ple
 
 QVariantMap options;
 options.insert( "color" , QColor(255,0,0) );
-QPushButton* musicButton = new QPushButton( awesome->icon( fa::music, options ), "Music" ); 
+QPushButton* musicButton = new QPushButton( awesome->icon( fa::music, options ), "Music" );
 
-// You can also change the default options. 
+// You can also change the default options.
 // for example if you always would like to have green icons you could call)
 awesome->setDefaultOption( "color-disabled", QColor(0,255,0) );
 
@@ -119,8 +119,8 @@ awesome->give("duplicate", new DuplicateIconPainter() );
 
 Default options:
 ----------------
-  
-  The following options are default in the QtAwesome class. 
+
+  The following options are default in the QtAwesome class.
 
 ```c++
 setDefaultOption( "color", QColor(50,50,50) );
@@ -138,13 +138,39 @@ setDefaultOption( "scale-factor", 0.9 );
 
   When creating an icon, it first populates the options-map with the default options from the QtAwesome object.
   After that the options are expanded/overwritten by the options supplied to the icon.
- 
+
   It is possible to use another glyph per icon-state. For example to make an icon-unlock symbol switch to locked when selected,
   you could supply the following option:
 
-```c++  
+```c++
   options.insert("text-selected", QString( fa::lock ) );
 ```
+
+Color and text options have the following structure:
+`keyname-iconmode-iconstate`
+
+Where iconmode normal is empty
+And iconstate On is off.
+
+So the list of items used is:
+
+- color
+- color-disabled
+- color-active
+- color-selected
+- color-off
+- color-disabled-off
+- color-active-off
+- color-selected-off
+- text
+- text-disabled
+- text-active
+- text-selected
+- text-off
+- text-disabled-off
+- text-active-off
+- text-selected-off
+
 
 License
 -------
@@ -167,7 +193,7 @@ Contact
 Known issues and workarounds
 ----------------------------
 
-On Mac OS X, placing an qtAwesome icon in QMainWindow menu, doesn't work directly. 
+On Mac OS X, placing an qtAwesome icon in QMainWindow menu, doesn't work directly.
 See the following issue: [https://github.com/gamecreature/QtAwesome/issues/10]
 
 A workaround for this problem is converting it to a Pixmap icon like this:
@@ -181,12 +207,12 @@ menuAction->setIcon( awesome->icon(fa::beer).pixmap(32,32) );
 Remarks
 -------
 
-I've created this project because I needed some nice icons for my own Qt project. After doing a lot of 
-css/html5 work and being spoiled by the ease of twitter bootstrap with Font Awesome, 
+I've created this project because I needed some nice icons for my own Qt project. After doing a lot of
+css/html5 work and being spoiled by the ease of twitter bootstrap with Font Awesome,
 I thought it would be nice to be able to use these icons for my Qt project.
 
 I've slightly changed the code from the original, added some more documentation, but it's still
-a work in progress. So feel free to drop me an e-mail for your suggestions and improvements! 
+a work in progress. So feel free to drop me an e-mail for your suggestions and improvements!
 
 There are still some things todo, like:
 
@@ -196,9 +222,9 @@ There are still some things todo, like:
 
 Thanks go to the contributors of this project!
 
-And of course last but not least, 
+And of course last but not least,
 
-Many thanks go to Dave Gandy an the other Font Awesome contributors!! [http://fortawesome.github.com/Font-Awesome](http://fortawesome.github.com/Font-Awesome)  
+Many thanks go to Dave Gandy an the other Font Awesome contributors!! [http://fortawesome.github.com/Font-Awesome](http://fortawesome.github.com/Font-Awesome)
 And of course to the Qt team/contributors for supplying this great cross-platform c++ library.
 
 Contributions are welcome! Feel free to fork and send a pull request through Github.

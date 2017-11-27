@@ -19,7 +19,58 @@
 /// The font-awesome icon painter
 class QtAwesomeCharIconPainter: public QtAwesomeIconPainter
 {
+
+protected:
+
+    QStringList optionKeysForModeAndState( const QString& key, QIcon::Mode mode, QIcon::State state)
+    {
+        QString modePostfix;
+        switch(mode) {
+            case QIcon::Disabled:
+                modePostfix = "-disabled";
+                break;
+            case QIcon::Active:
+                modePostfix = "-active";
+                break;
+            case QIcon::Selected:
+                modePostfix = "-selected";
+                break;
+        }
+
+        QString statePostfix;
+        if( state == QIcon::Off) {
+            statePostfix = "-off";
+        }
+
+        // the keys that need to bet tested:   key-mode-state | key-mode | key-state | key
+        QStringList result;
+        if( !modePostfix.isEmpty() ) {
+            if( !statePostfix.isEmpty() ) {
+                result.push_back( key + modePostfix + statePostfix );
+            }
+            result.push_back( key + modePostfix );
+        }
+        if( !statePostfix.isEmpty() ) {
+            result.push_back( key + statePostfix );
+        }
+        return result;
+    }
+
+
+    QVariant optionValueForModeAndState( const QString& baseKey, QIcon::Mode mode, QIcon::State state, const QVariantMap& options )
+    {
+        foreach( QString key, optionKeysForModeAndState(baseKey, mode, state) ) {
+            if( options.contains(key)) return options.value(key);
+        }
+        return options.value(baseKey);
+    }
+
+
+
+
 public:
+
+
     virtual void paint( QtAwesome* awesome, QPainter* painter, const QRect& rect, QIcon::Mode mode, QIcon::State state, const QVariantMap& options  )
     {
         Q_UNUSED(mode);
@@ -34,7 +85,31 @@ public:
             anim->setup( *painter, rect );
         }
 
+        // get the correct key postfix
+        QString modePostfix;
+        switch(mode) {
+            case QIcon::Disabled:
+                modePostfix = "-disabled";
+                break;
+            case QIcon::Active:
+                modePostfix = "-active";
+                break;
+            case QIcon::Selected:
+                modePostfix = "-selected";
+                break;
+        }
 
+        QString statePostFix;
+        if( state == QIcon::Off) {
+            statePostFix = "-off";
+        }
+
+        // set the default options
+        QColor color = optionValueForModeAndState("color", mode, state, options).value<QColor>();
+        QString text = optionValueForModeAndState("text", mode, state, options).toString();
+
+
+/*
         // set the correct color
         QColor color = options.value("color").value<QColor>();
         QString text = options.value("text").toString();
@@ -58,6 +133,9 @@ public:
                 text = alt.toString();
             }
         }
+*/
+
+
         painter->setPen(color);
 
         // add some 'padding' around the icon
