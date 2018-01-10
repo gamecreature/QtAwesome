@@ -35,6 +35,9 @@ protected:
             case QIcon::Selected:
                 modePostfix = "-selected";
                 break;
+            default: // QIcon::Normal:
+                // modePostfix = "";
+                break;
         }
 
         QString statePostfix;
@@ -60,23 +63,19 @@ protected:
     QVariant optionValueForModeAndState( const QString& baseKey, QIcon::Mode mode, QIcon::State state, const QVariantMap& options )
     {
         foreach( QString key, optionKeysForModeAndState(baseKey, mode, state) ) {
-            if( options.contains(key)) return options.value(key);
+            //if ( options.contains(key) && options.value(key).toString().isEmpty()) qDebug() << "Not found:" << key;
+            if( options.contains(key) && !(options.value(key).toString().isEmpty()) )
+                return options.value(key);
         }
+
         return options.value(baseKey);
     }
-
-
-
 
 public:
 
 
     virtual void paint( QtAwesome* awesome, QPainter* painter, const QRect& rect, QIcon::Mode mode, QIcon::State state, const QVariantMap& options  )
     {
-        Q_UNUSED(mode);
-        Q_UNUSED(state);
-        Q_UNUSED(options);
-
         painter->save();
 
         QVariant var =options.value("anim");
@@ -85,56 +84,12 @@ public:
             anim->setup( *painter, rect );
         }
 
-        // get the correct key postfix
-        QString modePostfix;
-        switch(mode) {
-            case QIcon::Disabled:
-                modePostfix = "-disabled";
-                break;
-            case QIcon::Active:
-                modePostfix = "-active";
-                break;
-            case QIcon::Selected:
-                modePostfix = "-selected";
-                break;
-        }
-
-        QString statePostFix;
-        if( state == QIcon::Off) {
-            statePostFix = "-off";
-        }
-
         // set the default options
         QColor color = optionValueForModeAndState("color", mode, state, options).value<QColor>();
         QString text = optionValueForModeAndState("text", mode, state, options).toString();
 
-
-/*
-        // set the correct color
-        QColor color = options.value("color").value<QColor>();
-        QString text = options.value("text").toString();
-
-        if( mode == QIcon::Disabled ) {
-            color = options.value("color-disabled").value<QColor>();
-            QVariant alt = options.value("text-disabled");
-            if( alt.isValid() ) {
-                text = alt.toString();
-            }
-        } else if( mode == QIcon::Active ) {
-            color = options.value("color-active").value<QColor>();
-            QVariant alt = options.value("text-active");
-            if( alt.isValid() ) {
-                text = alt.toString();
-            }
-        } else if( mode == QIcon::Selected ) {
-            color = options.value("color-selected").value<QColor>();
-            QVariant alt = options.value("text-selected");
-            if( alt.isValid() ) {
-                text = alt.toString();
-            }
-        }
-*/
-
+        Q_ASSERT(color.isValid());
+        Q_ASSERT(!text.isEmpty());
 
         painter->setPen(color);
 
