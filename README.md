@@ -35,8 +35,14 @@ Installation
 
 The easiest way to include QtAweome in your project is to copy the QtAwesome directory to your
 project tree and add the following `include()` to your Qt project file:
-
-    include(QtAwesome/QtAwesome.pri)
+```
+include(QtAwesome/QtAwesome.pri)
+```
+or, if you use `cmake` for build add to your `CMakeLists.txt`:
+```
+add_subdirectory(path/to/QtAwesome)
+target_link_libraries(${YOUR_PROJECT_NAME} QtAwesome)
+```
 
 Now you are good to go!
 

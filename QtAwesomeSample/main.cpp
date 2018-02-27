@@ -5,7 +5,7 @@
  * Author Rick Blommers
  */
 
-#include "QtAwesome.h"
+#include "../QtAwesome/QtAwesome.h"
 
 #include <QApplication>
 #include <QMainWindow>
