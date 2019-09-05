@@ -9,7 +9,7 @@
 
 QtAwesomeAnimation::QtAwesomeAnimation(QWidget *parentWidget, int interval, int step)
     : parentWidgetRef_( parentWidget )
-    , timer_( 0 )
+    , timer_( nullptr )
     , interval_( interval )
     , step_( step )
     , angle_( 0.0f )
@@ -29,11 +29,11 @@ void QtAwesomeAnimation::setup( QPainter &painter, const QRect &rect)
     else
     {
         //timer, angle, self.step = self.info[self.parent_widget]
-        float x_center = rect.width() * 0.5;
-        float y_center = rect.height() * 0.5;
-        painter.translate(x_center, y_center);
-        painter.rotate(angle_);
-        painter.translate(-x_center, -y_center);
+        float x_center = rect.width() * 0.5f;
+        float y_center = rect.height() * 0.5f;
+        painter.translate(static_cast<qreal>(x_center), static_cast<qreal>(y_center));
+        painter.rotate(static_cast<qreal>(angle_));
+        painter.translate(static_cast<qreal>(-x_center), -static_cast<qreal>(y_center));
     }
 }
 
@@ -41,6 +41,6 @@ void QtAwesomeAnimation::setup( QPainter &painter, const QRect &rect)
 void QtAwesomeAnimation::update()
 {
     angle_ += step_;
-    angle_ = std::fmod( angle_, 360);
+    angle_ = std::fmod( static_cast<float>(angle_), 360.0f);
     parentWidgetRef_->update();
 }

@@ -11,10 +11,17 @@ greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 TARGET = QtAwesomeSample
 TEMPLATE = app
 
+SOURCES += main.cpp \
+    mainwindow.cpp
 
-SOURCES += main.cpp
+HEADERS  += \
+    mainwindow.h
 
-HEADERS  +=
 
-
+# only one option must be enabled
+#CONFIG += fontAwesomePro
+CONFIG += fontAwesomeFree
 include(../QtAwesome/QtAwesome.pri)
+
+FORMS += \
+    mainwindow.ui
