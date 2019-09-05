@@ -95,7 +95,7 @@ public:
         // set the default options
         QColor color = optionValueForModeAndState("color", mode, state, options).value<QColor>();
         QString text = optionValueForModeAndState("text", mode, state, options).toString();
-        int st = options.value("style", style::fas).toInt();
+        int st = optionValueForModeAndState("style", mode, state, options).toInt();
 
         Q_ASSERT(color.isValid());
         Q_ASSERT(!text.isEmpty());
