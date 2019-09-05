@@ -10,11 +10,18 @@ NOTE: Though the name is QtAwesome and currently it's very Font Awesome based, y
 
 The class can also be used to manage your own dynamic code-drawn icons, by adding named icon-painters.
 
-
-Updated to FontAwesome 4.7.0
+Changes in FontAwesome 5.10.2
 ----------------------------
 
-This library has been updated to Font Awesome version **4.7.0**.
+New version of this library added support to Font Awesome version **5.10.2**.
+
+* This library supports Free and Pro versions of Font Awesome, however only the pro font files are included in this repository, but if you have a pro license of the icons you can use it.
+* It support all icons styles (solid, regular, brand, light, duotone), including the duotone icons in pro version.
+
+Changes in FontAwesome 4.7.0
+----------------------------
+
+Previous version of this library added support to Font Awesome version **4.7.0**.
 
 * In the 4.5.0 version the _linux name has been changed to fa_linux. (Makes the naming of conflicting/invalid names more consistent, like fa_try and fa_500px)
 *  You can find the previous FontAwesome 4 c++11 library in the [c++11 branch](https://github.com/gamecreature/QtAwesome/tree/c++11).
@@ -33,9 +40,10 @@ Just integers it is. Simpler is better.
 Installation
 ------------
 
-The easiest way to include QtAweome in your project is to copy the QtAwesome directory to your
+The easiest way to include QtAweome **5.10.2** in your project is to copy the QtAwesome directory to your
 project tree and add the following `include()` to your Qt project file:
 
+    CONFIG+=fontAwesomeFree #or CONFIG+=fontAwesomePro for pro version 
     include(QtAwesome/QtAwesome.pri)
 
 Now you are good to go!
@@ -65,25 +73,25 @@ QtAwesome* awesome = new QtAwesome( qApp );
 awesome->initFontAwesome();
 
 // Next create your icon with the help of the icon-enumeration (no dashes):
-QPushButton* beerButton new QPushButton( awesome->icon( fa::beer ), "Cheers!" );
+QPushButton* beerButton new QPushButton( awesome->icon( style::fas, fa::beer ), "Cheers!" );
 
-// You can also use 'string' names to access the icons. (The string version omits the 'fa-' or 'icon-' prefix and has no dashes )
-QPushButton* coffeeButton new QPushButton( awesome->icon( "coffee" ), "Black please!" );
+// You can also use 'string' names to access the icons. (The string version omits the 'fa-' prefix)
+QPushButton* coffeeButton new QPushButton( awesome->icon( "fas coffee" ), "Black please!" );
 
 // When you create an icon you can supply some options for your icons:
 // The available options can be found at the "Default options"-section
 
 QVariantMap options;
 options.insert( "color" , QColor(255,0,0) );
-QPushButton* musicButton = new QPushButton( awesome->icon( fa::music, options ), "Music" );
+QPushButton* musicButton = new QPushButton( awesome->icon( style::fas, fa::music, options ), "Music" );
 
 // You can also change the default options.
 // for example if you always would like to have green icons you could call)
 awesome->setDefaultOption( "color-disabled", QColor(0,255,0) );
 
 // You can also directly render a label with this font
-QLabel* label = new QLabel( QChar( fa::group ) );
-label->setFont( awesome->font(16) );
+QLabel* label = new QLabel( QChar( fa::rocketchat ) );
+label->setFont( awesome->font(style::fab, 16) );
 
 ```
 
@@ -101,8 +109,9 @@ public:
         int drawSize = qRound(rectIn.height()*0.5);
         int offset = rectIn.height() / 4;
         QChar chr = QChar( static_cast<int>(fa::plus) );
+        int st = style::fas;
 
-        painter->setFont( awesome->font( drawSize ) );
+        painter->setFont( st, awesome->font( drawSize ) );
 
         painter->setPen( QColor(100,100,100) );
         painter->drawText( QRect( QPoint(offset*2, offset*2), QSize(drawSize, drawSize) ), chr , QTextOption( Qt::AlignCenter|Qt::AlignVCenter ) );
@@ -136,6 +145,14 @@ setDefaultOption( "text-selected", QString() );
 setDefaultOption( "scale-factor", 0.9 );
 ```
 
+   In pro version
+```c++
+setDefaultOption( "duotone-color", QColor(50,50,50,127) );
+setDefaultOption( "duotone-color-disabled", QColor(70,70,70,50));
+setDefaultOption( "duotone-color-active", QColor(10,10,10, 00));
+setDefaultOption( "duotone-color-selected", QColor(10,10,10,210));
+```
+
   When creating an icon, it first populates the options-map with the default options from the QtAwesome object.
   After that the options are expanded/overwritten by the options supplied to the icon.
 
@@ -162,6 +179,14 @@ So the list of items used is:
 - color-disabled-off
 - color-active-off
 - color-selected-off
+- duotone-color (only in pro mode)
+- duotone-color-disabled (only in pro mode)
+- duotone-color-active (only in pro mode)
+- duotone-color-selected (only in pro mode)
+- duotone-color-off (only in pro mode)
+- duotone-color-disabled-off (only in pro mode)
+- duotone-color-active-off (only in pro mode)
+- duotone-color-selected-off (only in pro mode)
 - text
 - text-disabled
 - text-active
@@ -170,6 +195,14 @@ So the list of items used is:
 - text-disabled-off
 - text-active-off
 - text-selected-off
+- style
+- style-disabled
+- style-active
+- style-selected
+- style-off
+- style-disabled-off
+- style-active-off
+- style-selected-off
 
 
 License
