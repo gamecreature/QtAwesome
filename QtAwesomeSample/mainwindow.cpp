@@ -12,23 +12,23 @@ MainWindow::MainWindow(QWidget *parent) :
     awesome = new QtAwesome(this);
     awesome->initFontAwesome();
 
-    for(int st=style::fas; st<=style::fab; st++){
+    for(int st=style::stfas; st<=style::stfab; st++){
         switch(st){
-        case style::fab:
-            ui->comboBox->insertItem(style::fab, "Brands", style::fab);
+        case style::stfab:
+            ui->comboBox->insertItem(style::stfab, "Brands", style::stfab);
             break;
-        case style::far:
-            ui->comboBox->insertItem(style::far, "Regular", style::far);
+        case style::stfar:
+            ui->comboBox->insertItem(style::stfar, "Regular", style::stfar);
             break;
-        case style::fas:
-            ui->comboBox->insertItem(style::fas, "Solid", style::fas);
+        case style::stfas:
+            ui->comboBox->insertItem(style::stfas, "Solid", style::stfas);
             break;
 #ifdef FONT_AWESOME_PRO
-        case style::fal:
-            ui->comboBox->insertItem(style::fal, "Light", style::fal);
+        case style::stfal:
+            ui->comboBox->insertItem(style::stfal, "Light", style::stfal);
             break;
-        case style::fad:
-            ui->comboBox->insertItem(style::fad, "Duotone", style::fad);
+        case style::stfad:
+            ui->comboBox->insertItem(style::stfad, "Duotone", style::stfad);
             break;
 #endif
         }
@@ -61,8 +61,8 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->listView->setModel(model);
 
     connect(ui->comboBox, SIGNAL(activated(int)), this, SLOT(styleChanged(int)));
-    ui->comboBox->setCurrentIndex(style::fab);
-    styleChanged(style::fab);
+    ui->comboBox->setCurrentIndex(style::stfab);
+    styleChanged(style::stfab);
 }
 
 MainWindow::~MainWindow()

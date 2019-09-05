@@ -119,7 +119,7 @@ public:
         painter->drawText( textRect, flags, text);
 
 #ifdef FONT_AWESOME_PRO
-        if(st == style::fad){
+        if(st == style::stfad){
             QColor dcolor = optionValueForModeAndState("duotone-color", mode, state, options).value<QColor>();
             int dcharacter = text.at(0).unicode() | QtAwesome::DUOTONE_HEX_ICON_VALUE;
             //Duotone is a 21-bits character, we need to use surrogate pairs
@@ -231,12 +231,12 @@ QtAwesome::QtAwesome( QObject* parent )
 
     _fontIconPainter = new QtAwesomeCharIconPainter();
 
-    _fontDetails.insert(style::fas, FontData(FAS_FONT_FILENAME));
-    _fontDetails.insert(style::far, FontData(FAR_FONT_FILENAME));
-    _fontDetails.insert(style::fab, FontData(FAB_FONT_FILENAME));
+    _fontDetails.insert(style::stfas, FontData(FAS_FONT_FILENAME));
+    _fontDetails.insert(style::stfar, FontData(FAR_FONT_FILENAME));
+    _fontDetails.insert(style::stfab, FontData(FAB_FONT_FILENAME));
 #ifdef FONT_AWESOME_PRO
-    _fontDetails.insert(style::fal, FontData(FAL_FONT_FILENAME));
-    _fontDetails.insert(style::fad, FontData(FAD_FONT_FILENAME));
+    _fontDetails.insert(style::stfal, FontData(FAL_FONT_FILENAME));
+    _fontDetails.insert(style::stfad, FontData(FAD_FONT_FILENAME));
 #endif
 }
 
@@ -246,11 +246,11 @@ QtAwesome::~QtAwesome()
     delete _fontIconPainter;
     qDeleteAll(_painterMap);
 
-    if(_namedCodepoints.contains(style::fab))
-        delete _namedCodepoints[style::fab];
+    if(_namedCodepoints.contains(style::stfab))
+        delete _namedCodepoints[style::stfab];
 #ifdef FONT_AWESOME_PRO
-    if(_namedCodepoints.contains(style::fas))
-        delete _namedCodepoints[style::fas];
+    if(_namedCodepoints.contains(style::stfas))
+        delete _namedCodepoints[style::stfas];
 #else
     if(_namedCodepoints.contains(style::fas))
         delete _namedCodepoints[style::fas];
@@ -2403,7 +2403,7 @@ bool QtAwesome::initFontAwesome( )
     for (unsigned i = 0; i < sizeof(faBrandsIconArray)/sizeof(FANameIcon); ++i) {
         brands->insert(faBrandsIconArray[i].name, faBrandsIconArray[i].icon);
     }
-    _namedCodepoints.insert(style::fab, brands);
+    _namedCodepoints.insert(style::stfab, brands);
 
     //initialize others code icons maps
 #ifdef FONT_AWESOME_PRO
@@ -2416,10 +2416,10 @@ bool QtAwesome::initFontAwesome( )
         commonMap->insert(faProIconArray[i].name, faProIconArray[i].icon);
     }
 
-    _namedCodepoints.insert(style::far, commonMap);
-    _namedCodepoints.insert(style::fas, commonMap);
-    _namedCodepoints.insert(style::fal, commonMap);
-    _namedCodepoints.insert(style::fad, commonMap);
+    _namedCodepoints.insert(style::stfar, commonMap);
+    _namedCodepoints.insert(style::stfas, commonMap);
+    _namedCodepoints.insert(style::stfal, commonMap);
+    _namedCodepoints.insert(style::stfad, commonMap);
 #else
     QHash<QString, int> *farMap = new QHash<QString, int>();
     for (unsigned i = 0; i < sizeof(faCommonIconArray)/sizeof(FANameIcon) && i < FREE_REGULAR_ICON_SIZE; ++i) {
@@ -2508,7 +2508,7 @@ QIcon QtAwesome::icon(const QString& name, const QVariantMap& options)
         st = stringToStyleEnum(params[0]);
         ic = params[1];
     } else if (params.size() == 1) {
-        st = style::fas;
+        st = style::stfas;
         ic = params[0];
     } else {
         return QIcon();
@@ -2587,34 +2587,34 @@ QString QtAwesome::fontName(style::styles st) const
 int QtAwesome::stringToStyleEnum(const QString st) const
 {
     if(st == "fas")
-        return style::fas;
+        return style::stfas;
     else if (st == "far")
-        return style::far;
+        return style::stfar;
     else if (st == "fab")
-        return style::fab;
+        return style::stfab;
 #ifdef FONT_AWESOME_PRO
     else if (st == "fal")
-        return style::fal;
+        return style::stfal;
     else if (st == "fad")
-        return style::fad;
+        return style::stfad;
 #endif
 
-    return style::fas;
+    return style::stfas;
 }
 
 const QString QtAwesome::styleEnumToString(int st) const
 {
     switch(st){
-    case style::fab:
+    case style::stfab:
         return "fab";
-    case style::far:
+    case style::stfar:
         return "far";
-    case style::fas:
+    case style::stfas:
         return "fas";
 #ifdef FONT_AWESOME_PRO
-    case style::fal:
+    case style::stfal:
         return "fal";
-    case style::fad:
+    case style::stfad:
         return "fad";
 #endif
     }

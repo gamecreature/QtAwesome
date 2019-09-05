@@ -23,17 +23,17 @@
 namespace style {
     enum styles {
         /// solid icons
-        fas,
+        stfas,
         /// regular icons
-        far,
+        stfar,
 #ifdef FONT_AWESOME_PRO
         /// light icons
-        fal,
+        stfal,
         /// duotone icons
-        fad,
+        stfad,
 #endif
         /// brands icons
-        fab
+        stfab
     };
 }
 

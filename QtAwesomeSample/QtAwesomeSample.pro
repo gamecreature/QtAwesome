@@ -19,8 +19,8 @@ HEADERS  += \
 
 
 # only one option must be enabled
-#CONFIG += fontAwesomePro
-CONFIG += fontAwesomeFree
+CONFIG += fontAwesomePro
+#CONFIG += fontAwesomeFree
 include(../QtAwesome/QtAwesome.pri)
 
 FORMS += \
