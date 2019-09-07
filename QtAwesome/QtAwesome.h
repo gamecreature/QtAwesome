@@ -1928,7 +1928,7 @@ namespace fa {
       linkedin                    = 0xf08c,
       linkedinin                  = 0xf0e1,
       linode                      = 0xf2b8,
-      linux                       = 0xf17c,
+      fa_linux                    = 0xf17c,
       lyft                        = 0xf3c3,
       magento                     = 0xf3c4,
       mailchimp                   = 0xf59e,
@@ -2144,10 +2144,15 @@ public:
     static const QString FAB_FONT_FILENAME;
     static const QString FAR_FONT_FILENAME;
     static const QString FAS_FONT_FILENAME;
+    static const int FAB_FONT_WEIGHT = QFont::Normal;
+    static const int FAR_FONT_WEIGHT = QFont::Normal;
+    static const int FAS_FONT_WEIGHT = QFont::Black;
 #ifdef FONT_AWESOME_PRO
     static const QString FAL_FONT_FILENAME;
     static const QString FAD_FONT_FILENAME;
     static const int DUOTONE_HEX_ICON_VALUE = 0x100000;
+    static const int FAL_FONT_WEIGHT = QFont::Light;
+    static const int FAD_FONT_WEIGHT = QFont::Black;
 #else
     static const int FREE_REGULAR_ICON_SIZE = 151;
 #endif
@@ -2185,21 +2190,38 @@ private:
         QString _fontFamily;
         QString _fontFilename;
         int _fontId;
+        int _fontWeight;
 
     public:
         FontData() : FontData(QString()){
 
         }
-        FontData(const QString &fontFileName){
+        FontData(const QString &fontFileName, int fontWeight = 400){
             _fontFilename = fontFileName;
             _fontFamily = QString();
             _fontId = -1;
+            _fontWeight = fontWeight;
         }
         const QString& fontFamily() const { return _fontFamily; }
         void setFontFamily(const QString &family) { _fontFamily = family; }
         const QString& fontFilename() const { return _fontFilename; }
         int fontId() const { return _fontId; }
         void setFontId(int id) { _fontId = id; }
+        int fontWeight() const { return _fontWeight; }
+        ///
+        /// \brief setFontWeight set the font weight as QFont::weight
+        /// \param weight the weight value according to QFont::weight enum
+        /// This enum contains the predefined font weights:
+        /// \value Thin       0         #same as weight 100
+        /// \value ExtraLight 12        #same as weight 200
+        /// \value Light      25        #same as weight 300
+        /// \value Normal     50        #same as weight 400
+        /// \value Medium     57        #same as weight 500
+        /// \value DemiBold   63        #same as weight 600
+        /// \value Bold       75        #same as weight 700
+        /// \value ExtraBold  81        #same as weight 800
+        /// \value Black      87        #same as weight 900
+        void setFontWeight(int weight) { _fontWeight = weight; }
     };
 
     QHash<int, FontData> _fontDetails;                      ///< The fonts name used for each style
