@@ -2196,7 +2196,7 @@ private:
         FontData() : FontData(QString()){
 
         }
-        FontData(const QString &fontFileName, int fontWeight = 400){
+        FontData(const QString &fontFileName, int fontWeight = QFont::Normal){
             _fontFilename = fontFileName;
             _fontFamily = QString();
             _fontId = -1;
