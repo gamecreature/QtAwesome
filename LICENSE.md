@@ -1,7 +1,7 @@
 MIT License
 ===========
 
-Copyright 2013-2015 [Reliable Bits Software by Blommers IT](http://blommersit.nl). All Rights Reserved.
+Copyright 2013-2019 [Reliable Bits Software by Blommers IT](http://blommersit.nl). All Rights Reserved.
 Author [Rick Blommers](mailto:rick@blommersit.nl)
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -17,7 +17,7 @@ OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHE
 ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 
-Font Awesome License 
+Font Awesome License
 ====================
 
 [https://github.com/FortAwesome/Font-Awesome](https://github.com/FortAwesome/Font-Awesome)

@@ -252,11 +252,11 @@ QtAwesome::~QtAwesome()
     if(_namedCodepoints.contains(style::stfas))
         delete _namedCodepoints[style::stfas];
 #else
-    if(_namedCodepoints.contains(style::fas))
-        delete _namedCodepoints[style::fas];
+    if(_namedCodepoints.contains(style::stfas))
+        delete _namedCodepoints[style::stfas];
 
-    if(_namedCodepoints.contains(style::far))
-        delete _namedCodepoints[style::far];
+    if(_namedCodepoints.contains(style::stfar))
+        delete _namedCodepoints[style::stfar];
 #endif
 }
 
@@ -2425,13 +2425,13 @@ bool QtAwesome::initFontAwesome( )
     for (unsigned i = 0; i < sizeof(faCommonIconArray)/sizeof(FANameIcon) && i < FREE_REGULAR_ICON_SIZE; ++i) {
         farMap->insert(faCommonIconArray[i].name, faCommonIconArray[i].icon);
     }
-    _namedCodepoints.insert(style::far, farMap);
+    _namedCodepoints.insert(style::stfar, farMap);
 
     QHash<QString, int> *fasMap = new QHash<QString, int>();
     for (unsigned i = 0; i < sizeof(faCommonIconArray)/sizeof(FANameIcon); ++i) {
         fasMap->insert(faCommonIconArray[i].name, faCommonIconArray[i].icon);
     }
-    _namedCodepoints.insert(style::fas, fasMap);
+    _namedCodepoints.insert(style::stfas, fasMap);
 #endif
 
     return errors;
