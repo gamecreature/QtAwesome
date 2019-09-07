@@ -231,12 +231,12 @@ QtAwesome::QtAwesome( QObject* parent )
 
     _fontIconPainter = new QtAwesomeCharIconPainter();
 
-    _fontDetails.insert(style::stfas, FontData(FAS_FONT_FILENAME));
-    _fontDetails.insert(style::stfar, FontData(FAR_FONT_FILENAME));
-    _fontDetails.insert(style::stfab, FontData(FAB_FONT_FILENAME));
+    _fontDetails.insert(style::stfas, FontData(FAS_FONT_FILENAME, FAS_FONT_WEIGHT));
+    _fontDetails.insert(style::stfar, FontData(FAR_FONT_FILENAME, FAR_FONT_WEIGHT));
+    _fontDetails.insert(style::stfab, FontData(FAB_FONT_FILENAME, FAB_FONT_WEIGHT));
 #ifdef FONT_AWESOME_PRO
-    _fontDetails.insert(style::stfal, FontData(FAL_FONT_FILENAME));
-    _fontDetails.insert(style::stfad, FontData(FAD_FONT_FILENAME));
+    _fontDetails.insert(style::stfal, FontData(FAL_FONT_FILENAME, FAL_FONT_WEIGHT));
+    _fontDetails.insert(style::stfad, FontData(FAD_FONT_FILENAME, FAD_FONT_WEIGHT));
 #endif
 }
 
@@ -496,7 +496,7 @@ static const FANameIcon faBrandsIconArray[] = {
     { "linkedin"                       , fa::linkedin                    },
     { "linkedin-in"                    , fa::linkedinin                  },
     { "linode"                         , fa::linode                      },
-    { "linux"                          , fa::linux                       },
+    { "linux"                          , fa::fa_linux                    },
     { "lyft"                           , fa::lyft                        },
     { "magento"                        , fa::magento                     },
     { "mailchimp"                      , fa::mailchimp                   },
@@ -2573,6 +2573,8 @@ QFont QtAwesome::font(style::styles st, int size ) const
 
     QFont ft( _fontDetails[st].fontFamily());
     ft.setPixelSize(size);
+    ft.setWeight(_fontDetails[st].fontWeight());
+
     return ft;
 }
 
