@@ -40,6 +40,12 @@ project tree and add the following `include()` to your Qt project file:
 
 Now you are good to go!
 
+or, if you use `cmake` for build add to your `CMakeLists.txt`:
+
+````
+  add_subdirectory(path/to/QtAwesome/QtAwesome QtAwesome)
+  target_link_libraries(${YOUR_PROJECT_NAME} QtAwesome)
+````
 
 Usage
 -----
