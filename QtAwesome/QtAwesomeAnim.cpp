@@ -9,7 +9,7 @@
 
 QtAwesomeAnimation::QtAwesomeAnimation(QWidget *parentWidget, int interval, int step)
     : parentWidgetRef_( parentWidget )
-    , timer_( nullptr )
+    , timer_( QTAWESOME_NULL )
     , interval_( interval )
     , step_( step )
     , angle_( 0.0f )

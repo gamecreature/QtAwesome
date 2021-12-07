@@ -1,6 +1,12 @@
 #ifndef QTAWESOMEANIMATION_H
 #define QTAWESOMEANIMATION_H
 
+#if __cplusplus <= 199711L
+  #define QTAWESOME_NULL NULL
+#else
+  #define QTAWESOME_NULL nullptr
+#endif
+
 #include <QObject>
 
 class QPainter;
