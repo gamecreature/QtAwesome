@@ -65,10 +65,10 @@ QtAwesome* awesome = new QtAwesome( qApp );
 awesome->initFontAwesome();
 
 // Next create your icon with the help of the icon-enumeration (no dashes):
-QPushButton* beerButton new QPushButton( awesome->icon( fa::beer ), "Cheers!" );
+QPushButton* beerButton = new QPushButton( awesome->icon( fa::beer ), "Cheers!" );
 
 // You can also use 'string' names to access the icons. (The string version omits the 'fa-' or 'icon-' prefix and has no dashes )
-QPushButton* coffeeButton new QPushButton( awesome->icon( "coffee" ), "Black please!" );
+QPushButton* coffeeButton = new QPushButton( awesome->icon( "coffee" ), "Black please!" );
 
 // When you create an icon you can supply some options for your icons:
 // The available options can be found at the "Default options"-section
