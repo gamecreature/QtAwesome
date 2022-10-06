@@ -4,7 +4,7 @@ QtAwesome - Font Awesome support for Qt applications
 Description
 -----------
 
-QtAwesome is a simple library that can be used to add [Font Awesome](http://fortawesome.github.io/Font-Awesome/) icons to your [Qt application](http://qt-project.org/).
+QtAwesome is a simple library that can be used to add [Font Awesome](https://fontawesome.com/) icons to your [Qt application](http://qt-project.org/).
 
 NOTE: Though the name is QtAwesome and currently it's very Font Awesome based, you can use every other icon/glyph font you want.
 
