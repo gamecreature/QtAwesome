@@ -1,4 +1,4 @@
-# QtAwesome - Font Awesome support for Qt applications
+# QtAwesome - Font Awesome for Qt Applications
 
 QtAwesome is a library to add [Font Awesome](http://fortawesome.github.io/Font-Awesome/)
 icons to your [Qt application](http://qt-project.org/).
@@ -10,10 +10,10 @@ icons to your [Qt application](http://qt-project.org/).
 - [Installation Pro version](#installation-pro-version)
 - [Basic Usage](#basic-usage)
 - [Examples](#examples)
-- [Example custom painter](#example-custom-painter)
+- [Example Custom Painter](#example-custom-painter)
 - [Default options](#default-options)
 - [Known Issues And Workarounds](#known-issues-and-workarounds)
-- [Summary Of Changes](#summary-of-changes)
+- [Summary of Changes](#summary-of-changes)
 - [Thanks](#thanks)
 - [Contact](#contact)
 - [License](#license)
@@ -120,8 +120,7 @@ QLabel* label = new QLabel(QChar(fa::fa_github));
 label->setFont(awesome->font(fa::fa_brands, 16));
 ```
 
-
-## Example custom painter
+## Example Custom Painter
 
 This example registers a custom painter for supporting an custom icon named 'duplicate'
 It simply draws 2 "plus marks".
@@ -250,13 +249,13 @@ QAction* menuAction = new QAction("test");
 menuAction->setIcon(awesome->icon(fa::fa_heart).pixmap(32,32));
 ```
 
-## Summary Of Changes
+## Summary of Changes
 
 - The complete icons set is renewed and is generated
 - Everything is namespaced in the `fa` namespace
 - Icon name enumerations are changed so the full Font Aweomse name is used: `fa::user`  => `fa::fa_user`.
   With the dashes replaced by underscores.
-- Font Awesome 6 full stylenames, like `fa::fa_regular`, `fa::fa_solid`
+- Font Awesome 6 full style names, like `fa::fa_regular`, `fa::fa_solid`
 - This release has been tested with Qt 5 and Qt 6.
 
 ## Thanks
