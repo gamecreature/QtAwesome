@@ -1,6 +1,12 @@
 QtAwesome - Font Awesome support for Qt applications
 ====================================================
 
+> **Warning**
+> Please don't use the master branch anymore.
+> - Font Awesome 4 support, use the [fontawesome-4 branch](https://github.com/gamecreature/QtAwesome/tree/fontawesome-4) (this is the previous master branch)
+> - Font Awesome 5 support, use the [fontawesome-5 branch](https://github.com/gamecreature/QtAwesome/tree/fontawesome-4)
+> - For the latest release (Font Awesome 6) , use the [main branch](https://github.com/gamecreature/QtAwesome/)
+
 Description
 -----------
 
