@@ -1,7 +1,7 @@
 MIT License
 ===========
 
-Copyright 2013-2015 [Reliable Bits Software by Blommers IT](http://blommersit.nl). All Rights Reserved.
+Copyright 2013-2022 [Reliable Bits Software by Blommers IT](https://blommersit.nl). All Rights Reserved.
 Author [Rick Blommers](mailto:rick@blommersit.nl)
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
@@ -17,13 +17,21 @@ OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHE
 ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 
-Font Awesome License 
+Font Awesome License
 ====================
 
 [https://github.com/FortAwesome/Font-Awesome](https://github.com/FortAwesome/Font-Awesome)
 
-The Font Awesome font is licensed under the SIL Open Font License - [http://scripts.sil.org/OFL](http://scripts.sil.org/OFL)
-The Font Awesome pictograms are licensed under the CC BY 3.0 License - [http://creativecommons.org/licenses/by/3.0/](http://creativecommons.org/licenses/by/3.0/)
-"Font Awesome by Dave Gandy - http://fortawesome.github.com/Font-Awesome"
+Font Awesome Free is free, open source, and GPL friendly. You can use it for commercial projects,
+open source projects, or really almost whatever you want.
 
+- Icons — CC BY 4.0 License
+In the Font Awesome Free download, the CC BY 4.0 license applies to all icons packaged as .svg and .js files types.
+- Fonts — SIL OFL 1.1 License
+In the Font Awesome Free download, the SIL OLF license applies to all icons packaged as web and desktop font files.
+- Code — MIT License
+In the Font Awesome Free download, the MIT license applies to all non-font and non-icon files.
+Attribution is required by MIT, SIL OLF, and CC BY licenses. Downloaded Font Awesome Free files already contain embedded comments with sufficient attribution, so you shouldn't need to do anything additional when using these files normally.
 
+We've kept attribution comments terse, so we ask that you do not actively work to remove them from files,
+especially code. They're a great way for folks to learn about Font Awesome.

@@ -1,0 +1,26 @@
+static const fa::QtAwesomeNamedIcon faCommonIconArray[] = {
+<% icons_common.each_with_index do |(name, _unicode), index| -%>
+    { <%= string_name(name) %>, <%= namespaced_id_name(name) %> } <%= index < icons_common.length - 1 ? ',' : '' %>
+<% end %>
+};
+
+static const fa::QtAwesomeNamedIcon faBrandsIconArray[] = {
+<% icons_brands.each_with_index do |(name, _unicode), index| -%>
+    { <%= string_name(name) %>, <%= namespaced_id_name(name) %> } <%= index < icons_brands.length - 1 ? ',' : '' %>
+<% end %>
+};
+
+#ifdef FONT_AWESOME_PRO
+static const fa::QtAwesomeNamedIcon faProIconArray[] = {
+<% icons_pro.each_with_index do |(name, _unicode), index| -%>
+    { <%= string_name(name) %>, <%= namespaced_id_name(name) %> } <%= index < icons_pro.length - 1 ? ',' : '' %>
+<% end %>
+};
+#else
+
+static const fa::QtAwesomeNamedIcon faRegularFreeIconArray[] = {
+<% icons_regular_free.each_with_index do |(name, _unicode), index| -%>
+    { <%= string_name(name) %>, <%= namespaced_id_name(name) %> } <%= index < icons_pro.length - 1 ? ',' : '' %>
+<% end %>
+};
+#endif
