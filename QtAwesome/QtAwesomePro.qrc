@@ -1,9 +1,11 @@
 <RCC>
     <qresource prefix="/">
-        <file>fonts/Font Awesome 5 Brands-Regular-400.otf</file>
-        <file>fonts/Font Awesome 5 Duotone-Solid-900.otf</file>
-        <file>fonts/Font Awesome 5 Pro-Light-300.otf</file>
-        <file>fonts/Font Awesome 5 Pro-Regular-400.otf</file>
-        <file>fonts/Font Awesome 5 Pro-Solid-900.otf</file>
+        <file>fonts/Font Awesome 6 Brands-Regular-400.otf</file>
+        <file>fonts/pro/Font Awesome 6 Duotone-Solid-900.otf</file>
+        <file>fonts/pro/Font Awesome 6 Pro-Light-300.otf</file>
+        <file>fonts/pro/Font Awesome 6 Pro-Regular-400.otf</file>
+        <file>fonts/pro/Font Awesome 6 Pro-Solid-900.otf</file>
+        <file>fonts/pro/Font Awesome 6 Pro-Thin-100.otf</file>
+        <file>fonts/pro/Font Awesome 6 Sharp-Solid-900.otf</file>
     </qresource>
 </RCC>

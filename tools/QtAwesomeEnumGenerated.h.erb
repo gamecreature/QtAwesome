@@ -1,0 +1,22 @@
+namespace fa {
+enum fa_common_icons : uint16_t {
+    <% icons_common.each_with_index do |(name, unicode), index| -%>
+        <%= id_name(name) %> = <%= "0x#{unicode}" -%><%= index < icons_common.length - 1 ? ',' : '' %>
+    <% end %>
+};
+
+
+enum fa_brand_icons : uint16_t {
+    <% icons_brands.each_with_index do |(name, unicode), index| -%>
+        <%= id_name(name) %> = <%= "0x#{unicode}" -%><%= index < icons_brands.length - 1 ? ',' : '' %>
+    <% end %>
+};
+
+#ifdef FONT_AWESOME_PRO
+enum fa_pro_icons : uint16_t {
+    <% icons_pro.each_with_index do |(name, unicode), index| -%>
+        <%= id_name(name) %> = <%= "0x#{unicode}" -%><%= index < icons_pro.length - 1 ? ',' : '' %>
+    <% end %>
+};
+#endif
+}

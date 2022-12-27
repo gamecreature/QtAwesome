@@ -8,11 +8,15 @@ count(options, 2) { error("fontAwesomePro and fontAwesomeFree were defined, only
 
 INCLUDEPATH += $$PWD
 
-SOURCES += $$PWD/QtAwesome.cpp \  
+SOURCES += $$PWD/QtAwesome.cpp \
     $$PWD/QtAwesomeAnim.cpp
 
-HEADERS += $$PWD/QtAwesome.h \   
-    $$PWD/QtAwesomeAnim.h
+
+HEADERS += $$PWD/QtAwesome.h \
+    $$PWD/QtAwesomeAnim.h \
+    $$PWD/QtAwesomeEnumGenerated.h \
+    $$PWD/QtAwesomeStringGenerated.h
+
 
 CONFIG( fontAwesomePro ){
     config = Pro
@@ -26,5 +30,4 @@ CONFIG( fontAwesomeFree ){
     RESOURCES += $$resourcesForConfig(config)
     !build_pass:message(using font awesome free)
 }
-
 

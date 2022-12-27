@@ -1,143 +1,190 @@
 # QtAwesome - Font Awesome support for Qt applications
 
-## Description
+QtAwesome is a library to add [Font Awesome](http://fortawesome.github.io/Font-Awesome/)
+icons to your [Qt application](http://qt-project.org/).
 
-QtAwesome is a simple library that can be used to add [Font Awesome](http://fortawesome.github.io/Font-Awesome/) icons to your [Qt application](http://qt-project.org/).
+## Table of Contents
 
-NOTE: Though the name is QtAwesome and currently it's very Font Awesome based, you can use every other icon/glyph font you want.
+- [Latest Release - Font Awesome 6](#latest-release---font-awesome-6)
+- [Installation Free Version](#installation-free-version)
+- [Installation Pro version](#installation-pro-version)
+- [Basic Usage](#basic-usage)
+- [Examples](#examples)
+- [Example custom painter](#example-custom-painter)
+- [Default options](#default-options)
+- [Known Issues And Workarounds](#known-issues-and-workarounds)
+- [Summary Of Changes](#summary-of-changes)
+- [Thanks](#thanks)
+- [Contact](#contact)
+- [License](#license)
 
-The class can also be used to manage your own dynamic code-drawn icons, by adding named icon-painters.
+## Latest Release - Font Awesome 6
 
-## Changes in FontAwesome 5.10.2
+This is the Font Awesome 6 release. It replaces the main branch, which still was a Font Awesome 4 version.
+(There's also a Font Awesome 5 branch, but was never merged to the main/master branch.)
 
-New version of this library added support to Font Awesome version **5.10.2**.
+This release is **not** completely backwards compatible with the 4 and 5 releases.
+The decision was made for a new clean version which better suited for the future.
+(A compatibility layer is in development).
 
-* This library supports Free and Pro versions of Font Awesome, however only the pro font files are included in this repository, but if you have a pro license of the icons you can use it.
-* It support all icons styles (solid, regular, brand, light, duotone), including the duotone icons in pro version.
+Previous versions used a hand-crafted icon list, this version has a generated list.
 
-## Changes in FontAwesome 4.7.0
+Having troubles with this new release?
 
-Previous version of this library added support to Font Awesome version **4.7.0**.
-You can find the font-aweomse 4 version in the branch. (https://github.com/gamecreature/QtAwesome/tree/fontawesome-4)
+- You can find the previous `master` branch in the [fontawesome-4](https://github.com/gamecreature/QtAwesome/tree/fontawesome-4) branch. (`master` is dropped in favour of `main`)
+- The [fontawesome-5](https://github.com/gamecreature/QtAwesome/tree/fontawesome-5) branch contains the Font Awesome 5 version.
+- The new [main](https://github.com/gamecreature/QtAwesome/) branch contains the latest Font Awesome 6 version.
+- Open a github issue if you'v found a bug or have a suggestion
 
-* In the 4.5.0 version the _linux name has been changed to fa_linux. (Makes the naming of conflicting/invalid names more consistent, like fa_try and fa_500px)
-* You can find the previous FontAwesome 4 c++11 library in the [c++11 branch](https://github.com/gamecreature/QtAwesome/tree/c++11).
-* You can find the previous FontAwesome 3 library in the [fontawesome-3 branch](https://github.com/gamecreature/QtAwesome/tree/fontawesome-3).
+## Installation Free Version
 
-**Note about previous c++11**
-
-I removed the C++11 requirement. And moved the c++11 code to a c++11 branch.
-It's not that I don't like c++11, but the typed enum made the code less flexible then it is now.
-Just integers it is. Simpler is better.
-
-## Installation
-
-The easiest way to include QtAweome **5.10.2** in your project is to copy the QtAwesome directory to your
+The easiest way to include QtAweome in your project is to copy the QtAwesome directory to your
 project tree and add the following `include()` to your Qt project file:
 
 ```bash
-CONFIG+=fontAwesomeFree #or CONFIG+=fontAwesomePro for pro version
+CONFIG+=fontAwesomeFree
 include(QtAwesome/QtAwesome.pri)
 ```
 
-Now you are good to go!
+Now you are good to go! The free fonts are included in this project.
 
-## Usage
+## Installation Pro version
 
-You probably want to create a single QtAwesome object for your whole application:
+To activate the pro version, the following teh `fontAwesomePro` config should be defined.
+
+```bash
+CONFIG+=fontAwesomePro
+include(QtAwesome/QtAwesome.pri)
+```
+
+The pro font files need to be copied to the `QtAwesome/fonts/pro` folder.
+(ex, Font Awesome 6 Brands-Regular-400.otf, etc... )
+
+## Basic Usage
+
+You probably want to create a single QtAwesome object for your whole application.
 
 ```c++
-QtAwesome* awesome = new QtAwesome( qApp )
+fa::QtAwesome* awesome = new fa::QtAwesome(qApp)
 awesome->initFontAwesome();     // This line is important as it loads the font and initializes the named icon map
 ```
 
-* Add an accessor to this object (i.e. a global function, member of your application object, or whatever you like).
-* Use an icon name from the [Font Awesome Cheatsheet](http://fortawesome.github.io/Font-Awesome/cheatsheet/).
+- Add an accessor to this object (i.e. a global function, member of your application object, or whatever you like).
+- Use an icon name from the [Font Awesome Library](https://fontawesome.com/icons).
 
-## Example
+## Examples
+
+Next the icons can be accessed via the `awesome->icon` method.
 
 ```c++
-// You should create a single object of QtAwesome.
-QtAwesome* awesome = new QtAwesome( qApp );
-awesome->initFontAwesome();
+// The most performant operation the get an icon
+QPushButton* btn = new QPushButton(awesome->icon(fa::fa_solid, fa::fa_wine_glass), "Cheers!");
 
-// Next create your icon with the help of the icon-enumeration (no dashes):
-QPushButton* beerButton new QPushButton( awesome->icon( style::fas, fa::beer ), "Cheers!" );
+// You can also use 'string' names to access the icons.
+QPushButton* btn = new QPushButton(awesome->icon("fa-solid fa-coffee" ), "Black please!");
 
-// You can also use 'string' names to access the icons. (The string version omits the 'fa-' prefix)
-QPushButton* coffeeButton new QPushButton( awesome->icon( "fas coffee" ), "Black please!" );
+// The string items passed to the icon method  can be used without the 'fa-' prefix
+QPushButton* btn = new QPushButton(awesome->icon("solid coffee" ), "Black please!");
 
-// When you create an icon you can supply some options for your icons:
-// The available options can be found at the "Default options"-section
-
-QVariantMap options;
-options.insert( "color" , QColor(255,0,0) );
-QPushButton* musicButton = new QPushButton( awesome->icon( style::fas, fa::music, options ), "Music" );
-
-// You can also change the default options.
-// for example if you always would like to have green icons you could call)
-awesome->setDefaultOption( "color-disabled", QColor(0,255,0) );
-
-// You can also directly render a label with this font
-QLabel* label = new QLabel( QChar( fa::rocketchat ) );
-label->setFont( awesome->font(style::fab, 16) );
-
+// The style is also optional and will fallback to the 'solid' style
+QPushButton* btn = new QPushButton(awesome->icon("coffee" ), "Black please!");
 ```
+
+For shorter syntax (more Font Aweseome like) is possible to bring the fa namespace into the curren scope:
+
+```c++
+using namespace fa;
+QPushButton* btn = new QPushButton(awesome->icon(fa_solid, fa_wine_glass), "Cheers!");
+```
+
+It is possible to create some extra options for the icons.
+The available options can be found in the [Default options list](#default-options)
+
+```c++
+QVariantMap options;
+options.insert("color" , QColor(255, 0 ,0));
+QPushButton* musicButton = new QPushButton(awesome->icon(fa::fa_solid, fa::music, options), "Music");
+```
+
+The defaults option can also be adjusted via the `setDefaultOption` method.\
+For example having green disabled icons, it is possible to call:
+
+```c++
+awesome->setDefaultOption("color-disabled", QColor(0, 255, 0));
+```
+
+It also possible to render a label directly with this font
+
+```c++
+QLabel* label = new QLabel(QChar(fa::fa_github));
+label->setFont(awesome->font(fa::fa_brands, 16));
+```
+
 
 ## Example custom painter
 
-This example registers a custom painter for supporting a duplicate icon (it draws 2 "plus marks"):
+This example registers a custom painter for supporting an custom icon named 'duplicate'
+It simply draws 2 "plus marks".
 
 ```c++
 class DuplicateIconPainter : public QtAwesomeIconPainter
 {
 public:
-    virtual void paint( QtAwesome* awesome, QPainter* painter, const QRect& rectIn, QIcon::Mode mode, QIcon::State state, const QVariantMap& options  )
+    virtual void paint(QtAwesome* awesome, QPainter* painter, const QRect& rectIn, QIcon::Mode mode, QIcon::State state, const QVariantMap& options)
     {
-        int drawSize = qRound(rectIn.height()*0.5);
+        int drawSize = qRound(rectIn.height() * 0.5);
         int offset = rectIn.height() / 4;
-        QChar chr = QChar( static_cast<int>(fa::plus) );
-        int st = style::fas;
+        QChar chr = QChar(static_cast<int>(fa::plus));
+        int st = fa::fa_solid;
 
-        painter->setFont( st, awesome->font( drawSize ) );
+        painter->setFont(st, awesome->font(drawSize));
 
-        painter->setPen( QColor(100,100,100) );
-        painter->drawText( QRect( QPoint(offset*2, offset*2), QSize(drawSize, drawSize) ), chr , QTextOption( Qt::AlignCenter|Qt::AlignVCenter ) );
+        painter->setPen(QColor(100,100,100));
+        painter->drawText(QRect(QPoint(offset * 2, offset * 2),
+                          QSize(drawSize, drawSize)), chr ,
+                          QTextOption(Qt::AlignCenter|Qt::AlignVCenter));
 
-        painter->setPen( QColor(50,50,50) );
-        painter->drawText( QRect( QPoint(rectIn.width()-drawSize-offset, rectIn.height()-drawSize-offset), QSize(drawSize, drawSize) ), chr , QTextOption( Qt::AlignCenter|Qt::AlignVCenter ) );
-
+        painter->setPen(QColor(50,50,50));
+        painter->drawText(QRect(QPoint(rectIn.width() - drawSize-offset, rectIn.height() - drawSize - offset),
+                                QSize(drawSize, drawSize) ), chr ,
+                                QTextOption(Qt::AlignCenter | Qt::AlignVCenter));
     }
 };
 
-awesome->give("duplicate", new DuplicateIconPainter() );
+awesome->give("duplicate", new DuplicateIconPainter());
+```
+
+After this, this icon can be used with the given string name:
+
+```c++
+awesome->icon("duplicate")
 ```
 
 ## Default options
 
-  The following options are default in the QtAwesome class.
+The following options are the defaults in the QtAwesome class.
 
 ```c++
-setDefaultOption( "color", QColor(50,50,50) );
-setDefaultOption( "color-disabled", QColor(70,70,70,60));
-setDefaultOption( "color-active", QColor(10,10,10));
-setDefaultOption( "color-selected", QColor(10,10,10));
+setDefaultOption("color", QApplication::palette().color(QPalette::Normal, QPalette::Text));
+setDefaultOption("color-disabled", QApplication::palette().color(QPalette::Disabled, QPalette::Text));
+setDefaultOption("color-active", QApplication::palette().color(QPalette::Active, QPalette::Text));
+setDefaultOption("color-selected", QApplication::palette().color(QPalette::Active, QPalette::Text));
 
-setDefaultOption( "text", QString() );      // internal option
-setDefaultOption( "text-disabled", QString() );
-setDefaultOption( "text-active", QString() );
-setDefaultOption( "text-selected", QString() );
+setDefaultOption("text", QString()); // internal option
+setDefaultOption("text-disabled", QString());
+setDefaultOption("text-active", QString());
+setDefaultOption("text-selected", QString());
 
-setDefaultOption( "scale-factor", 0.9 );
+setDefaultOption("scale-factor", 0.9);
 ```
 
-In pro version
+Extra items for the pro version
 
 ```c++
-setDefaultOption( "duotone-color", QColor(50,50,50,127) );
-setDefaultOption( "duotone-color-disabled", QColor(70,70,70,50));
-setDefaultOption( "duotone-color-active", QColor(10,10,10, 00));
-setDefaultOption( "duotone-color-selected", QColor(10,10,10,210));
+setDefaultOption("duotone-color", QApplication::palette().color(QPalette::Normal, QPalette::BrightText));
+setDefaultOption("duotone-color-disabled", QApplication::palette().color(QPalette::Disabled, QPalette::BrightText));
+setDefaultOption("duotone-color-active", QApplication::palette().color(QPalette::Active, QPalette::BrightText));
+setDefaultOption("duotone-color-selected", QApplication::palette().color(QPalette::Active, QPalette::BrightText));
 ```
 
 When creating an icon, it first populates the options-map with the default options from the QtAwesome object.
@@ -147,98 +194,98 @@ It is possible to use another glyph per icon-state. For example to make an icon-
 you could supply the following option:
 
 ```c++
-options.insert("text-selected", QString( fa::lock ) );
+options.insert("text-selected", QString(fa::fa_lock));
 ```
 
 Color and text options have the following structure:
 `keyname-iconmode-iconstate`
 
-Where iconmode normal is empty
-And iconstate On is off.
+When iconmode normal is empty\
+And iconstate on is blank
 
 So the list of items used is:
 
-* color
-* color-disabled
-* color-active
-* color-selected
-* color-off
-* color-disabled-off
-* color-active-off
-* color-selected-off
-* duotone-color (only in pro mode)
-* duotone-color-disabled (only in pro mode)
-* duotone-color-active (only in pro mode)
-* duotone-color-selected (only in pro mode)
-* duotone-color-off (only in pro mode)
-* duotone-color-disabled-off (only in pro mode)
-* duotone-color-active-off (only in pro mode)
-* duotone-color-selected-off (only in pro mode)
-* text
-* text-disabled
-* text-active
-* text-selected
-* text-off
-* text-disabled-off
-* text-active-off
-* text-selected-off
-* style
-* style-disabled
-* style-active
-* style-selected
-* style-off
-* style-disabled-off
-* style-active-off
-* style-selected-off
+- color
+- color-disabled
+- color-active
+- color-selected
+- color-off
+- color-disabled-off
+- color-active-off
+- color-selected-off
+- duotone-color (pro)
+- duotone-color-disabled (pro)
+- duotone-color-active (pro)
+- duotone-color-selected (pro)
+- duotone-color-off (pro)
+- duotone-color-disabled-off (pro)
+- duotone-color-active-off (pro)
+- duotone-color-selected-off (pro)
+- text
+- text-disabled
+- text-active
+- text-selected
+- text-off
+- text-disabled-off
+- text-active-off
+- text-selected-off
+- style
+- style-disabled
+- style-active
+- style-selected
+- style-off
+- style-disabled-off
+- style-active-off
+- style-selected-off
 
-## License
-
-
-MIT License. Copyright 2013 - Reliable Bits Software by Blommers IT. [http://blommersit.nl/](http://blommersit.nl)
-
-The Font Awesome font is licensed under the SIL Open Font License - [http://scripts.sil.org/OFL](http://scripts.sil.org/OFL)
-The Font Awesome pictograms are licensed under the CC BY 3.0 License - [http://creativecommons.org/licenses/by/3.0/](http://creativecommons.org/licenses/by/3.0/)
-"Font Awesome by Dave Gandy - http://fortawesome.github.com/Font-Awesome"
-
-## Contact
-
-* email: <rick@blommersit.nl>
-* twitter: [https://twitter.com/gamecreature](https://twitter.com/gamecreature)
-* website: [http://blommersit.nl](http://blommersit.nl)  (warning Dutch content ahead)
-* github: [https://github.com/gamecreature/QtAwesome](https://github.com/gamecreature/QtAwesome)
-
-## Known issues and workarounds
+## Known Issues And Workarounds
 
 On Mac OS X, placing an qtAwesome icon in QMainWindow menu, doesn't work directly.
 See the following issue: [https://github.com/gamecreature/QtAwesome/issues/10]
 
-A workaround for this problem is converting it to a Pixmap icon like this:
+A workaround for this problem is converting it to a Pixmap icon:
 
 ```c++
 QAction* menuAction = new QAction("test");
-menuAction->setIcon( awesome->icon(fa::beer).pixmap(32,32) );
+menuAction->setIcon(awesome->icon(fa::fa_heart).pixmap(32,32));
 ```
 
-## Remarks
+## Summary Of Changes
 
-I've created this project because I needed some nice icons for my own Qt project. After doing a lot of
-css/html5 work and being spoiled by the ease of twitter bootstrap with Font Awesome,
-I thought it would be nice to be able to use these icons for my Qt project.
+- The complete icons set is renewed and is generated
+- Everything is namespaced in the `fa` namespace
+- Icon name enumerations are changed so the full Font Aweomse name is used: `fa::user`  => `fa::fa_user`.
+  With the dashes replaced by underscores.
+- Font Awesome 6 full stylenames, like `fa::fa_regular`, `fa::fa_solid`
+- This release has been tested with Qt 5 and Qt 6.
 
-I've slightly changed the code from the original, added some more documentation, but it's still
-a work in progress. So feel free to drop me an e-mail for your suggestions and improvements!
-
-There are still some things todo, like:
-
-* document the usage of another icon font
-* add some tests
-* do some code cleanup
+## Thanks
 
 Thanks go to the contributors of this project!
-
-And of course last but not least,
 
 Many thanks go to Dave Gandy an the other Font Awesome contributors!! [http://fortawesome.github.com/Font-Awesome](http://fortawesome.github.com/Font-Awesome)
 And of course to the Qt team/contributors for supplying this great cross-platform c++ library.
 
 Contributions are welcome! Feel free to fork and send a pull request through Github.
+
+<a href="https://github.com/gamecreature/qtawesome/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=gamecreature/qtawesome" />
+</a>
+
+<small>*Contribution list made with [contrib.rocks](https://contrib.rocks).*</small>
+
+## Contact
+
+- email: <rick@blommersit.nl>
+- mastedon: [https://ruby.social/@rick](https://ruby.social/@rick)
+- twitter: [https://twitter.com/gamecreature](https://twitter.com/gamecreature)
+- website: [https://gamecreatures.com](http://gamecreatures.com)
+- github: [https://github.com/gamecreature/QtAwesome](https://github.com/gamecreature/QtAwesome)
+
+## License
+
+MIT License. Copyright 2013-2022 - Reliable Bits Software by Blommers IT. [http://blommersit.nl/](http://blommersit.nl)
+
+The Font Awesome font is licensed under the SIL Open Font License - [http://scripts.sil.org/OFL](http://scripts.sil.org/OFL)
+The Font Awesome pictograms are licensed under the CC BY 3.0 License - [http://creativecommons.org/licenses/by/3.0/](http://creativecommons.org/licenses/by/3.0/)
+"Font Awesome by Dave Gandy - http://fortawesome.github.com/Font-Awesome"

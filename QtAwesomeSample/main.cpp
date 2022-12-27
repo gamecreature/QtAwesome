@@ -1,7 +1,7 @@
 /**
  * MIT Licensed
  *
- * Copyright 2011-2015 - Reliable Bits Software by Blommers IT. All Rights Reserved.
+ * Copyright 2011-2022 - Reliable Bits Software by Blommers IT. All Rights Reserved.
  * Author Rick Blommers
  */
 

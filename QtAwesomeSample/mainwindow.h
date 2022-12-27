@@ -21,7 +21,7 @@ public slots:
 
 private:
     Ui::MainWindow *ui;
-    QtAwesome* awesome;
+    fa::QtAwesome* awesome;
 };
 
 #endif // MAINWINDOW_H

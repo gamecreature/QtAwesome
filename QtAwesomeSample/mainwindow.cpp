@@ -3,36 +3,25 @@
 #include "QtAwesome.h"
 #include <QStandardItemModel>
 #include <QMap>
+#include <QDebug>
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    awesome = new QtAwesome(this);
+    awesome = new fa::QtAwesome(this);
     awesome->initFontAwesome();
 
-    for(int st=style::stfas; st<=style::stfab; st++){
-        switch(st){
-        case style::stfab:
-            ui->comboBox->insertItem(style::stfab, "Brands", style::stfab);
-            break;
-        case style::stfar:
-            ui->comboBox->insertItem(style::stfar, "Regular", style::stfar);
-            break;
-        case style::stfas:
-            ui->comboBox->insertItem(style::stfas, "Solid", style::stfas);
-            break;
+    ui->comboBox->addItem("Solid", fa::fa_solid);
+    ui->comboBox->addItem("Brands", fa::fa_brands);
+    ui->comboBox->addItem("Regular", fa::fa_regular);
 #ifdef FONT_AWESOME_PRO
-        case style::stfal:
-            ui->comboBox->insertItem(style::stfal, "Light", style::stfal);
-            break;
-        case style::stfad:
-            ui->comboBox->insertItem(style::stfad, "Duotone", style::stfad);
-            break;
+    ui->comboBox->addItem("Light", fa::fa_light);
+    ui->comboBox->addItem("Thin", fa::fa_thin);
+    ui->comboBox->addItem("Duotone", fa::fa_duotone);
+    ui->comboBox->addItem("Sharp Solid", fa::fa_sharp_solid);
 #endif
-        }
-    }
 
     // a simple beer button
     //=====================
@@ -40,29 +29,33 @@ MainWindow::MainWindow(QWidget *parent) :
         QPushButton* beerButton = ui->beerButton;
 
         QVariantMap options;
-        options.insert("anim", qVariantFromValue( new QtAwesomeAnimation(beerButton) ) );
-        beerButton->setIcon( awesome->icon( "fas beer", options  ) );
+        options.insert("anim", QVariant::fromValue(new fa::QtAwesomeAnimation(beerButton)));
+
+        // below are the possible variation to show thi icon
+         beerButton->setIcon(awesome->icon(fa::fa_solid, fa::fa_beer_mug_empty, options));
+        // beerButton->setIcon(awesome->icon("fa-solid fa-beer-mug-empty", options));
+        // beerButton->setIcon(awesome->icon("beer-mug-empty", options));
+        // beerButton->setIcon(awesome->icon("solid beer-mug-empty", options));
     }
 
-    // a simple beer checkbox button
-    //==============================
+    // a simple checkbox button
+    //=========================
     {
         QPushButton* toggleButton = ui->toggleButton;
         toggleButton->setCheckable(true);
 
         QVariantMap options;
-        options.insert("color", QColor(Qt::green) );
-        options.insert("text-off", QString(fa::square) );
-        options.insert("color-off", QColor(Qt::red) );
-        toggleButton->setIcon( awesome->icon( "far check-square", options ));
+        options.insert("color", QColor(Qt::yellow));
+        options.insert("text-off", QString(fa::fa_square));
+        options.insert("color-off", QColor(Qt::darkBlue));
+        toggleButton->setIcon( awesome->icon("fa_solid square-check", options));
     }
 
-    QStandardItemModel *model = new QStandardItemModel(this);
+    QStandardItemModel* model = new QStandardItemModel(this);
     ui->listView->setModel(model);
 
     connect(ui->comboBox, SIGNAL(activated(int)), this, SLOT(styleChanged(int)));
-    ui->comboBox->setCurrentIndex(style::stfab);
-    styleChanged(style::stfab);
+    styleChanged(fa::fa_solid);
 }
 
 MainWindow::~MainWindow()
@@ -72,18 +65,19 @@ MainWindow::~MainWindow()
 
 void MainWindow::styleChanged(int index)
 {
+    Q_UNUSED(index)
+    QVariant styleValue = ui->comboBox->currentData();
+    int style = styleValue.toInt();
 
-    QHash<QString, int> iconset = awesome->namedCodePoints(static_cast<style::styles>(index));
+    QHash<QString, int> iconset = awesome->namedCodePoints(style);
 
     QStandardItemModel *model = dynamic_cast<QStandardItemModel*>(ui->listView->model());
     model->clear();
 
-    for(QHash<QString, int>::iterator i=iconset.begin();i!=iconset.end();++i)
-    {
+    for (QHash<QString, int>::iterator i=iconset.begin(); i != iconset.end(); ++i) {
         QString name = i.key();
         int ic = i.value();
-
-        model->appendRow(new QStandardItem(awesome->icon(index, ic), name));
+        model->appendRow(new QStandardItem(awesome->icon(style, ic), name));
     }
     model->sort(0);
 }

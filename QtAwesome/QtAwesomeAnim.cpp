@@ -6,21 +6,22 @@
 #include <QTimer>
 #include <QWidget>
 
+namespace fa {
 
 QtAwesomeAnimation::QtAwesomeAnimation(QWidget *parentWidget, int interval, int step)
-    : parentWidgetRef_( parentWidget )
-    , timer_( nullptr )
-    , interval_( interval )
-    , step_( step )
-    , angle_( 0.0f )
+    : parentWidgetRef_(parentWidget)
+    , timer_(nullptr)
+    , interval_(interval)
+    , step_(step)
+    , angle_(0.0f)
 {
 
 }
 
-void QtAwesomeAnimation::setup( QPainter &painter, const QRect &rect)
+void QtAwesomeAnimation::setup(QPainter &painter, const QRect &rect)
 {
     // first time set the timer
-    if( !timer_ )
+    if (!timer_)
     {
         timer_ = new QTimer();
         connect(timer_,SIGNAL(timeout()), this, SLOT(update()) );
@@ -44,3 +45,5 @@ void QtAwesomeAnimation::update()
     angle_ = std::fmod( static_cast<float>(angle_), 360.0f);
     parentWidgetRef_->update();
 }
+
+} // namespace fa
