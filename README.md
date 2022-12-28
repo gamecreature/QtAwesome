@@ -50,14 +50,14 @@ Now you are good to go! The free fonts are included in this project.
 
 ## Installation Pro version
 
-To activate the pro version, the following teh `fontAwesomePro` config should be defined.
+To activate the pro version, `fontAwesomePro` config should be defined.
 
 ```bash
 CONFIG+=fontAwesomePro
 include(QtAwesome/QtAwesome.pri)
 ```
 
-The pro font files need to be copied to the `QtAwesome/fonts/pro` folder.
+And the pro font files need to be copied to the `QtAwesome/fonts/pro` folder.
 (ex, Font Awesome 6 Brands-Regular-400.otf, etc... )
 
 ## Basic Usage
