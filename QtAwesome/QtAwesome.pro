@@ -9,8 +9,10 @@ TEMPLATE = lib
 CONFIG += staticlib c++11
 QT += widgets
 
-SOURCES += QtAwesome.cpp QtAwesomeAnim.cpp
-HEADERS += QtAwesome.h QtAwesomeAnim.h
+# only one option must be enabled
+#CONFIG += fontAwesomePro
+CONFIG += fontAwesomeFree
+include(QtAwesome.pri)
 
 isEmpty(PREFIX) {
     unix {
@@ -24,6 +26,3 @@ install_headers.files = QtAwesome.h QtAwesomeAnim.h
 install_headers.path = $$PREFIX/include
 target.path = $$PREFIX/lib
 INSTALLS += install_headers target
-
-RESOURCES += \
-    QtAwesome.qrc

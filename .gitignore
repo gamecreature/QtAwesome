@@ -1,3 +1,7 @@
-.DS_Store
+.*
 *.pro.user
+*.pro.user*
 /*build*
+
+# never include pro files
+QtAwesome/fonts/pro/
