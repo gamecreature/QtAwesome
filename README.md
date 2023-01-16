@@ -262,7 +262,7 @@ menuAction->setIcon(awesome->icon(fa::fa_heart).pixmap(32,32));
 
 Thanks go to the contributors of this project!
 
-Many thanks go to Dave Gandy an the other Font Awesome contributors!! [http://fortawesome.github.com/Font-Awesome](http://fortawesome.github.com/Font-Awesome)
+Many thanks go to Dave Gandy an the other Font Awesome contributors!! [https://github.com/FortAwesome/Font-Awesome](https://github.com/FortAwesome/Font-Awesome)
 And of course to the Qt team/contributors for supplying this great cross-platform c++ library.
 
 Contributions are welcome! Feel free to fork and send a pull request through Github.
@@ -278,13 +278,13 @@ Contributions are welcome! Feel free to fork and send a pull request through Git
 - email: <rick@blommersit.nl>
 - mastedon: [https://ruby.social/@rick](https://ruby.social/@rick)
 - twitter: [https://twitter.com/gamecreature](https://twitter.com/gamecreature)
-- website: [https://gamecreatures.com](http://gamecreatures.com)
+- website: [https://gamecreatures.com](https://gamecreatures.com)
 - github: [https://github.com/gamecreature/QtAwesome](https://github.com/gamecreature/QtAwesome)
 
 ## License
 
-MIT License. Copyright 2013-2022 - Reliable Bits Software by Blommers IT. [http://blommersit.nl/](http://blommersit.nl)
+MIT License. Copyright 2013-2022 - Reliable Bits Software by Blommers IT. [https://blommersit.nl/](https://blommersit.nl)
 
-The Font Awesome font is licensed under the SIL Open Font License - [http://scripts.sil.org/OFL](http://scripts.sil.org/OFL)
-The Font Awesome pictograms are licensed under the CC BY 3.0 License - [http://creativecommons.org/licenses/by/3.0/](http://creativecommons.org/licenses/by/3.0/)
-"Font Awesome by Dave Gandy - http://fortawesome.github.com/Font-Awesome"
+The Font Awesome font is licensed under the SIL Open Font License - [https://scripts.sil.org/OFL](http://scripts.sil.org/OFL)
+The Font Awesome pictograms are licensed under the CC BY 3.0 License - [https://creativecommons.org/licenses/by/3.0/](http://creativecommons.org/licenses/by/3.0/)
+"Font Awesome by Dave Gandy - https://github.com/FortAwesome/Font-Awesome"
