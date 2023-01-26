@@ -10,7 +10,10 @@ set(CMAKE_AUTORCC ON)
 
 add_subdirectory(../QtAwesome QtAwesome)
 
-add_executable(${PROJECT_NAME} main.cpp)
+add_executable(${PROJECT_NAME}
+  mainwindow.cpp
+  main.cpp
+  )
 
 target_link_libraries(${PROJECT_NAME}
   PUBLIC QtAwesome
