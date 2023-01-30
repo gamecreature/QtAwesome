@@ -1,5 +1,7 @@
 project(QtAwesome)
 
+set(CMAKE_WINDOWS_EXPORT_ALL_SYMBOLS ON)
+
 add_library(QtAwesome
   QtAwesome.cpp
   QtAwesomeAnim.cpp
@@ -13,10 +15,3 @@ target_include_directories(QtAwesome
 target_link_libraries(QtAwesome PUBLIC
   Qt${QT_VERSION_MAJOR}::Widgets
 )
-
-include(GenerateExportHeader)
-generate_export_header(QtAwesome
-  BASE_NAME
-  EXPORT_MACRO_NAME QTAWESOME_EXPORT
-  EXPORT_FILE_NAME QtAwesome_export.h
-  STATIC_DEFINE QTAWESOME_BUILT_AS_STATIC)
