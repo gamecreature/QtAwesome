@@ -102,7 +102,7 @@ public:
         painter->save();
 
         painter->setRenderHint(QPainter::Antialiasing);
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
+#if QT_VERSION < QT_VERSION_CHECK(5, 14, 0)
         painter->setRenderHint(QPainter::HighQualityAntialiasing);
 #endif
 
