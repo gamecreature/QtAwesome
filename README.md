@@ -5,7 +5,8 @@ icons to your [Qt application](http://qt-project.org/).
 
 ## Table of Contents
 
-- [Latest Release - Font Awesome 6](#latest-release---font-awesome-6)
+- [Latest Release 6.3.0](#latest-release-630)
+- [Font Awesome 6 Release](#font-awesome-6-release)
 - [Installation Free Version](#installation-free-version)
 - [Installation Pro version](#installation-pro-version)
 - [Basic Usage](#basic-usage)
@@ -18,7 +19,14 @@ icons to your [Qt application](http://qt-project.org/).
 - [Contact](#contact)
 - [License](#license)
 
-## Latest Release - Font Awesome 6
+## Latest Release 6.3.0
+
+Support for "Font Awesome Sharp Regular" (Pro) icons.
+All alias-names are now added to the to the icon-name map.
+
+[View changelog](CHANGES.md)
+
+## Font Awesome 6 Release
 
 This is the Font Awesome 6 release. It replaces the main branch, which still was a Font Awesome 4 version.
 (There's also a Font Awesome 5 branch, but was never merged to the main/master branch.)

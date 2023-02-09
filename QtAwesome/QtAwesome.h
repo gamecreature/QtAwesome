@@ -33,6 +33,7 @@ enum fa_styles {
     fa_thin = 4,
     fa_duotone = 5,
     fa_sharp_solid = 6,
+    fa_sharp_regular = 7,
 #endif
     fa_brands = 2
 };
@@ -87,11 +88,13 @@ public:
     static const QString FA_DUOTONE_FONT_FILENAME; // fa-duotone
     static const QString FA_THIN_FONT_FILENAME; // fa-thin
     static const QString FA_SHARP_SOLID_FONT_FILENAME; // fa-sharp fa-solid
+    static const QString FA_SHARP_REGULAR_FONT_FILENAME; // fa-sharp fa-regular
     static const int DUOTONE_HEX_ICON_VALUE = 0x100000;
     static const QFont::Weight FA_LIGHT_FONT_WEIGHT = QFont::Light;
     static const QFont::Weight FA_THIN_FONT_WEIGHT = QFont::ExtraLight;
     static const QFont::Weight FA_DUOTONE_FONT_WEIGHT = QFont::Black;
     static const QFont::Weight FA_SHARP_SOLID_FONT_WEIGHT = QFont::Black;
+    static const QFont::Weight FA_SHARP_REGULAR_FONT_WEIGHT = QFont::Normal;
 #endif
 
 public:

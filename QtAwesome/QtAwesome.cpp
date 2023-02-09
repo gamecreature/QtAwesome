@@ -214,6 +214,7 @@ const QString QtAwesome::FA_REGULAR_FONT_FILENAME = "pro/Font Awesome 6 Pro-Regu
 const QString QtAwesome::FA_THIN_FONT_FILENAME = "pro/Font Awesome 6 Pro-Thin-100.otf";
 const QString QtAwesome::FA_SOLID_FONT_FILENAME = "pro/Font Awesome 6 Pro-Solid-900.otf";
 const QString QtAwesome::FA_SHARP_SOLID_FONT_FILENAME = "pro/Font Awesome 6 Sharp-Solid-900.otf";
+const QString QtAwesome::FA_SHARP_REGULAR_FONT_FILENAME = "pro/Font Awesome 6 Sharp-Regular-400.otf";
 #else
 const QString QtAwesome::FA_REGULAR_FONT_FILENAME = "Font Awesome 6 Free-Regular-400.otf";
 const QString QtAwesome::FA_SOLID_FONT_FILENAME = "Font Awesome 6 Free-Solid-900.otf";
@@ -254,6 +255,7 @@ QtAwesome::QtAwesome(QObject* parent)
     _fontDetails.insert(fa::fa_duotone, QtAwesomeFontData(FA_DUOTONE_FONT_FILENAME, FA_DUOTONE_FONT_WEIGHT));
     _fontDetails.insert(fa::fa_thin, QtAwesomeFontData(FA_THIN_FONT_FILENAME, FA_THIN_FONT_WEIGHT));
     _fontDetails.insert(fa::fa_sharp_solid, QtAwesomeFontData(FA_SHARP_SOLID_FONT_FILENAME, FA_SHARP_SOLID_FONT_WEIGHT));
+    _fontDetails.insert(fa::fa_sharp_regular, QtAwesomeFontData(FA_SHARP_REGULAR_FONT_FILENAME, FA_SHARP_REGULAR_FONT_WEIGHT));
 #endif
 }
 
@@ -316,6 +318,7 @@ bool QtAwesome::initFontAwesome()
     _namedCodepointsByStyle.insert(fa::fa_thin, _namedCodepointsByStyle.value(fa::fa_solid));
     _namedCodepointsByStyle.insert(fa::fa_duotone, _namedCodepointsByStyle.value(fa::fa_solid));
     _namedCodepointsByStyle.insert(fa::fa_sharp_solid, _namedCodepointsByStyle.value(fa::fa_solid));
+    _namedCodepointsByStyle.insert(fa::fa_sharp_regular, _namedCodepointsByStyle.value(fa::fa_solid));
 #else
     addToNamedCodePoints(fa::fa_regular, faRegularFreeIconArray, sizeof(faRegularFreeIconArray)/sizeof(QtAwesomeNamedIcon));
 #endif
@@ -489,6 +492,7 @@ int QtAwesome::stringToStyleEnum(const QString style) const
     else if (style == "fa-thin") return fa::fa_thin;
     else if (style == "fa-duotone") return fa::fa_duotone;
     else if (style == "fa-sharp-solid") return fa::fa_sharp_solid;
+    else if (style == "fa-sharp-regular") return fa::fa_sharp_regular;
 #endif
     return fa::fa_solid;
 }
@@ -504,6 +508,7 @@ const QString QtAwesome::styleEnumToString(int style) const
         case fa::fa_thin: return "fa=thin";
         case fa::fa_duotone: return "fa-duotone";
         case fa::fa_sharp_solid: return "fa-sharp-solid";
+        case fa::fa_sharp_regular: return "fa-sharp-regular";
 #endif
     }
     return "fa_solid";
