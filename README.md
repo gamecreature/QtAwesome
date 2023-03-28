@@ -5,7 +5,7 @@ icons to your [Qt application](http://qt-project.org/).
 
 ## Table of Contents
 
-- [Latest Release 6.3.0](#latest-release-630)
+- [Latest Release 6.4.0](#latest-release-640)
 - [Font Awesome 6 Release](#font-awesome-6-release)
 - [Installation Free Version](#installation-free-version)
 - [Installation Pro version](#installation-pro-version)
@@ -19,10 +19,9 @@ icons to your [Qt application](http://qt-project.org/).
 - [Contact](#contact)
 - [License](#license)
 
-## Latest Release 6.3.0
+## Latest Release 6.4.0
 
-Support for "Font Awesome Sharp Regular" (Pro) icons.
-All alias-names are now added to the to the icon-name map.
+Support for "Font Awesome Sharp Light (Pro) icons.
 
 [View changelog](CHANGES.md)
 

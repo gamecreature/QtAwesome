@@ -22,6 +22,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->comboBox->addItem("Duotone", fa::fa_duotone);
     ui->comboBox->addItem("Sharp Solid", fa::fa_sharp_solid);
     ui->comboBox->addItem("Sharp Regular", fa::fa_sharp_regular);
+    ui->comboBox->addItem("Sharp Light", fa::fa_sharp_light);
 #endif
 
     // a simple beer button
