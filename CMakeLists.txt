@@ -27,3 +27,18 @@ target_include_directories(QtAwesome
 target_link_libraries(QtAwesome PUBLIC
 	Qt${QT_VERSION_MAJOR}::Widgets
 )
+
+install(TARGETS QtAwesome
+  RUNTIME DESTINATION bin
+  LIBRARY DESTINATION lib
+  ARCHIVE DESTINATION lib
+)
+
+install(FILES
+  QtAwesome/QtAwesome.h
+  QtAwesome/QtAwesomeAnim.h
+  QtAwesome/QtAwesomeEnumGenerated.h
+  QtAwesome/QtAwesomeStringGenerated.h
+  DESTINATION include
+  )
+
