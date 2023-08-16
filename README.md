@@ -21,7 +21,6 @@ icons to your [Qt application](http://qt-project.org/).
 
 ## Latest Release 6.4.2
 
-Support for "Font Awesome Sharp Light (Pro) icons.
 Fix issue, pro icons are are now included namedCodePoints list.
 
 [View changelog](CHANGES.md)
