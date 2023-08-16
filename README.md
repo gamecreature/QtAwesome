@@ -5,7 +5,7 @@ icons to your [Qt application](http://qt-project.org/).
 
 ## Table of Contents
 
-- [Latest Release 6.4.0](#latest-release-640)
+- [Latest Release 6.4.2](#latest-release-642)
 - [Font Awesome 6 Release](#font-awesome-6-release)
 - [Installation Free Version](#installation-free-version)
 - [Installation Pro version](#installation-pro-version)
@@ -19,9 +19,10 @@ icons to your [Qt application](http://qt-project.org/).
 - [Contact](#contact)
 - [License](#license)
 
-## Latest Release 6.4.0
+## Latest Release 6.4.2
 
 Support for "Font Awesome Sharp Light (Pro) icons.
+Fix issue, pro icons are are now included namedCodePoints list.
 
 [View changelog](CHANGES.md)
 

@@ -315,6 +315,8 @@ bool QtAwesome::initFontAwesome()
 
     //initialize others code icons maps
 #ifdef FONT_AWESOME_PRO
+    addToNamedCodePoints(fa::fa_solid, faProIconArray, sizeof(faProIconArray)/sizeof(QtAwesomeNamedIcon));
+
     _namedCodepointsByStyle.insert(fa::fa_regular, _namedCodepointsByStyle.value(fa::fa_solid));
     _namedCodepointsByStyle.insert(fa::fa_light, _namedCodepointsByStyle.value(fa::fa_solid));
     _namedCodepointsByStyle.insert(fa::fa_thin, _namedCodepointsByStyle.value(fa::fa_solid));
