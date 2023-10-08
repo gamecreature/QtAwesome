@@ -20,25 +20,35 @@ add_library(QtAwesome
 	QtAwesome/QtAwesomeFree.qrc
 )
 
+include(GNUInstallDirs)
+
 target_include_directories(QtAwesome
-	INTERFACE ${PROJECT_SOURCE_DIR}/QtAwesome
+	INTERFACE
+		$<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}/QtAwesome>
+		$<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>
 )
 
 target_link_libraries(QtAwesome PUBLIC
 	Qt${QT_VERSION_MAJOR}::Widgets
 )
 
-install(TARGETS QtAwesome
-  RUNTIME DESTINATION bin
-  LIBRARY DESTINATION lib
-  ARCHIVE DESTINATION lib
+install(TARGETS QtAwesome EXPORT QtAwesomeConfig
+	RUNTIME DESTINATION ${CMAKE_INSTALL_BINARYDIR}
+	LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
+	ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR}
 )
+
+install(EXPORT QtAwesomeConfig
+	DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/QtAwesome/
+	NAMESPACE QtAwesome::
+)
+export(EXPORT QtAwesomeConfig NAMESPACE QtAwesome::)
 
 install(FILES
   QtAwesome/QtAwesome.h
   QtAwesome/QtAwesomeAnim.h
   QtAwesome/QtAwesomeEnumGenerated.h
   QtAwesome/QtAwesomeStringGenerated.h
-  DESTINATION include
+  DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/QtAwesome
   )
 
