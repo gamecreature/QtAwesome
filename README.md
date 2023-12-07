@@ -19,9 +19,9 @@ icons to your [Qt application](http://qt-project.org/).
 - [Contact](#contact)
 - [License](#license)
 
-## Latest Release 6.4.2
+## Latest Release 6.5.1
 
-Fix issue, pro icons are are now included in the namedCodePoints list.
+Pro Sharp Thin font support.
 
 [View changelog](CHANGES.md)
 

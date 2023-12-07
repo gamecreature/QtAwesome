@@ -9,5 +9,6 @@
         <file>fonts/pro/Font Awesome 6 Sharp-Solid-900.otf</file>
         <file>fonts/pro/Font Awesome 6 Sharp-Regular-400.otf</file>
         <file>fonts/pro/Font Awesome 6 Sharp-Light-300.otf</file>
+        <file>fonts/pro/Font Awesome 6 Sharp-Thin-100.otf</file>
     </qresource>
 </RCC>

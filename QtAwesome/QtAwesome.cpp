@@ -216,6 +216,7 @@ const QString QtAwesome::FA_SOLID_FONT_FILENAME = "pro/Font Awesome 6 Pro-Solid-
 const QString QtAwesome::FA_SHARP_SOLID_FONT_FILENAME = "pro/Font Awesome 6 Sharp-Solid-900.otf";
 const QString QtAwesome::FA_SHARP_REGULAR_FONT_FILENAME = "pro/Font Awesome 6 Sharp-Regular-400.otf";
 const QString QtAwesome::FA_SHARP_LIGHT_FONT_FILENAME = "pro/Font Awesome 6 Sharp-Light-300.otf";
+const QString QtAwesome::FA_SHARP_THIN_FONT_FILENAME = "pro/Font Awesome 6 Sharp-Thin-100.otf";
 #else
 const QString QtAwesome::FA_REGULAR_FONT_FILENAME = "Font Awesome 6 Free-Regular-400.otf";
 const QString QtAwesome::FA_SOLID_FONT_FILENAME = "Font Awesome 6 Free-Solid-900.otf";
@@ -258,6 +259,7 @@ QtAwesome::QtAwesome(QObject* parent)
     _fontDetails.insert(fa::fa_sharp_solid, QtAwesomeFontData(FA_SHARP_SOLID_FONT_FILENAME, FA_SHARP_SOLID_FONT_WEIGHT));
     _fontDetails.insert(fa::fa_sharp_regular, QtAwesomeFontData(FA_SHARP_REGULAR_FONT_FILENAME, FA_SHARP_REGULAR_FONT_WEIGHT));
     _fontDetails.insert(fa::fa_sharp_light, QtAwesomeFontData(FA_SHARP_LIGHT_FONT_FILENAME, FA_SHARP_LIGHT_FONT_WEIGHT));
+    _fontDetails.insert(fa::fa_sharp_thin, QtAwesomeFontData(FA_SHARP_THIN_FONT_FILENAME, FA_SHARP_THIN_FONT_WEIGHT));
 #endif
 }
 
@@ -324,6 +326,7 @@ bool QtAwesome::initFontAwesome()
     _namedCodepointsByStyle.insert(fa::fa_sharp_solid, _namedCodepointsByStyle.value(fa::fa_solid));
     _namedCodepointsByStyle.insert(fa::fa_sharp_regular, _namedCodepointsByStyle.value(fa::fa_solid));
     _namedCodepointsByStyle.insert(fa::fa_sharp_light, _namedCodepointsByStyle.value(fa::fa_solid));
+    _namedCodepointsByStyle.insert(fa::fa_sharp_thin, _namedCodepointsByStyle.value(fa::fa_solid));
 #else
     addToNamedCodePoints(fa::fa_regular, faRegularFreeIconArray, sizeof(faRegularFreeIconArray)/sizeof(QtAwesomeNamedIcon));
 #endif
@@ -410,7 +413,7 @@ QIcon QtAwesome::icon(const QString& name, const QVariantMap& options)
 
     if( spaceIndex > 0) {
         QString styleName = name.left(spaceIndex);
-        style = stringToStyleEnum(name.startsWith("fa-") ? name.mid(3) : name);
+        style = stringToStyleEnum(styleName.startsWith("fa-") ? styleName.mid(3) : name);
         iconName = name.mid(spaceIndex + 1);
     } else {
         iconName = name;
@@ -499,6 +502,7 @@ int QtAwesome::stringToStyleEnum(const QString style) const
     else if (style == "fa-sharp-solid") return fa::fa_sharp_solid;
     else if (style == "fa-sharp-regular") return fa::fa_sharp_regular;
     else if (style == "fa-sharp-light") return fa::fa_sharp_light;
+    else if (style == "fa-sharp-thin") return fa::fa_sharp_thin;
 #endif
     return fa::fa_solid;
 }
@@ -516,6 +520,7 @@ const QString QtAwesome::styleEnumToString(int style) const
         case fa::fa_sharp_solid: return "fa-sharp-solid";
         case fa::fa_sharp_regular: return "fa-sharp-regular";
         case fa::fa_sharp_light: return "fa-sharp-light";
+        case fa::fa_sharp_thin: return "fa-sharp-thin";
 #endif
     }
     return "fa_solid";
