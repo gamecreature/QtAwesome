@@ -131,6 +131,14 @@ protected:
     const QString styleEnumToString(int style) const;
     void addToNamedCodePoints(int style, const fa::QtAwesomeNamedIcon* faCommonIconArray, int size);
 
+Q_SIGNALS:
+    // signal about default options being reset
+    void defaultOptionsReset();
+
+public Q_SLOTS:
+    // (re)set default options according to current QApplication::palette()
+    void resetDefaultOptions();
+
 private:
     QHash<int, QtAwesomeFontData>     _fontDetails;           ///< The fonts name used for each style
     QHash<int, QHash<QString, int>*> _namedCodepointsByStyle; ///< A map with names mapped to code-points for each style
