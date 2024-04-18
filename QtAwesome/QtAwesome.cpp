@@ -17,6 +17,7 @@
 #include <QFontDatabase>
 #include <QFontMetrics>
 #include <QString>
+#include <QStyleHints>
 
 
 // Initializing namespaces need to happen outside a namespace
@@ -228,24 +229,8 @@ QtAwesome::QtAwesome(QObject* parent)
     , _namedCodepointsByStyle()
     , _namedCodepointsList()
 {
-      setDefaultOption("color", QApplication::palette().color(QPalette::Normal, QPalette::Text));
-      setDefaultOption("color-disabled", QApplication::palette().color(QPalette::Disabled, QPalette::Text));
-      setDefaultOption("color-active", QApplication::palette().color(QPalette::Active, QPalette::Text));
-      setDefaultOption("color-selected", QApplication::palette().color(QPalette::Active, QPalette::Text));  // TODO: check how to get the correct highlighted color
-      setDefaultOption("scale-factor", 1.0 );
 
-
-#ifdef FONT_AWESOME_PRO
-      setDefaultOption("duotone-color", QApplication::palette().color(QPalette::Normal, QPalette::BrightText) );
-      setDefaultOption("duotone-color-disabled",
-                       QApplication::palette().color(QPalette::Disabled, QPalette::BrightText));
-      setDefaultOption("duotone-color-active", QApplication::palette().color(QPalette::Active, QPalette::BrightText));
-      setDefaultOption("duotone-color-selected", QApplication::palette().color(QPalette::Active, QPalette::BrightText));
-#endif
-    setDefaultOption("text", QVariant());
-    setDefaultOption("text-disabled", QVariant());
-    setDefaultOption("text-active", QVariant());
-    setDefaultOption("text-selected", QVariant());
+    resetDefaultOptions();
 
     _fontIconPainter = new QtAwesomeCharIconPainter();
 
@@ -261,6 +246,36 @@ QtAwesome::QtAwesome(QObject* parent)
     _fontDetails.insert(fa::fa_sharp_light, QtAwesomeFontData(FA_SHARP_LIGHT_FONT_FILENAME, FA_SHARP_LIGHT_FONT_WEIGHT));
     _fontDetails.insert(fa::fa_sharp_thin, QtAwesomeFontData(FA_SHARP_THIN_FONT_FILENAME, FA_SHARP_THIN_FONT_WEIGHT));
 #endif
+
+    // support dark/light mode
+    QObject::connect(QApplication::styleHints(), &QStyleHints::colorSchemeChanged, this, [this](Qt::ColorScheme colorScheme){
+        resetDefaultOptions();
+    });
+}
+
+void QtAwesome::resetDefaultOptions(){
+    _defaultOptions.clear();
+
+    setDefaultOption("color", QApplication::palette().color(QPalette::Normal, QPalette::Text));
+    setDefaultOption("color-disabled", QApplication::palette().color(QPalette::Disabled, QPalette::Text));
+    setDefaultOption("color-active", QApplication::palette().color(QPalette::Active, QPalette::Text));
+    setDefaultOption("color-selected", QApplication::palette().color(QPalette::Active, QPalette::Text));  // TODO: check how to get the correct highlighted color
+    setDefaultOption("scale-factor", 1.0 );
+
+
+#ifdef FONT_AWESOME_PRO
+    setDefaultOption("duotone-color", QApplication::palette().color(QPalette::Normal, QPalette::BrightText) );
+    setDefaultOption("duotone-color-disabled",
+                     QApplication::palette().color(QPalette::Disabled, QPalette::BrightText));
+    setDefaultOption("duotone-color-active", QApplication::palette().color(QPalette::Active, QPalette::BrightText));
+    setDefaultOption("duotone-color-selected", QApplication::palette().color(QPalette::Active, QPalette::BrightText));
+#endif
+    setDefaultOption("text", QVariant());
+    setDefaultOption("text-disabled", QVariant());
+    setDefaultOption("text-active", QVariant());
+    setDefaultOption("text-selected", QVariant());
+
+    Q_EMIT defaultOptionsReset();
 }
 
 QtAwesome::~QtAwesome()
