@@ -3,7 +3,7 @@
  *
  * MIT Licensed
  *
- * Copyright 2013-2022 - Reliable Bits Software by Blommers IT. All Rights Reserved.
+ * Copyright 2013-2024 - Reliable Bits Software by Blommers IT. All Rights Reserved.
  * Author Rick Blommers
  */
 

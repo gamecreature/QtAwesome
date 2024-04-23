@@ -1,5 +1,6 @@
 # Changes
 
+- (2024-04-23) Support for dark/light colorSchema mode, (contribution by @hanjianqiao(Lanchitour))
 - (2023-12-07) Update to 6.5.1, Sharp Thin Pro font
 - (2023-08-16) Update to 6.4.2, Fix issue missing pro icons in namedCodePoints
 - (2023-03-28) Update to 6.4.0, Sharp Light Pro font
