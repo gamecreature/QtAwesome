@@ -3,7 +3,7 @@
  *
  * MIT Licensed
  *
- * Copyright 2013-2022 - Reliable Bits Software by Blommers IT. All Rights Reserved.
+ * Copyright 2013-2024 - Reliable Bits Software by Blommers IT. All Rights Reserved.
  * Author Rick Blommers
  */
 
@@ -17,8 +17,12 @@
 #include <QFontDatabase>
 #include <QFontMetrics>
 #include <QString>
-#include <QStyleHints>
 
+
+#if (QT_VERSION >= QT_VERSION_CHECK(6, 5, 0))
+#define USE_COLOR_SCHEME
+#include <QStyleHints>
+#endif
 
 // Initializing namespaces need to happen outside a namespace
 static void qtawesome_init_resources()
@@ -247,10 +251,12 @@ QtAwesome::QtAwesome(QObject* parent)
     _fontDetails.insert(fa::fa_sharp_thin, QtAwesomeFontData(FA_SHARP_THIN_FONT_FILENAME, FA_SHARP_THIN_FONT_WEIGHT));
 #endif
 
-    // support dark/light mode
+#ifdef USE_COLOR_SCHEME
+   // support dark/light mode
     QObject::connect(QApplication::styleHints(), &QStyleHints::colorSchemeChanged, this, [this](Qt::ColorScheme colorScheme){
         resetDefaultOptions();
     });
+#endif
 }
 
 void QtAwesome::resetDefaultOptions(){
