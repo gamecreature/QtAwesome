@@ -22,11 +22,14 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-
-        os: [ubuntu-20.04, ubuntu-22.04, ubuntu-24.04, macos-12, macos-13, windows-2019, windows-2022]
+        os: [ubuntu-20.04, ubuntu-22.04, ubuntu-24.04, macos-12, macos-13, macos-14, windows-2019, windows-2022]
         qt_version: [5.12.12, 5.15.2, 6.4.0, 6.5.0, 6.6.0, 6.7.0]
         shared: [ON, OFF]
-
+        exclude:
+          - os: macos-14
+            qt_version: 5.12.12
+          - os: macos-14
+            qt_version: 5.15.2
     steps:
     - name: Checkout Code
       uses: actions/checkout@v4
