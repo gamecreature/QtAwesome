@@ -10,14 +10,18 @@ set(CMAKE_AUTORCC ON)
 
 set(CMAKE_WINDOWS_EXPORT_ALL_SYMBOLS ON)
 
-add_library(QtAwesome
+set(QtAwesome_HEADERS
 	QtAwesome/QtAwesome.h
-	QtAwesome/QtAwesome.cpp
 	QtAwesome/QtAwesomeAnim.h
-	QtAwesome/QtAwesomeAnim.cpp
 	QtAwesome/QtAwesomeEnumGenerated.h
 	QtAwesome/QtAwesomeStringGenerated.h
+)
+
+add_library(QtAwesome
+	QtAwesome/QtAwesome.cpp
+	QtAwesome/QtAwesomeAnim.cpp
 	QtAwesome/QtAwesomeFree.qrc
+	${QtAwesome_HEADERS}
 )
 
 include(GNUInstallDirs)
@@ -32,23 +36,20 @@ target_link_libraries(QtAwesome PUBLIC
 	Qt${QT_VERSION_MAJOR}::Widgets
 )
 
+set_target_properties(QtAwesome PROPERTIES
+	PUBLIC_HEADER "${QtAwesome_HEADERS}"
+)
+
 install(TARGETS QtAwesome EXPORT QtAwesomeConfig
 	RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
 	LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
 	ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR}
+	PUBLIC_HEADER DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/QtAwesome
 )
 
 install(EXPORT QtAwesomeConfig
 	DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/QtAwesome/
 	NAMESPACE QtAwesome::
 )
+
 export(EXPORT QtAwesomeConfig NAMESPACE QtAwesome::)
-
-install(FILES
-  QtAwesome/QtAwesome.h
-  QtAwesome/QtAwesomeAnim.h
-  QtAwesome/QtAwesomeEnumGenerated.h
-  QtAwesome/QtAwesomeStringGenerated.h
-  DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/QtAwesome
-  )
-
