@@ -19,9 +19,13 @@ icons to your [Qt application](http://qt-project.org/).
 - [Contact](#contact)
 - [License](#license)
 
-## Latest Release 6.5.1
+## Latest Release 6.7.1
 
-Pro Sharp Thin font support.
+Extra Duotone styles
+
+- Expand Duotone to support Solid, Regular, Light and Thin
+- Add Sharp Duoto styles
+- Deprecated Duotone (without style)
 
 [View changelog](CHANGES.md)
 

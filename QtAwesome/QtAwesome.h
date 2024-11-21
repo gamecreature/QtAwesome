@@ -31,11 +31,22 @@ enum fa_styles {
 #ifdef FONT_AWESOME_PRO
     fa_light = 3,
     fa_thin = 4,
-    fa_duotone = 5,
-    fa_sharp_solid = 6,
-    fa_sharp_regular = 7,
-    fa_sharp_light = 8,
-    fa_sharp_thin = 9,
+
+    fa_duotone = 5, // DEPRECATED, use fa_duotone_solid
+    fa_duotone_solid = 5,
+    fa_duotone_regular = 6,
+    fa_duotone_light = 7,
+    fa_duotone_thin = 8,
+
+    fa_sharp_solid = 9,
+    fa_sharp_regular = 10,
+    fa_sharp_light = 11,
+    fa_sharp_thin = 12,
+
+    fa_sharp_duotone_solid = 13,
+    fa_sharp_duotone_regular = 14,
+    fa_sharp_duotone_light = 15,
+    fa_sharp_duotone_thin = 16,
 #endif
     fa_brands = 2
 };
@@ -87,20 +98,43 @@ public:
 
 #ifdef FONT_AWESOME_PRO
     static const QString FA_LIGHT_FONT_FILENAME; // fa-light
-    static const QString FA_DUOTONE_FONT_FILENAME; // fa-duotone
     static const QString FA_THIN_FONT_FILENAME; // fa-thin
+
+    static const QString FA_DUOTONE_FONT_FILENAME; // fa-duotone / DEPRECATED
+    static const QString FA_DUOTONE_SOLID_FONT_FILENAME; // fa-duotone fa-solid
+    static const QString FA_DUOTONE_REGULAR_FONT_FILENAME; // fa-duotone fa-regular
+    static const QString FA_DUOTONE_LIGHT_FONT_FILENAME; // fa-duotone fa-light
+    static const QString FA_DUOTONE_THIN_FONT_FILENAME; // fa-duotone fa-thin
+
     static const QString FA_SHARP_SOLID_FONT_FILENAME; // fa-sharp fa-solid
     static const QString FA_SHARP_REGULAR_FONT_FILENAME; // fa-sharp fa-regular
     static const QString FA_SHARP_LIGHT_FONT_FILENAME; // fa-sharp fa-light
     static const QString FA_SHARP_THIN_FONT_FILENAME; // fa-sharp fa-thin
+
+    static const QString FA_SHARP_DUOTONE_SOLID_FONT_FILENAME; // fa-sharp-duotone fa-solid
+    static const QString FA_SHARP_DUOTONE_REGULAR_FONT_FILENAME; // fa-sharp-duotone fa-regular
+    static const QString FA_SHARP_DUOTONE_LIGHT_FONT_FILENAME; // fa-sharp-duotone fa-light
+    static const QString FA_SHARP_DUOTONE_THIN_FONT_FILENAME; // fa-sharp-duotone fa-thin
+
     static const int DUOTONE_HEX_ICON_VALUE = 0x100000;
     static const QFont::Weight FA_LIGHT_FONT_WEIGHT = QFont::Light;
     static const QFont::Weight FA_THIN_FONT_WEIGHT = QFont::ExtraLight;
-    static const QFont::Weight FA_DUOTONE_FONT_WEIGHT = QFont::Black;
+
+    static const QFont::Weight FA_DUOTONE_FONT_WEIGHT = QFont::Black; // DEPRECATED: use FA_DUOTONE_FONT_SOLID_WEIGHT
+    static const QFont::Weight FA_DUOTONE_SOLID_FONT_WEIGHT = QFont::Black;
+    static const QFont::Weight FA_DUOTONE_REGULAR_FONT_WEIGHT = QFont::Normal;
+    static const QFont::Weight FA_DUOTONE_LIGHT_FONT_WEIGHT = QFont::Light;
+    static const QFont::Weight FA_DUOTONE_THIN_FONT_WEIGHT = QFont::ExtraLight;
+
     static const QFont::Weight FA_SHARP_SOLID_FONT_WEIGHT = QFont::Black;
     static const QFont::Weight FA_SHARP_REGULAR_FONT_WEIGHT = QFont::Normal;
     static const QFont::Weight FA_SHARP_LIGHT_FONT_WEIGHT = QFont::Light;
     static const QFont::Weight FA_SHARP_THIN_FONT_WEIGHT = QFont::ExtraLight;
+
+    static const QFont::Weight FA_SHARP_DUOTONE_SOLID_FONT_WEIGHT = QFont::Black;
+    static const QFont::Weight FA_SHARP_DUOTONE_REGULAR_FONT_WEIGHT = QFont::Normal;
+    static const QFont::Weight FA_SHARP_DUOTONE_LIGHT_FONT_WEIGHT = QFont::Light;
+    static const QFont::Weight FA_SHARP_DUOTONE_THIN_FONT_WEIGHT = QFont::ExtraLight;
 #endif
 
 public:

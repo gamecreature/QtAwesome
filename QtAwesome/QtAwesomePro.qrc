@@ -2,13 +2,20 @@
     <qresource prefix="/">
         <file>fonts/Font Awesome 6 Brands-Regular-400.otf</file>
         <file>fonts/pro/Font Awesome 6 Duotone-Solid-900.otf</file>
-        <file>fonts/pro/Font Awesome 6 Pro-Light-300.otf</file>
-        <file>fonts/pro/Font Awesome 6 Pro-Regular-400.otf</file>
+        <file>fonts/pro/Font Awesome 6 Duotone-Regular-400.otf</file>
+        <file>fonts/pro/Font Awesome 6 Duotone-Light-300.otf</file>
+        <file>fonts/pro/Font Awesome 6 Duotone-Thin-100.otf</file>
         <file>fonts/pro/Font Awesome 6 Pro-Solid-900.otf</file>
+        <file>fonts/pro/Font Awesome 6 Pro-Regular-400.otf</file>
+        <file>fonts/pro/Font Awesome 6 Pro-Light-300.otf</file>
         <file>fonts/pro/Font Awesome 6 Pro-Thin-100.otf</file>
         <file>fonts/pro/Font Awesome 6 Sharp-Solid-900.otf</file>
         <file>fonts/pro/Font Awesome 6 Sharp-Regular-400.otf</file>
         <file>fonts/pro/Font Awesome 6 Sharp-Light-300.otf</file>
         <file>fonts/pro/Font Awesome 6 Sharp-Thin-100.otf</file>
+        <file>fonts/pro/Font Awesome 6 Sharp Duotone-Solid-900.otf</file>
+        <file>fonts/pro/Font Awesome 6 Sharp Duotone-Regular-400.otf</file>
+        <file>fonts/pro/Font Awesome 6 Sharp Duotone-Light-300.otf</file>
+        <file>fonts/pro/Font Awesome 6 Sharp Duotone-Thin-100.otf</file>
     </qresource>
 </RCC>

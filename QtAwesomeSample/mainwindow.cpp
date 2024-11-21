@@ -19,11 +19,19 @@ MainWindow::MainWindow(QWidget *parent) :
 #ifdef FONT_AWESOME_PRO
     ui->comboBox->addItem("Light", fa::fa_light);
     ui->comboBox->addItem("Thin", fa::fa_thin);
-    ui->comboBox->addItem("Duotone", fa::fa_duotone);
+    // ui->comboBox->addItem("Duotone", fa::fa_duotone); // DEPRECATED
+    ui->comboBox->addItem("Duotone Solid", fa::fa_duotone);
+    ui->comboBox->addItem("Duotone Regular", fa::fa_duotone_regular);
+    ui->comboBox->addItem("Duotone Light", fa::fa_duotone_light);
+    ui->comboBox->addItem("Duotone Thin", fa::fa_duotone_thin);
     ui->comboBox->addItem("Sharp Solid", fa::fa_sharp_solid);
     ui->comboBox->addItem("Sharp Regular", fa::fa_sharp_regular);
     ui->comboBox->addItem("Sharp Light", fa::fa_sharp_light);
     ui->comboBox->addItem("Sharp Thin", fa::fa_sharp_thin);
+    ui->comboBox->addItem("Sharp Duotone Solid", fa::fa_sharp_duotone_solid);
+    ui->comboBox->addItem("Sharp Duotone Regular", fa::fa_sharp_duotone_regular);
+    ui->comboBox->addItem("Sharp Duotone Light", fa::fa_sharp_duotone_light);
+    ui->comboBox->addItem("Sharp Duotone Thin", fa::fa_sharp_duotone_thin);
 #endif
 
     // a simple beer button

@@ -1,5 +1,9 @@
 # Changes
 
+- (2024-11-21) Update to 6.7.1, Extra Duotone styles
+  - Expand Duotone to support Solid, Regular, Light and Thin
+  - Add Sharp Duotone styles
+  - Deprecated Duotone (without style)
 - (2024-04-23) Support for dark/light colorSchema mode, (contribution by @hanjianqiao(Lanchitour))
 - (2023-12-07) Update to 6.5.1, Sharp Thin Pro font
 - (2023-08-16) Update to 6.4.2, Fix issue missing pro icons in namedCodePoints
