@@ -5,7 +5,7 @@ icons to your [Qt application](http://qt-project.org/).
 
 ## Table of Contents
 
-- [Latest Release 6.5.1](#latest-release-651)
+- [Latest Release 6.7.2](#latest-release-672)
 - [Font Awesome 6 Release](#font-awesome-6-release)
 - [Installation Free Version](#installation-free-version)
 - [Installation Pro version](#installation-pro-version)
@@ -19,13 +19,9 @@ icons to your [Qt application](http://qt-project.org/).
 - [Contact](#contact)
 - [License](#license)
 
-## Latest Release 6.7.1
+## Latest Release 6.7.2
 
-Extra Duotone styles
-
-- Expand Duotone to support Solid, Regular, Light and Thin
-- Add Sharp Duoto styles
-- Deprecated Duotone (without style)
+Update of font files to 6.7.2
 
 [View changelog](CHANGES.md)
 
