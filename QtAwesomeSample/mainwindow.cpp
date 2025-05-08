@@ -4,6 +4,7 @@
 #include <QStandardItemModel>
 #include <QMap>
 #include <QDebug>
+#include <QtCore/qtypes.h>
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -57,7 +58,7 @@ MainWindow::MainWindow(QWidget *parent) :
 
         QVariantMap options;
         options.insert("color", QColor(Qt::yellow));
-        options.insert("text-off", QString(fa::fa_square));
+        options.insert("text-off", QString(QChar(static_cast<quint16>(fa::fa_square))));
         options.insert("color-off", QColor(Qt::darkBlue));
         toggleButton->setIcon( awesome->icon("fa_solid square-check", options));
     }
