@@ -1,5 +1,6 @@
 # Changes
 
+- (2025-05-08) #65, Support for Qt 6.9. Fix the CMakelist example
 - (2025-04-07) Update to 6.7.2 (Updated OTF files)
 - (2024-11-21) Update to 6.7.1, Extra Duotone styles
   - Expand Duotone to support Solid, Regular, Light and Thin

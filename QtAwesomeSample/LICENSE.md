@@ -1,7 +1,7 @@
 MIT License
 ===========
 
-Copyright 2013-2022 [Reliable Bits Software by Blommers IT](https://blommersit.nl). All Rights Reserved.
+Copyright 2013-2025 [Rick Blommers](mailto:rick@blommersit.nl). All Rights Reserved.
 Author [Rick Blommers](mailto:rick@blommersit.nl)
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated

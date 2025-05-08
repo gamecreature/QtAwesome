@@ -273,6 +273,7 @@ QtAwesome::QtAwesome(QObject* parent)
 #ifdef USE_COLOR_SCHEME
    // support dark/light mode
     QObject::connect(QApplication::styleHints(), &QStyleHints::colorSchemeChanged, this, [this](Qt::ColorScheme colorScheme){
+        Q_UNUSED(colorScheme);
         resetDefaultOptions();
     });
 #endif
