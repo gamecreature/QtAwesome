@@ -462,7 +462,7 @@ QIcon QtAwesome::icon(const QString& name, const QVariantMap& options)
 
     if( spaceIndex > 0) {
         QString styleName = name.left(spaceIndex);
-        style = stringToStyleEnum(styleName.startsWith("fa-") ? styleName.mid(3) : name);
+        style = stringToStyleEnum(styleName.startsWith("fa-") ? styleName : "fa-" + styleName);
         iconName = name.mid(spaceIndex + 1);
     } else {
         iconName = name;
