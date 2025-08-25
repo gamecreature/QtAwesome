@@ -1,7 +1,8 @@
 .*
 *.pro.user
 *.pro.user*
-/*build*
+CMakeLists.txt.user
+**/build
 
 # never include pro files
 QtAwesome/fonts/pro/

@@ -1,11 +1,12 @@
 # QtAwesome - Font Awesome for Qt Applications
 
-QtAwesome is a library to add [Font Awesome](http://fortawesome.github.io/Font-Awesome/)
+QtAwesome is a library to add [Font Awesome](https://fontawesome.com)
 icons to your [Qt application](http://qt-project.org/).
 
 ## Table of Contents
 
-- [Latest Release - Font Awesome 6](#latest-release---font-awesome-6)
+- [Latest Release 6.7.2](#latest-release-672)
+- [Font Awesome 6 Release](#font-awesome-6-release)
 - [Installation Free Version](#installation-free-version)
 - [Installation Pro version](#installation-pro-version)
 - [Basic Usage](#basic-usage)
@@ -18,7 +19,13 @@ icons to your [Qt application](http://qt-project.org/).
 - [Contact](#contact)
 - [License](#license)
 
-## Latest Release - Font Awesome 6
+## Latest Release 6.7.2
+
+Update of font files to 6.7.2
+
+[View changelog](CHANGES.md)
+
+## Font Awesome 6 Release
 
 This is the Font Awesome 6 release. It replaces the main branch, which still was a Font Awesome 4 version.
 (There's also a Font Awesome 5 branch, but was never merged to the main/master branch.)
@@ -262,7 +269,7 @@ menuAction->setIcon(awesome->icon(fa::fa_heart).pixmap(32,32));
 
 Thanks go to the contributors of this project!
 
-Many thanks go to Dave Gandy an the other Font Awesome contributors!! [http://fortawesome.github.com/Font-Awesome](http://fortawesome.github.com/Font-Awesome)
+Many thanks go to Dave Gandy an the other Font Awesome contributors!! [https://github.com/FortAwesome/Font-Awesome](https://github.com/FortAwesome/Font-Awesome)
 And of course to the Qt team/contributors for supplying this great cross-platform c++ library.
 
 Contributions are welcome! Feel free to fork and send a pull request through Github.
@@ -278,13 +285,13 @@ Contributions are welcome! Feel free to fork and send a pull request through Git
 - email: <rick@blommersit.nl>
 - mastedon: [https://ruby.social/@rick](https://ruby.social/@rick)
 - twitter: [https://twitter.com/gamecreature](https://twitter.com/gamecreature)
-- website: [https://gamecreatures.com](http://gamecreatures.com)
+- website: [https://gamecreatures.com](https://gamecreatures.com)
 - github: [https://github.com/gamecreature/QtAwesome](https://github.com/gamecreature/QtAwesome)
 
 ## License
 
-MIT License. Copyright 2013-2022 - Reliable Bits Software by Blommers IT. [http://blommersit.nl/](http://blommersit.nl)
+MIT License. Copyright 2013-2022 - Reliable Bits Software by Blommers IT. [https://blommersit.nl/](https://blommersit.nl)
 
-The Font Awesome font is licensed under the SIL Open Font License - [http://scripts.sil.org/OFL](http://scripts.sil.org/OFL)
-The Font Awesome pictograms are licensed under the CC BY 3.0 License - [http://creativecommons.org/licenses/by/3.0/](http://creativecommons.org/licenses/by/3.0/)
-"Font Awesome by Dave Gandy - http://fortawesome.github.com/Font-Awesome"
+The Font Awesome font is licensed under the SIL Open Font License - [https://scripts.sil.org/OFL](http://scripts.sil.org/OFL)
+The Font Awesome pictograms are licensed under the CC BY 3.0 License - [https://creativecommons.org/licenses/by/3.0/](http://creativecommons.org/licenses/by/3.0/)
+"Font Awesome by Dave Gandy - https://github.com/FortAwesome/Font-Awesome"
