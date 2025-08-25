@@ -1,0 +1,52 @@
+name: CMake
+
+on:
+  push:
+    branches:
+      - master
+      - main
+    tags:
+      - "*"
+  pull_request:
+
+env:
+  # Customize the CMake build type here (Release, Debug, RelWithDebInfo, etc.)
+  BUILD_TYPE: Release
+
+jobs:
+  build-and-test:
+
+    name: ${{ matrix.os }}-Qt-${{ matrix.qt_version }}-shared-${{ matrix.shared }}
+    runs-on: ${{ matrix.os }}
+
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-20.04, ubuntu-22.04, ubuntu-24.04, macos-12, macos-13, macos-14, windows-2019, windows-2022]
+        qt_version: [5.12.12, 5.15.2, 6.4.0, 6.5.0, 6.6.0, 6.7.0]
+        shared: [ON, OFF]
+        exclude:
+          - os: macos-14
+            qt_version: 5.12.12
+          - os: macos-14
+            qt_version: 5.15.2
+    steps:
+    - name: Checkout Code
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+    - run: git fetch --tags --force
+
+    - name: Install Qt
+      uses: jurplel/install-qt-action@v4
+      with:
+        version: ${{ matrix.qt_version }}
+        cache: 'true'
+        cache-key-prefix: ${{ runner.os }}-Qt-Cache-${{ matrix.qt_version }}
+        dir: ${{ github.workspace }}/Qt
+
+    - name: Configure (${{ matrix.configuration }})
+      run: cmake -DCMAKE_BUILD_TYPE="${{env.BUILD_TYPE}}" -DBUILD_SHARED_LIBS=${{ matrix.shared }} -B "${{github.workspace}}/build"
+
+    - name: Build with ${{ matrix.compiler }}
+      run: cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}} --target package

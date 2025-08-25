@@ -42,17 +42,37 @@ class Icons
   def build_maps(icons)
     icons.each do |key, data|
       if data['free'].length > 0
-        if data['free'].first == 'brands'
-          @icons_brands[key] = data['unicode']
-        else
-          @icons_regular_free[key] = data['unicode'] if data['free'].include?('regular')
-          @icons_common[key] = data['unicode']
-        end
+        build_map_free(key, data)
+      else
+        build_map_pro(key, data)
       end
+    end
+  end
 
-      if data['free'].length == 0
-        @icons_pro[key] = data['unicode']
+  def build_map_free(key, data)
+    if data['free'].first == 'brands'
+      @icons_brands[key] = data['unicode']
+      add_aliasses(@icons_brands, data)
+    else
+      if data['free'].include?('regular')
+        @icons_regular_free[key] = data['unicode']
+        add_aliasses(@icons_regular_free, data)
       end
+      @icons_common[key] = data['unicode']
+      add_aliasses(@icons_common, data)
+    end
+  end
+
+  def build_map_pro(key, data)
+    @icons_pro[key] = data['unicode']
+    add_aliasses(@icons_pro, data)
+  end
+
+  def add_aliasses(hash, data)
+    data.dig('aliases', 'names')&.each do |alias_key|
+      raise "Duplicatie key found for alias!" if hash.key?(alias_key)
+
+      hash[alias_key] = data['unicode']
     end
   end
 
