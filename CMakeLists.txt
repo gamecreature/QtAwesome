@@ -108,7 +108,7 @@ export(EXPORT QtAwesomeConfig NAMESPACE QtAwesome::)
 #Generic Info
 set(CPACK_PACKAGE_CONTACT "rick@blommersit.nl")
 set(CPACK_STRIP_FILES TRUE)
-set(CPACK_RESOURCE_FILE_LICENSE "${CMAKE_SOURCE_DIR}/LICENSE.md")
+set(CPACK_RESOURCE_FILE_LICENSE "${PROJECT_SOURCE_DIR}/LICENSE.md")
 set(CPACK_PACKAGE_NAME "QtAwesome")
 set(CPACK_PACKAGE_VENDOR "gamecreature")
 set(CPACK_PACKAGE_HOMEPAGE_URL "https://github.com/gamecreature/QtAwesome")
